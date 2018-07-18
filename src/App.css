@@ -15,6 +15,22 @@ ul {
 .mid{
   padding-left: 10px;
   border-bottom: 1px solid #eee;}
+  .mid ul{
+          width: 100%;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-end;
+         
+  }
+  .mid ul li{
+          display: flex;
+          justify-content: flex-end;
+          list-style-position: initial;
+          flex: auto; 
+          border-bottom:1px solid #aaa;
+  }
   .mid1{ display: flex;
           padding: 10px;
           padding-left: 0;

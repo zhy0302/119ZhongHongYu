@@ -3,12 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Buttom from './buttom';
 import Messageitem from './Messageitem';
+import DialogView from'./DialogView';
 import Mid from './mid';
 
 // import guid from'./guid';
 
 const icon1 = require('./icon/c.jpg');
-
 const icon = require('./icon/b.jpg');
 
 class App extends Component {
@@ -19,21 +19,27 @@ class App extends Component {
       messages:[
         {
           icon,
-          title:'11',
-          desc:'11d',
-          time:'11t'
+          title:'小年糕',
+          desc:'111',
+          time:'10:00'
         },
         {
           icon:icon1,
-          title:'22',
-          desc:'22d',
-          time:'22t'
+          title:'小板凳',
+          desc:'222',
+          time:'13:00'
+        },
+        {
+          icon:icon1,
+          title:'小豆芽',
+          desc:'333',
+          time:'14:00'
         }
       ],
       bottomData:[
         {
           icon,
-          title:'wx'
+          title:'小豆芽'
         },
         {
           icon,
@@ -66,9 +72,12 @@ class App extends Component {
 }
   renderDailog = () => {
     if (this.state.showDailog) {
-       // return <DialogView/>
+        return <DialogView show={this.handleClick}/>
     }
     return null;
+  }
+  handleClick=(event)=> {
+    console.log(event.target.innerHTML);
   }
   renderMsgList = () =>{
     const messages = this.state.messages
@@ -81,8 +90,7 @@ class App extends Component {
   renderBottomList = () =>{
     const bottomData = this.state.bottomData
     return (
-        bottomData.map((buttonItem, i) => (<Button key={i} item={buttonItem}/>))
-
+        bottomData.map((buttonItem, i) => (<Buttom key={i} item={buttonItem}/>))
     )
   }
   render() {
@@ -94,7 +102,7 @@ class App extends Component {
         </ul>
         <div className="buttom" onClick={this.onclick} >
         {this.renderBottomList()}
-        {this.renderDailog()}
+
           </div>
       </div>
     );
