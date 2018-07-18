@@ -2,28 +2,62 @@
   text-align: center;
 }
 
+body{
+  padding: 0%;
+  margin:0 auto;
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.mid{
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;}
+  .mid1{ display: flex;
+          padding: 10px;
+          padding-left: 0;
+          border-top: 1px solid #eee;}
+  .mid1-img{ width: 60px;
+          height: 60px;
+          margin-top: 35px;
+          margin-right: 10px;}
+  .mid1-content{flex: 1;}
+  .h2{  margin: 0;}
+      .mid1-content-topbar{
+          overflow: auto;
+          line-height: 32px;
+      }
+      .mid1-content-title{
+          overflow: auto;
+          line-height: 32px;
+      }
+      .mid1-1-time{
+          float: right;
+          font-size: 12px;
+          color: #aaa;
+      }
+    .mid1-2{ font-size: 14px;
+          color: #aaa;}
+          .mid2{display: flex;
+                  padding: 10px;
+                  padding-left: 0;
+                  border-top: 1px solid #aaa}
+                  
+.buttom{  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #eee; }
+  .chat-buttom{ flex: 1;
+          padding: 5px;
+          text-align: center;}
+  .chat-buttom-icon{  display: block;
+          width: 40px;
+          height: 40px;
+          margin: 0 auto;}
+          .chat-buttom-name{
+                  font-size: 12px;
+                  color: #aaa;
+          }
