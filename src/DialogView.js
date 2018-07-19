@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './DialogView.css';
 
 export default class DialogView extends Component
 {   
@@ -8,13 +9,16 @@ export default class DialogView extends Component
         super(props);
     }
 render(){ 
+    const{item}=this.props;
     return(
-    <ul className="mid1" onClick={this.props.show}>
+    <div className="midd" onClick={this.props.show}>
+    <ul className>
     <li className="item" >打印</li>
     <li className="item" >添加</li>
     <li className="item" >删除</li>
-    <li className="item" >修改</li>
+    <li className="item" >确定</li>
     </ul>
+    </div>
   )
 }
 }

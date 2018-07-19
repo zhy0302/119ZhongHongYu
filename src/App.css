@@ -12,9 +12,20 @@ ul {
   margin: 0;
   list-style: none;
 }
+.nav{position: fixed;
+        display: flex;
+        width: 100%;
+        background-color:#aaa;
+        border-bottom: 1px solid #ffffff;}
+ .nav-img{ width: 30px;
+          height: 30px;
+          margin-top: 20px;
+          margin-left: 250px;}
 .mid{
   padding-left: 10px;
-  border-bottom: 1px solid #eee;}
+  padding-top: 40px;
+  border-bottom: 1px solid #eee;
+overflow: auto;}
   .mid ul{
           width: 100%;
           overflow: hidden;
@@ -65,7 +76,8 @@ ul {
   bottom: 0;
   display: flex;
   width: 100%;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #eee;
+background-color: antiquewhite; }
   .chat-buttom{ flex: 1;
           padding: 5px;
           text-align: center;}
@@ -77,3 +89,42 @@ ul {
                   font-size: 12px;
                   color: #aaa;
           }
+.box{
+        width: 300px;
+        height:200px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, .6)
+        }
+.input{line-height: 10px;
+        text-align: center;
+        margin-left: 300px;
+        border-bottom: 1px solid #aaa;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .dialog-ctn{
+        line-height: 2px;
+        flex-direction: column;
+}
