@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 export default class Mid extends Component
 {   
 render(){
@@ -14,7 +15,7 @@ render(){
         <div className="mid1_content" id="content">
           <div className="mid1-content-topbar">
             <h2 className="mid1-content-title">{item.title}</h2>
-            <div className="mid1-content-time">{item.time}</div>
+            <div className="mid1-content-time">{item.time}</div>  
           </div>
           <div className="mid1-msg">{item.desc}</div>
         </div>

@@ -7,14 +7,18 @@ export default class DialogText extends Component
     constructor(props){
         super(props);
     }
+handTitleChange=(event)=> {
+        console.log(event.target.innerHTML);
+      }
 render(){ 
     const{item}=this.props;
     return(
-        <div className="box" onClick={this.props.show1}>
+        <div className="box" onClick={this.props.showText} >
         <ul> 
-        <input type="text"  value={this.value} onclick="if(this.onclick)"></input>
-        <input type="text"  value={this.value} onclick="if(this.onclick)"></input>
-        <input type="text"  value={this.value} onclick="if(this.onclick)"></input>
+        <div>标题:<input type="text"   onChange={this.handTitleChange}></input></div>
+        <div>描述<input type="text"   onChange={this.handDescriptionChange}></input></div>
+        <div>时间<input type="text"   onChange={this.handTimeChange}></input></div>
+        <button className="btn" onclick={this.renderDailog1}>确定</button>
         </ul>
         </div>
       )

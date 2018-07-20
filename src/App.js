@@ -17,16 +17,13 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      oplist:[
+        {}
+      ],
       text:[
         {
         name:'aa',
         password:'123'
-        }
-      ],
-      navData:[
-        {
-        icon,
-        title:'微信'
         }
       ],
       showDailog: false,
@@ -70,6 +67,7 @@ class App extends Component {
       ]
     }
   }
+
   onclick = () => {
     //alert("hello")
     const onclick = this.props.onclick;
@@ -78,34 +76,25 @@ class App extends Component {
       onclick(item)
     }
   }
+  //控制DialogView的显示
   onItemClick = (message) =>{
     console.log(message);
     this.setState({
-      showDailog : true   //控制DialogView的显示
+      showDailog : true   
     })
-}
+} 
+//控制DialogText的显示
 onTextClick = () =>{
-  console.log(this.props.show1);
+  console.log(this.props.showText);
   this.setState({
-    showDailog : true   //控制DialogText的显示
+    showDailogText : true  
   })
 }
-
-handleShowDialog = isActive => {
-  this.setState({ isDialogActive: isActive });
-}
-  renderDailog = () => {
-      if (this.state.showDailog) {
-       return <DialogView show={this.handleClick}/>
-    }
-    return null;
+//打印文本内容
+  handleClick=(event)=> {
+    console.log(event.target.innerHTML);
   }
-  renderDailog1 = () => {
-    if (this.state.showDailog) {
-     return <DialogText show1={this.handleAddItem}/>
-  }
-  return null;
-}
+  //将添加的内容放到顶部
   handleAddItem=()=>{
     console.log(this);
     console.log("add");
@@ -120,15 +109,21 @@ handleShowDialog = isActive => {
       messages:newMessages
    });
   }
-  handleClick=(event)=> {
-    console.log(event.target.innerHTML);
+  //DialogView的显示
+   renderDailogView = () => {
+      if (this.state.showDailog) {
+       return <DialogView showView={this.handleClick}/>
+    }
+    return null;
   }
-  renderNavList = () =>{
-    const navData = this.state.navData
-    return (
-        navData.map((navItem, i) => (<Nav key={i} item={navItem}/>))
-    )
+  //DialogText的显示
+  renderDailogText = () => {
+    if (this.state.showDailogText) {
+     return <DialogText showText={this.handleAddItem}/>
   }
+  return null;
+} 
+//将Mid中内容遍历
   renderMsgList = () =>{
     const messages = this.state.messages
     return (
@@ -138,6 +133,7 @@ handleShowDialog = isActive => {
       messages.map((msg, i) => (<Mid key={i} item={msg}/>))
     )
   }
+  //将Buttom中内容遍历
   renderBottomList = () =>{
     const bottomData = this.state.bottomData
     return (
@@ -147,13 +143,16 @@ handleShowDialog = isActive => {
   render() {
     return (
       <div className="App"  >
-      <div classname="nav" onClick={this.handleAddItem} onClick={this.onTextClick}>
-        {this.renderNavList()}
-        {this.renderDailog1()}
+      <div classname="nav"  onClick={this.onTextClick}>
+      <Nav onAddBtnClick={this.onTextClick}/>
+       
+        <div className="box" >
+         {this.renderDailogText()}
+        </div>
       </div>
         <ul className="mid" >
         {this.renderMsgList()}
-        {this.renderDailog()}
+        {this.renderDailogView()}
         </ul>
         <div className="buttom" onClick={this.onclick} onClick={this.onItemClick}>
         {this.renderBottomList()}

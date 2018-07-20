@@ -11,7 +11,7 @@ export default class DialogView extends Component
 render(){ 
     const{item}=this.props;
     return(
-    <div className="midd" onClick={this.props.show}>
+    <div className="midd" onClick={this.props.showView}>
     <ul className>
     <li className="item" >打印</li>
     <li className="item" >添加</li>
