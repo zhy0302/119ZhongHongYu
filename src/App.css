@@ -1,123 +1,127 @@
-.App {
-  text-align: center;
-}
-
-body{
-  padding: 0%;
-  margin:0 auto;
-
-}
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.nav{position: fixed;
+body {
+        margin: 0;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      h2 {
+        margin: 0;
+      }
+      h4 {
+        margin-left: 10px;
+        line-height: 0px;
+      
+      }
+      .chat-bar {
+        position: fixed;
+        top: 0;
         display: flex;
-        letter-spacing: 30px;
         width: 100%;
-        height: 50px;
-        background-color:#aaa;
-        border-bottom: 1px solid #ffffff;}
-.mid{
-  padding-left: 10px;
-  padding-top: 40px;
-  border-bottom: 1px solid #eee;
-overflow: auto;}
-  .mid ul{
-          width: 100%;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: flex-end;
-         
-  }
-  .mid ul li{
-          display: flex;
-          justify-content: flex-end;
-          list-style-position: initial;
-          flex: auto; 
-          border-bottom:1px solid #aaa;
-  }
-  .mid1{ display: flex;
-          padding: 10px;
-          padding-left: 0;
-          border-top: 1px solid #eee;}
-  .mid1-img{ width: 60px;
-          height: 60px;
-          margin-top: 35px;
-          margin-right: 10px;}
-  .mid1-content{flex: 1;}
-  .h2{  margin: 0;}
-      .mid1-content-topbar{
-          overflow: auto;
-          line-height: 32px;
+        height:40px;
+        margin-top: 0px;
+        background-color: #aaa;
+        border-top: 1px solid #eee;
       }
-      .mid1-content-title{
-          overflow: auto;
-          line-height: 32px;
+      .chat-bar__title {
+        float: left;
+        font-size: 15px;
       }
-      .mid1-1-time{
-          float: right;
-          font-size: 12px;
-          color: #aaa;
+      .chat-bar-search {
+        width: 30px;
+        height: 30px;
+        margin-left:auto;
       }
-    .mid1-2{ font-size: 14px;
-          color: #aaa;}
-          .mid2{display: flex;
-          padding: 10px;
-         padding-left: 0;
-         border-top: 1px solid #aaa}
-                  
-.buttom{  position: fixed;
-  bottom: 0;
-  display: flex;
-  width: 100%;
-  border-top: 1px solid #eee;
-background-color: antiquewhite; }
-  .chat-buttom{ flex: 1;
-          padding: 5px;
-          text-align: center;}
-  .chat-buttom-icon{  display: block;
-          width: 40px;
-          height: 40px;
-          margin: 0 auto;}
-          .chat-buttom-name{
-                  font-size: 12px;
-                  color: #aaa;
-          }
-.box{
-        width: 250px;
-        height:200px;
+      .chat-bar-add {
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+      }
+      
+      .chat-list {
+        padding-left: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      .chat-list__item {
+        display: flex;
+        padding: 10px;
+        margin-top: 45px;
+        padding-left: 0;
+        border-top: 1px solid #eee;
+      }
+      /*.chat-list__item::before {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        background: #eee;
+        transform: scaleY(0.5);
+      }*/
+      .chat-list__item__avatar {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+      .chat-list__item__content {
+        flex: 1;
+      }
+      .chat-list__item__content__topBar {
+        overflow: hidden;
+        line-height: 32px;
+      }
+      .chat-list__item__content__title {
+        float: left;
+        font-size: 16px;
+      }
+      .chat-list__item__content__time {
+        float: right;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .chat-list__item__content__recentMsg {
+        font-size: 14px;
+        color: #aaa;
+      }
+      .chat-list__item__content__more {
+        font-size: 14px;
+        color: #aaa;
+        float:right;
+      }
+      
+      
+      .chat-nav {
         position: fixed;
-        top: 100px;
         bottom: 0;
-        left: 150px;
-        right: 0;  
-        }
-.box ul{
-        width: 240px;
-        height:150px;
-        margin-left: -19px;
-        padding-top: 26px;
-        background-color: #ffffff;
-        border: 1px solid #aaa;
-        }
-.input{line-height: 10px;
+        display: flex;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #eee;
+      }
+      .chat-nav__item {
+        flex: 1;
+        padding: 5px;
         text-align: center;
-        margin-left: 140px;
+      }
+      .chat-nav__item__icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+      }
+      .chat-nav__item__name {
+        font-size: 12px;
+        color: #aaa;
+      }
+      .moreDelete{
         margin-top: 20px;
-        border-bottom: 1px solid #aaa;
-
-}
-.btn{   margin-top: 50px;
-        margin-left: -50px;
-        line-height: 20px;
-        position: fixed;
-        flex-direction: column;
-        background-color: aquamarine;
-}
+      }
+      .moreDelete button{
+        width: 20%;
+        height: 20px;
+        margin-left: 20px;
+      }
+      
 
 
 

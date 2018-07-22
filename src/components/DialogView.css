@@ -1,0 +1,56 @@
+.div{
+    display:block;
+    margin: 0;
+  }
+  body{
+    margin: 0;
+  }
+  .mask-ctn {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, .6)
+    }
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #fff;
+    }
+    
+    .dialog-ctn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 230px;
+      height: 280px;
+      padding-top: 10px;
+      margin-left: -100px;
+      margin-top: -150px;
+      background-color: #fff;
+      border-radius: 4px;
+    }
+    .item
+    {
+      width: -1px;
+      height: 20px;
+      margin-left: 4px;
+      margin-top: 27px;
+      background-color: #fff;
+      border-radius: 4px;
+    }
+    .submit-btn{
+      position: absolute;
+      right: 130px;
+      top: 185px;
+      color: #fff;
+    }
+    .close-btn1 {
+      position: absolute;
+      right: 30px;
+      top: 185px;
+      color: #fff;
+    }
+    
