@@ -1,27 +1,19 @@
 import React from 'react';
-/*import MessageItem from './components/MessageItem.js';
-import DialogView from './components/DialogView.js';
-import './App.css';
-import DialogText from'./components/DialogText';
+import MessageItem from '../components/MessageItem.js';
+import DialogView from '../components/DialogView.js';
+import '../../src/App.css';
+import DialogText from'../components/DialogText';
+
 // const icon = require('./resource/icon_Good_B-2.png');
-import icon from './icon/smile.png';
-import icon1 from './icon/collect.png';
-import icon2 from './icon/photo.png';
-import icon3 from './icon/search.png';
-import icon4 from './icon/add.png';*/
-import TodoPack from './container/TodoPack';
+import icon from '../icon/smile.png';
+import icon1 from '../icon/collect.png';
+import icon2 from '../icon/photo.png';
+import icon3 from '../icon/search.png';
+import icon4 from '../icon/add.png';
 
-class App extends React.Component {
-  //构造函数，实例化
-    constructor(props){
-      super(props);
-    }
-  render() {
-    return <TodoPack />
-  }
-}
 
-/*class App extends React.Component {
+
+export default class App extends React.Component {
 //构造函数，实例化
   constructor(props){
     super(props);
@@ -62,19 +54,6 @@ class App extends React.Component {
     })
     this.state.key = key;
 }
-
-//显示message内容
-  //onItemClick = (message) => {
-   // console.log(message);
-  //}
-  //遍历mid部分并显示
- // renderMessageList = () => {
-   // const messageViews = this.state.messages.map((item,i) => {
-   //   return <MessageItem key={i} item={item} onClick={this.onItemClick}/>
-   // });
-  //  return messageViews;
-  //}
-  //
     //循环显示页面聊天框
   renderMessageList = () => {
     const {moreSeclet}= this.state
@@ -88,7 +67,7 @@ class App extends React.Component {
     });
     return messageViews;
   }
-//批量删除  //考虑删除时倒序删除，正向删除会影响删除一个后的下脚标数值
+//删除  //删除时倒序删除，正向删除会影响删除一个后的下脚标数值
   handDelete = (key,event) =>{
     this.setState({
       checkbox:!this.state.checkbox//判断复选框状态
@@ -191,7 +170,7 @@ class App extends React.Component {
 //判断当前状态是否改变，若改变，则弹出DialogView
   handleViewDialog=()=>{
     if (this.state.showDialog){
-    return <DialogView showView={this.state.showDialog} onClick={this.handleAddItem} />
+    return <DialogView handleClose={this.handleShowDialog} showView={this.state.showDialog} onClick={this.handleAddItem} />
     }
   }
   //关闭当前窗口
@@ -233,6 +212,4 @@ class App extends React.Component {
       </div>
     );
   }
-}*/
-
-export default App;
+}

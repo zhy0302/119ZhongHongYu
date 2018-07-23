@@ -3,13 +3,8 @@ import React, { Component } from 'react';
 export default class MessageItem extends Component {
   constructor(props){
     super(props);
- // onMsgClick = () => {
-  //  const { onClick, item } = this.props;
-  //  if (onClick) {
-   //   onClick(item);
-   // }
- // }
   }
+  //判断复选框是否勾选
   renderCheckBox = () =>{
     const {det} = this.props;
     return det ? (
@@ -21,7 +16,6 @@ export default class MessageItem extends Component {
   render(){
     const { item } = this.props;
     return(
-      console.log(1),
       <li className="chat-list__item" >
          {this.renderCheckBox()}
         <img className="chat-list__item__avatar" src={item.icon} alt="" />
@@ -37,6 +31,10 @@ export default class MessageItem extends Component {
     );
   }
 }
+
+
+
+
 
 
 
