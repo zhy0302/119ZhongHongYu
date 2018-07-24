@@ -1,0 +1,30 @@
+.item-ctn{
+    margin-left: 100px; 
+    margin-top: 50px;
+}
+.mid-chat{
+    margin-left: 100px;
+}
+.mid-chat ul{
+    margin:45px;
+}
+.chat-mid-name{
+    margin-left: -80px;
+    margin-top: 20px;
+}
+.s-btn1{
+    background-color: brown;
+    border-radius: 50px;
+}
+.s-btn2{
+    background-color: aqua;
+    border-radius: 50px;
+}
+.s-btn3{
+    background-color: blueviolet;
+    border-radius: 50px;
+}
+.s-btn4{
+    background-color: chartreuse;
+    border-radius: 50px;
+}

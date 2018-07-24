@@ -1,5 +1,17 @@
 import React from 'react';
-/*import MessageItem from './components/MessageItem.js';
+import './App.css';
+import Td from './project/Td';
+class App extends React.Component {
+  render() {
+      return ( 
+      //  {this.renderMoreBtn()}
+          <Td />        
+      )
+  }
+}
+
+/*import React from 'react';
+import MessageItem from './components/MessageItem.js';
 import DialogView from './components/DialogView.js';
 import './App.css';
 import DialogText from'./components/DialogText';
@@ -8,20 +20,12 @@ import icon from './icon/smile.png';
 import icon1 from './icon/collect.png';
 import icon2 from './icon/photo.png';
 import icon3 from './icon/search.png';
-import icon4 from './icon/add.png';*/
-import TodoPack from './container/TodoPack';
+import icon4 from './icon/add.png';
+import Todo from './container/Todo';
+
+
 
 class App extends React.Component {
-  //构造函数，实例化
-    constructor(props){
-      super(props);
-    }
-  render() {
-    return <TodoPack />
-  }
-}
-
-/*class App extends React.Component {
 //构造函数，实例化
   constructor(props){
     super(props);
@@ -62,20 +66,6 @@ class App extends React.Component {
     })
     this.state.key = key;
 }
-
-//显示message内容
-  //onItemClick = (message) => {
-   // console.log(message);
-  //}
-  //遍历mid部分并显示
- // renderMessageList = () => {
-   // const messageViews = this.state.messages.map((item,i) => {
-   //   return <MessageItem key={i} item={item} onClick={this.onItemClick}/>
-   // });
-  //  return messageViews;
-  //}
-  //
-    //循环显示页面聊天框
   renderMessageList = () => {
     const {moreSeclet}= this.state
     const messageViews=this.state.messages.map((item,index)=>{
@@ -99,7 +89,6 @@ class App extends React.Component {
       if(this.state.deleteArr.include(key))//该位置已经被选中
         delete this.state.deleteArr[key]//取消选中
       }
-        
   }
 //多选删除
   moreDelete = () =>{
@@ -191,7 +180,7 @@ class App extends React.Component {
 //判断当前状态是否改变，若改变，则弹出DialogView
   handleViewDialog=()=>{
     if (this.state.showDialog){
-    return <DialogView showView={this.state.showDialog} onClick={this.handleAddItem} />
+    return <DialogView onClick={this.handleAddItem} />
     }
   }
   //关闭当前窗口

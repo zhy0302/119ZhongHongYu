@@ -186,13 +186,13 @@ export default class App extends React.Component {
         {this.handleViewDialog()}
         {this.renderMoreBtn()}
 
-        <nav className="chat-nav">
-        <div className="chat-bar" onClick={this.handleAddItem}>
+        {/*   <nav className="chat-nav">
+     <div className="chat-bar" onClick={this.handleAddItem}>
             <h4 className="chat-bar__title">微信</h4>
             <img className="chat-bar-search" src={icon3} alt="" />
             <img className="chat-bar-add" src={icon4} alt="" onClick={this.handleShowDialog.bind(this, true)} />
-        </div>
-          <div className="chat-nav__item" onClick={this.handleAddItem}>
+        </div>*/}
+         {/* <div className="chat-nav__item" onClick={this.handleAddItem}>
             <img className="chat-nav__item__icon" src={icon} alt="" />
             <div className="chat-nav__item__name">微信</div>
           </div>
@@ -208,7 +208,7 @@ export default class App extends React.Component {
             <img className="chat-nav__item__icon" src={icon} alt="" />
             <div className="chat-nav__item__name">我</div>
           </div>
-        </nav>
+        </nav>*/}
       </div>
     );
   }

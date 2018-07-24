@@ -1,28 +1,46 @@
-import React from 'react';
+{/*import React from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
 import './Style.css';
 import './TodoStyle.css';
-import AddTodo from'./AddTodo.js';
-import TodoList from'./TodoList.js';
-import Filter from'./Filter.js';
+import AddTodo from'./AddTodo';
+import TodoList from'./TodoList';
+import Filter from'./Filter';
+import icon6 from '../icon/smile.png';
+import icon1 from '../icon/collect.png';
+import icon2 from '../icon/photo.png';
+import icon from '../icon/smile.png';
 // import addicon from'../icon/add.png';
 export default class Todo extends React.Component{
     constructor(props){
-        super(props);
-        this.state={
-            messages:[{
-                title:'123',
-                descript:'222',
-                time:'111',
-                showDialog:0
+        super(props);   
+        this.state = {
+          messages: [
+            {
+              icon: icon1,
+              title: '小年糕',
+              descript: 'hello 小年糕',
+              time: '7-18 11:14'
             },
             {
-                title:'111',
-                descript:'222',
-                time:'111',
-                showDialog:0
-            }]
+              icon: icon2,
+              title: '小板凳',
+              descript: 'hello 小板凳',
+              time: '7-18 11:15',
+            },
+            {
+              icon: icon6,
+              title: '小豆包',
+              descript: 'hi 小豆包',
+              time: '7-17 10:00',
+            }
+          ],
+          showDialog: false,
+          showDialog1: false,
+          key:0,
+          checkbox:false,
+          moreSeclet: false,
+          deleteArr:[],
         }
-    }
+      }
    // handleAddItem=(item,idx)=>{     //输入后添加到顶部
    //     const newList=this.state.list.Slice();
    //     newList[idx].showDialog=1;
@@ -31,7 +49,7 @@ export default class Todo extends React.Component{
    //         list:newList
    // });
   //  }
-    handleAddItem = (item,idx) => {
+   /* handleAddItem = (item,idx) => {
        // console.log(item)
         if(!item.title||!item.descript||!item.time){//如果三个输入框有一个为空，则状态不变
           this.setState({
@@ -67,13 +85,31 @@ export default class Todo extends React.Component{
    //         isInputActive:!this.state.isInputActive,
   //  }); 
    // }
-    render(){
-        return(
-   <div className="todo-ctn">
-            <AddTodo handleSubmit={this.handleAddItem} onAddTodo={this.state.handleAddItem}/>
-            <TodoList messages={this.state.messages}/>
+   //判断当前状态是否改变，若改变，则弹出DialogView
+    //顶部添加
+    handleAddItem = (item) => {
+      console.log(item) 
+      //const { submit } = this.props;
+
+        const newMessages = this.state.messages.slice();
+        newMessages.unshift({
+          icon: icon,
+          title:item.title,
+          descript: item.descript,
+          time: item.time
+        });
+        this.setState({
+          messages:newMessages
+        })
+     } 
+    
+   render(){
+        return(   
+        <div className="todo-ctn">
+            <AddTodo  onAddTodo={this.handleAddItem}/>
+            <TodoList    onTodoItemClick={this.handleTodoItemClick} messages={this.state.messages}/>
             <Filter/>
-        </div>
+        </div> 
         );
     }
-} 
+} */}
