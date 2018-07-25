@@ -13,19 +13,17 @@ export default class Mid extends React.Component{
         this.state = {
         }
     }
-    handleComplete = (item, idx) => {
-        
+   /* handleComplete = (item, idx) => {   
         const { onTodoItemClick } = this.props;
         onTodoItemClick(item, idx);
-      }
+      }*/
     render(item, idx){
         //if (item.isCompleted) {
-
         return(
-        <div key={idx} className="item-ctn"  onClick={this.props.showText} onClick={() => this.handleComplete(item, idx)}>
+        <div key={idx} className="item-ctn"  onClick={() => this.handleComplete(item, idx)}>
           <ul className="chat-mid">
             <div className="chat-mid-name">我</div>
-            <button className="s-btn1" >红色</button>
+            <button className="s-btn1" onClick={this.props.handleAddItem()}>红色</button>
             <button className="s-btn2" >黑色</button>
             <button className="s-btn3" >紫色</button>
             <button className="s-btn4" >黄色</button>   

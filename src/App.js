@@ -1,16 +1,20 @@
 import React from 'react';
-import './App.css';
-import Td from './project/Td';
-class App extends React.Component {
+import AddTodo from '../component/AddTodo';
+import TodoList from '../component/TodoList';
+import Filter from '../component/Filter';
+import {provider} from 'react-redux';
+import rootReducer from './rootReducer';
+import { createStore } from '../../node_modules/redux';
+const store=createStore(rootReducer)
+export default class App extends React.Component {
   render() {
-      return ( 
-      //  {this.renderMoreBtn()}
-          <Td />        
-      )
+    <provider store={stroe}>
+    <Todo />
+    </provider>
   }
 }
 
-/*import React from 'react';
+{/*import React from 'react';
 import MessageItem from './components/MessageItem.js';
 import DialogView from './components/DialogView.js';
 import './App.css';
@@ -222,6 +226,5 @@ class App extends React.Component {
       </div>
     );
   }
-}*/
-
-export default App;
+}*/}
+//export default App;

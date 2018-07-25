@@ -1,19 +1,53 @@
-import React from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import React from 'react';
 import './Style.css';
 import './TodoStyle.css';
-import icon3 from '../icon/search.png';
-import icon4 from '../icon/add.png';
 import icon6 from '../icon/smile.png';
 import icon1 from '../icon/collect.png';
 import icon2 from '../icon/photo.png';
 // import addicon from'../icon/add.png';
 export default class Filter extends React.Component{
-    constructor(){
+      constructor() {
         super();
-        } 
-    render(){
+        this.state = {
+            images: [
+                {
+                    img: require('icon1'),
+                },
+                {
+                    img: require('icon2'),
+                },
+                {
+                    img: require('icon6'),
+                },
+                {
+                    img: require('icon1'),
+                }
+            ],
+        }
+    }
+    renderImages = () => {
+        return this.state.images.map((item, index) => {
+            return (
+              <div className="chat-nav__item" onClick={this.handleAddItem}>
+              <img className="chat-nav__item__icon"  src={item.img}  alt='' />
+              <div className="chat-nav__item__name">微信</div>
+            </div>
+            )
+        })
+    }
+    render() {
+        return (
+                <ul>
+                    {this.renderImages()}
+                </ul>
+        )
+    }
+} 
+
+
+
       //const { filterCompleted, onFilterCompletedClick } = this.props;
-        return(
+       /* return(
             <nav className="chat-nav">
             <div className="chat-nav__item" onClick={this.handleAddItem}>
             <img className="chat-nav__item__icon" src={icon6} alt="" />
@@ -34,4 +68,4 @@ export default class Filter extends React.Component{
           </nav>
         )
     }
-} 
+} */

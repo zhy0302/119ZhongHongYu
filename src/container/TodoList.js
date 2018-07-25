@@ -1,4 +1,4 @@
-{/*import React from 'react';
+import React from 'react';
 import  Todo from'./Todo.js'
 import AddTodo from'./AddTodo';
 import './Style.css';
@@ -13,28 +13,8 @@ export default class TodoList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-        messages:[
-            {
-              icon: icon1,
-              title: '小年糕',
-              descript: 'hello 小年糕',
-              time: '7-18 11:14'
-            },
-            {
-              icon: icon2,
-              title: '小板凳',
-              descript: 'hello 小板凳',
-              time: '7-18 11:15',
-            },
-            {
-              icon: icon,
-              title: '小豆包',
-              descript: 'hi 小豆包',
-              time: '7-17 10:00',
-            }
-          ]
         }
-    }      
+      }
     render(){
         const {item} = this.props;
        // return this.state.messages.map((item, idx) => {
@@ -51,36 +31,5 @@ export default class TodoList extends React.Component{
               </div>         
             </li>
             )
-       // })
     }   
-}*/}
-
-/*export default class TodoList extends React.Component{
-    handleComplete=item=>{
-         const{onTodoItemClick}=this.props;
-    //     onTodoItemClick(item);
-    }
-    _renderTodoItem(item,idx){
-     if(item.isCompleted){
-         return <div key={idx} className="todo-is-completed">{item.title}</div>
-     }
-     return <div key={idx} onClick={this.handleComplete}>{item.title}</div>
-    }
-    render(){
-        const{messages}=this.props;
-        if(!messages){
-            return null;
-        }
-        return(
-        <div>
-        {messages.map((item,idx)=>{
-            return(         
-                this._renderTodoItem(item,idx)       
-               //<div key={idx}>{item.title}</div>
-            )
-        }
-        )}
-        </div>
-        );
-    }
-} */
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+{/*import React from 'react';
 import MessageItem from '../components/MessageItem.js';
 import DialogView from '../components/DialogView.js';
 import '../../src/App.css';
@@ -208,8 +208,8 @@ export default class App extends React.Component {
             <img className="chat-nav__item__icon" src={icon} alt="" />
             <div className="chat-nav__item__name">我</div>
           </div>
-        </nav>*/}
+        </nav>
       </div>
     );
   }
-}
+}*/}
