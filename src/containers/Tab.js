@@ -5,21 +5,14 @@ import Middle from '../components/newTab/Middle';
 import Top from '../components/newTab/Top';
 import Footer from '../components/newTab/Footer';
 import Dialog from '../components/newTab/Dialog'
-import '../components/newTab/Tab.css'
+import {bindActionCreators} from 'redux'
+import * as todoCreatoraction from '../action'
+//import '../components/newTab/Tab.css'
+//import { combineReducers } from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
+//import{connect}from'react-redux';
 
 class Tab extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            isDialog:false,
-            isDialog1:false,
-            index:null,
-            key:0,
-            showcheck:false,
-            deleteArr:[],
-        }
-    }
-
+       
     // callState = (item) =>{
     //     this.setState({
     //         isDialog:item.dialog,
@@ -31,6 +24,11 @@ class Tab extends React.Component {
     //         messages:item.messages
     //     })
     // }
+    //callDialog1 = (item) =>{
+        //     this.setState({
+        //         messages:item.messages
+        //     })
+        // }
     // callback=(item)=>{
     //     this.setState({
     //         messages:item.messages
@@ -55,11 +53,11 @@ class Tab extends React.Component {
     //         showcheck:item.showcheck
     //     })
     // }
-    callState2= (item) =>{
+   // callState2= (item) =>{
         // this.setState({
         //     isDialog1:item.dialog1,
         // })
-    }
+   // }
    /* callState3=()=>{
             const { addMess } = this.props;
             if (!this.refs.myInput.value || !this.refs.myInput1.value || !this.refs.myInput2.value) {
@@ -73,15 +71,13 @@ class Tab extends React.Component {
             }
     }*/
     render() {
-        const {dispatch} = this.props;
-        console.log(this.props)
+        const {todoActions} = this.props;
         return (
             <div>
-                <Top state={this.props} callState2={this.callState2}
-               />
-                <Middle state={this.props}  dispatch={dispatch}/>
+                <Top state={this.props} todoActions={todoActions}/>
+                <Middle state={this.props}  todoActions={todoActions}/>
                 <Footer />
-                <Dialog state={this.props}  dispatch={dispatch}/>
+                <Dialog state={this.props}  todoActions={todoActions}/>
             </div>
         )
 
@@ -89,7 +85,12 @@ class Tab extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const states = state;
-    return states;
+    const {messagesItem,controlDia} = state;
+    return {messagesItem,controlDia};
 }
-export default connect(mapStateToProps)(Tab)
+function mapDispatchToProps(dispatch){
+    return{
+        todoActions:bindActionCreators(todoCreatoraction,dispatch)
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Tab)

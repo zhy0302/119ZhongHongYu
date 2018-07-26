@@ -1,0 +1,8 @@
+    store包括dispatch和state，state用于临时保管，存储store,dispatch用于派发action，action相当于
+信件，包含type和text，然后通过dispatch出一个action对象后，通过switch判断对应函数的type和text，
+传给reducer，reducer获得状态后，进行处理，然后返回到store，store接收数据，对页面进行渲染。
+    connect通过mapStateToProps(state, ownProps)和mapDispatchToProps(dispatch)方法进行组件和
+store之间的连接，mapStateToProps(state, ownProps) 方法可以将store中的数据作为props绑定到组件中，
+只要store更新了就会调用mapStateToProps方法，mapStateToProps返回的结果是对象，该对象中的值将会更
+到组件中。
+

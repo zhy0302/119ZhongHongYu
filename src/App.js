@@ -1,18 +1,44 @@
+
+// import Filter from '../component/Filter';
+// import {provider} from 'react-redux';
+// import rootReducer from './rootReducer';
+// import { createStore } from '../../node_modules/redux';
+// const store=createStore(rootReducer)
+// export default class App extends React.Component {
+//   render() {
+//     <provider store={stroe}>
+//     Todo< />
+//     </provider>
+//   }
+// }
+
+
 import React from 'react';
-import AddTodo from '../component/AddTodo';
-import TodoList from '../component/TodoList';
-import Filter from '../component/Filter';
-import {provider} from 'react-redux';
-import rootReducer from './rootReducer';
-import { createStore } from '../../node_modules/redux';
+import Tab from './containers/Tab';
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducer/index';
+import './components/newTab/Tab.css';
+// import icon3 from '../icon/smile.png';
+// import icon1 from '../icon/collect.png';
+// import icon2 from '../icon/add.png';
 const store=createStore(rootReducer)
+
+
 export default class App extends React.Component {
   render() {
-    <provider store={stroe}>
-    <Todo />
-    </provider>
+    return (
+      <Provider store={store}>
+        <Tab />
+     </Provider>
+    )
   }
 }
+
+
+
+
+
 
 {/*import React from 'react';
 import MessageItem from './components/MessageItem.js';
