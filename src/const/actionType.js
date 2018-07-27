@@ -4,3 +4,5 @@ export const TOP_BUTTON = 'TOP_BUTTON';
 export const MORE_DELETE = 'MORE_DELETE';
 export const HANDLE_SHOWDIALOG='HANDLE_SHOWDIALOG';
 export const HANDER_ADD='HANDER_ADD';
+export const CHECKED='CHECKED';
+export const DELETE_MORE_INDEX='DELETE_MORE_INDEX';

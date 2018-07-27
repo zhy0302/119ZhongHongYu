@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Middle from '../components/newTab/Middle';
 import Top from '../components/newTab/Top';
 import Footer from '../components/newTab/Footer';
-import Dialog from '../components/newTab/Dialog'
+import Dialog from '../components/newTab/Dialog';
+import DialogText from '../components/newTab/DialogText';
 import {bindActionCreators} from 'redux'
 import * as todoCreatoraction from '../action'
 //import '../components/newTab/Tab.css'
@@ -78,6 +79,7 @@ class Tab extends React.Component {
                 <Middle state={this.props}  todoActions={todoActions}/>
                 <Footer />
                 <Dialog state={this.props}  todoActions={todoActions}/>
+                <DialogText state={this.props} todoActions={todoActions}/>
             </div>
         )
 

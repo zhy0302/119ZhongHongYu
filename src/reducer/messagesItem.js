@@ -2,9 +2,8 @@ import {
     CLICT_MORE,
     DELETE_BUTTON,
     TOP_BUTTON,
-    MORE_DELETE,
-    HANDLE_SHOWDIALOG,
-    HANDER_ADD
+ 
+    DELETE_MORE_INDEX
     } from "../const/actionType";
     import icon3 from '../icon/smile.png';
     import icon1 from '../icon/collect.png';
@@ -49,18 +48,25 @@ import {
                 newState.messages = newMessage
                 return newState;
             }
+            case DELETE_MORE_INDEX:{
+                const newState ={...state};
+                let newMessage = state.messages.slice();
+                newMessage = action.text.messages;
+                newState.messages = newMessage
+                return newState;
+            }
             // case MORE_DELETE:{
             //     const newState ={...state};
             //     newState.showcheck = !action.text.showcheck;
             //     newState.index = action.text.index;
             //     return newState;
             // }
-             case HANDLE_SHOWDIALOG:{
-                 const newState ={...state};
-                 newState.dialog1 = !action.text.dialog1;
-                 //newState.index = action.text.index;
-                 return newState;
-             }
+            //  case HANDLE_SHOWDIALOG:{
+            //      const newState ={...state};
+            //      newState.dialog1 = !action.text.dialog1;
+            //      //newState.index = action.text.index;
+            //      return newState;
+            //  }
             // case HANDER_ADD:{
             //     const newState ={...state};
             //     newState.dialog1 = !action.text.dialog1;

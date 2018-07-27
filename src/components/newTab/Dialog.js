@@ -25,12 +25,12 @@ export default class Dialog extends React.Component {
             messages:copeMessages,
         })
     }
-    // moreDelete=()=>{
-    //     const {state,dispatch} = this.props;
-    //     dispatch(callShowCheck({
-    //         showCheck:!state.showcheck
-    //     }))
-    // }
+    moreDelete=()=>{
+        const {state,todoActions} = this.props;
+        todoActions.callShowCheck({
+            showCheck:!state.controlDia.showcheck
+        })
+    }
     
     render() {
         const {state} = this.props;

@@ -4,12 +4,17 @@ import {
     TOP_BUTTON,
     MORE_DELETE,
     HANDLE_SHOWDIALOG,
-    HANDER_ADD
+    HANDER_ADD,
+    CHECKED,
+    DELETE_MORE_INDEX
     } from "../const/actionType";
     const init_state = {
           isDialog:false,
           index:null,
           isDialog1:false,
+          deleteArr:[],
+          checked:false
+          //dialog1:false
     }
     
     export default function reducerTodo(state = init_state, action) {
@@ -25,24 +30,37 @@ import {
                 newState.isDialog = action.text.isDialog;
                 return newState;
             }
-            // case MORE_DELETE:{
-            //     const newState ={...state};
-            //     newState.showcheck = !action.text.showcheck;
-            //     newState.index = action.text.index;
-            //     return newState;
-            // }
-            case HANDLE_SHOWDIALOG:{
+            case MORE_DELETE:{
                 const newState ={...state};
-                newState.dialog1 = !action.text.dialog1;
+                newState.showcheck = !action.text.showcheck;
+                newState.index = action.text.index;
+                return newState;
+            }
+            case HANDLE_SHOWDIALOG:{      
+                const newState ={...state};
+               // console.log(newState) 
+                newState.isDialog1 = !action.text.isDialog1;
                 //newState.index = action.text.index;
                 return newState;
             }
-            // case HANDER_ADD:{
-            //     const newState ={...state};
-            //     newState.dialog1 = !action.text.dialog1;
-            //     //newState.index = action.text.index;
-            //     return newState;
-            // }
+            case HANDER_ADD:{
+                const newState ={...state};
+                newState.isDialog1 = !action.text.isDialog1;
+                //newState.index = action.text.index;
+                return newState;
+            }
+            case CHECKED:{
+                const newState ={...state};
+                newState.checked = !action.text.checked;
+                newState.index = action.text.index;
+                return newState;
+            }
+            case DELETE_MORE_INDEX:{
+                const newState ={...state};
+                newState.showcheck = !action.text.showcheck;
+                newState.deleteArr = action.text.deleteArr;
+                return newState;
+            }
             default:
                 return state;
         }

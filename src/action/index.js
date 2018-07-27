@@ -4,7 +4,9 @@ import {
     TOP_BUTTON,
     MORE_DELETE,
     HANDLE_SHOWDIALOG,
-    HANDER_ADD
+    HANDER_ADD,
+    CHECKED,
+    DELETE_MORE_INDEX
     } from "../const/actionType";
     
     function callState1(text) {
@@ -20,7 +22,6 @@ import {
             text
         }
     }
-    
     function callDialog(text) {
         return {
             type: TOP_BUTTON,
@@ -45,6 +46,24 @@ import {
             text
         }
     }
+    function callShowCheck(text){
+        return {
+            type:MORE_DELETE,
+            text
+        }
+    }
+    function calldelete(text){
+        return {
+            type:CHECKED,
+            text
+        }
+    }
+    function calldelete1(text){
+        return {
+            type:DELETE_MORE_INDEX,
+            text
+        }
+    }
     
     
     export {
@@ -53,5 +72,9 @@ import {
         callDialog,
         callShowCheck,
         callState2,
-        callState3
+        callState3,
+        calldelete,
+        calldelete1
+
+       // callShowCheck
     }

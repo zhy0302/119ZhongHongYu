@@ -1,0 +1,37 @@
+1.Provider：
+     在原应用组件上包裹一层，使原来整个应用成为Provider的子组件
+     接收Redux的store作为props，传递给组件上的connect
+
+2.store：
+      包括dispatch和state，可以看成一个容器，整个应用只能有一个store，redux提供CreateStore函数，用来生成store，
+      CreateStore函数接受另一个函数作为参数，返回新生成的Store对象   
+
+3.state：
+     store对象包含所有数据，用于临时保管，存储store
+
+4.Action
+     Action描述当前发生的事情，改变state的唯一方法就是使用Action
+
+5.reducer：
+     reducer是一个函数，他接受当前action和当前state作为参数，返回一个新的state，state的计算过程就是reducer
+
+6.mapStateToProps(state, ownProps)和mapDispatchToProps(dispatch)
+    connect通过mapStateToProps(state, ownProps)和mapDispatchToProps(dispatch)方法进行组件和store之间的
+    连接，mapStateToProps(state, ownProps) 方法可以将store中的数据作为props绑定到组件中，只要store更新了就
+    会调用mapStateToProps方法，和mapDispatchToProps用于建立组件跟store.dispatch的映射关系,可以是一个object，
+    也可以传入函数 
+7.reducer的拆分：
+   reducer函数负责生成state，redux中用combinReducer方法对reducer进行拆分
+   bindActionCreators 的作用就是将 Actions 和 dispatch 组合起来生成 mapDispatchToProps 需要生成的内容。
+  
+8.redux工作流程：
+   首先，用户发出Action，然后，通过dispatch出一个action（type和text）对象后，自动调用reducer，然后
+   reducer收到后，通过switch判断对应函数的type和text，然后进行处理，返回一个newstate，store接收到newstate，
+   对页面进行渲染。
+   
+9.超级字符串：可以直接与字符串进行连接，形成新的字符串
+
+10.获取输入框的值：使用ref或onchange事件
+
+    
+

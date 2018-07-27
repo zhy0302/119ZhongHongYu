@@ -1,51 +1,53 @@
 import React from 'react';
 import {callState1} from '../../action'
+import {calldelete }from '../../action'
 import './Tab.css'
 
 export default class Middle extends React.Component {
 
-    // checkBox = (index) => {
-    //     const { state } = this.props;
-    //     if (state.showcheck) {
-    //         return (
-    //             <input type="checkbox" onClick={this.checked.bind(this, index)}></input>
-    //         )
-    //     }
-    // }
-    // checked = (idx, event) => {
-    //     // console.log(event.target.checked)
-    //     const { state, calldelete } = this.props;
-    //     if (!event.target.checked) {
-    //         for (let i in state.deleteArr) {
-    //             if (state.deleteArr[i] === idx) {
-    //                 state.deleteArr.splice(i, 1)
-    //             }
-    //         }
-    //     } else {
-    //         state.deleteArr.push(idx);
-    //     }
-    //     calldelete({
-    //         deleteArr: state.deleteArr
-    //     })
-    // }
+    checkBox = (index) => {
+        const { state } = this.props;
+        if (state.controlDia.showcheck) {
+            return (
+                <input type="checkbox" onClick={this.checked.bind(this, index)}></input>
+            )
+        }
+    }
+    checked = (idx, event) => {
+        // console.log(event.target.checked)
+        const { state, calldelete } = this.props;
+        if (!event.target.checked) {
+            for (let i in state.deleteArr) {
+                if (state.deleteArr[i] === idx) {
+                    state.deleteArr.splice(i, 1)
+                }
+            }
+        } else {
+            state.deleteArr.push(idx);
+        }
+        calldelete({
+            deleteArr: state.deleteArr
+        })
+    }
     // x = (a, b) => {
     //     return b > a;
     // }
-    // deleteMoreIndex = (index) => {
-    //     const { state, calldelete1 } = this.props;
-    //     state.deleteArr.sort(this.x);
-    //     console.log(state.deleteArr)
+    deleteMoreIndex = (index) => {
+      const {state, todoActions} = this.props; 
+     // const { state, todoActions } = this.props;
+        state.deleteArr.sort(this.x);
+        console.log(state.deleteArr)
 
-    //     for (let i in state.deleteArr) {
-    //         state.messages.splice(state.deleteArr[i], 1)
-    //     }
-    //     console.log(state.messages)
-    //     calldelete1({
-    //         messages: state.messages,
-    //         deleteArr: null,
-    //         showcheck: !state.showcheck
-    //     })
-    // }
+        for (let i in state.deleteArr) {
+            state.messages.splice(state.deleteArr[i], 1)
+        }
+        console.log(state.messages)
+        todoActions({
+            messages: state.mmessagesItem.messages,
+            deleteArr: null,
+            showcheck: !state.controlDia.showcheck
+        })
+    }
     // deleteMore = () => {
     //     const { state } = this.props;
     //     if (state.showcheck) {
@@ -72,7 +74,7 @@ export default class Middle extends React.Component {
         return state.messagesItem.messages.map((item, index) => {
             return (
                 <li className="chat-list__item" key={index}>
-                    {/* {this.checkBox(index)} */}
+                     {this.checkBox(index)}
                     <img className="chat-list__item__avatar" src={item.icon} alt="" />
                     <div className="chat-list__item__content">
                         <div className="chat-list__item__content__topBar">

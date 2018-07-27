@@ -1,15 +1,16 @@
 import React from 'react';
 import './Tab.css'
+ import {callState3}from '../../action';
 export default class Dialog extends React.Component {
     handerAdd = () => {
-        const { state, dispatch } = this.props;
-        dispatch(callState3({
-            dialog1: !state.isDialog1,
-        }))
+        const { state, todoActions } = this.props;
+        todoActions.callState3({
+            isDialog1: !state.controlDia.isDialog1,
+        })
     }
     render() {
         const { state } = this.props;
-        return state.isDialog1 ? (
+        return state.controlDia.isDialog1 ? (
             <div className="mask-ctn">
                 <ul className="dialog-ctn">
                     <div className="close-btn" onClick={this.props.handleClose}>close</div>
