@@ -113,19 +113,18 @@ body {
     font-size: 12px;
     color: #aaa;
   }
-  .moreDelete{
-    margin-top: 20px;
+  .moredelete{
+    margin-top: 10px;
+    width:60px;
+    height:60px;
   }
-  .moreDelete button{
-    width: 20%;
-    height: 20px;
-    margin-left: 20px;
+  .moredelete button{
+    width: 140%;
+    height: 30px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
   }
-  
-.dialog-ctn{
-    line-height: 2px;
-    flex-direction: column;
-}
 
 .content {
   position: fixed;
@@ -136,7 +135,10 @@ body {
   background: rgba(0, 0, 0, .6)
 } 
 .content ul {
-  position: absolute;
+  position: absolute;  
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
   top: 50%;
   left: 50%;
   width: 230px;
@@ -182,20 +184,26 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 230px;
-  height: 280px;
+  width: 240px;
+  height: 270px;
   padding-top: 10px;
   margin-left: -100px;
   margin-top: -150px;
   background-color: #fff;
   border-radius: 4px;
 }
-.item
-{
+.item{
   width: -1px;
   height: 20px;
   margin-left: 4px;
-  margin-top: 27px;
+  margin-top:  16px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.item1{
+
+  margin-left: 0px;
+  margin-top:  16px;
   background-color: #fff;
   border-radius: 4px;
 }

@@ -23,22 +23,25 @@ export default class Dialog extends React.Component {
         copeMessages.splice(state.controlDia.index,1)
         todoActions.callDialog1({
             messages:copeMessages,
+            isDialog:!state.controlDia.isDialog
         })
     }
     moreDelete=()=>{
         const {state,todoActions} = this.props;
+        console.log(!state.controlDia.isDialog)
         todoActions.callShowCheck({
-            showCheck:!state.controlDia.showcheck
+            showCheck:!state.controlDia.showcheck,
+            isDialog: !state.controlDia.isDialog
         })
     }
     
     render() {
         const {state} = this.props;
         return state.controlDia.isDialog ? (
-            <div className='content'>  
+            <div className='content'onClick={this.handleClose} > 
                 <ul className="cont">
-                    <li className="item"><button onClick={this.topButton}>置顶</button></li>
-                    <li className="item"><button onClick={this.deleteButton}>删除</button></li>
+                    <li className="item1"><button onClick={this.topButton}>置顶</button></li>
+                    <li className="item1"><button onClick={this.deleteButton}>删除</button></li>
                     <li className><button onClick={this.moreDelete}>多选</button></li>
                 </ul>
             </div>

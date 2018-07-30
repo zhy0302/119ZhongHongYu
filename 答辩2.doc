@@ -18,11 +18,12 @@
 6.mapStateToProps(state, ownProps)和mapDispatchToProps(dispatch)
     connect通过mapStateToProps(state, ownProps)和mapDispatchToProps(dispatch)方法进行组件和store之间的
     连接，mapStateToProps(state, ownProps) 方法可以将store中的数据作为props绑定到组件中，只要store更新了就
-    会调用mapStateToProps方法，和mapDispatchToProps用于建立组件跟store.dispatch的映射关系,可以是一个object，
+    会调用mapStateToProps方法，mapDispatchToProps用于建立组件跟store.dispatch的映射关系,可以是一个object，
     也可以传入函数 
 7.reducer的拆分：
    reducer函数负责生成state，redux中用combinReducer方法对reducer进行拆分
    bindActionCreators 的作用就是将 Actions 和 dispatch 组合起来生成 mapDispatchToProps 需要生成的内容。
+   可以把多个action创建函数绑定到dispatch（）方法上
   
 8.redux工作流程：
    首先，用户发出Action，然后，通过dispatch出一个action（type和text）对象后，自动调用reducer，然后

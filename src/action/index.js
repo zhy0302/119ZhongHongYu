@@ -6,7 +6,9 @@ import {
     HANDLE_SHOWDIALOG,
     HANDER_ADD,
     CHECKED,
-    DELETE_MORE_INDEX
+    DELETE_MORE_INDEX,
+    HANDLE_CLOSE,
+    DELETE_MORE
     } from "../const/actionType";
     
     function callState1(text) {
@@ -64,7 +66,19 @@ import {
             text
         }
     }
-    
+    function callClose(text){
+        return {
+            type:HANDLE_CLOSE,
+            text
+        }
+    }
+    function deleteArr(text){
+        return {
+            type:DELETE_MORE_INDEX,
+            text
+        }
+    }
+
     
     export {
         callState1,
@@ -74,7 +88,7 @@ import {
         callState2,
         callState3,
         calldelete,
-        calldelete1
-
-       // callShowCheck
+        calldelete1,
+        callClose,
+        deleteArr,
     }

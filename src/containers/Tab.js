@@ -82,7 +82,6 @@ class Tab extends React.Component {
                 <DialogText state={this.props} todoActions={todoActions}/>
             </div>
         )
-
     }
 }
 

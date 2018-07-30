@@ -5,7 +5,7 @@ import './Tab.css'
 
 export default class Middle extends React.Component {
 
-    checkBox = (index) => {
+    checkBox = (index) => {     //弹出勾选框
         const { state } = this.props;
         if (state.controlDia.showcheck) {
             return (
@@ -15,54 +15,54 @@ export default class Middle extends React.Component {
     }
     checked = (idx, event) => {
         // console.log(event.target.checked)
-        const { state, calldelete } = this.props;
+        const { state} = this.props;
         if (!event.target.checked) {
-            for (let i in state.deleteArr) {
-                if (state.deleteArr[i] === idx) {
-                    state.deleteArr.splice(i, 1)
+            for (let i in state.controlDia.deleteArr) {
+                if (state.controlDia.deleteArr[i] === idx) {
+                    state.controlDia.deleteArr.splice(i, 1)
                 }
             }
         } else {
-            state.deleteArr.push(idx);
+            state.controlDia.deleteArr.push(idx);   
         }
-        calldelete({
-            deleteArr: state.deleteArr
-        })
     }
-    // x = (a, b) => {
-    //     return b > a;
+    x = (a, b) => {
+        return b > a;
+    }
+    //    deleteArr = (item) =>{
+    //     this.setState({
+    //         deleteArr:item.deleteArr
+    //     })
     // }
     deleteMoreIndex = (index) => {
       const {state, todoActions} = this.props; 
      // const { state, todoActions } = this.props;
-        state.deleteArr.sort(this.x);
-        console.log(state.deleteArr)
-
-        for (let i in state.deleteArr) {
-            state.messages.splice(state.deleteArr[i], 1)
+        state.controlDia.deleteArr.sort(this.x);
+       // console.log(state.deleteArr)
+        for (let i in state.controlDia.deleteArr) {
+            state.messagesItem.messages.splice(state.controlDia.deleteArr[i], 1)
         }
-        console.log(state.messages)
-        todoActions({
-            messages: state.mmessagesItem.messages,
+       // console.log(state.messages)
+        todoActions.deleteArr({
+            messages: state.messagesItem.messages,
             deleteArr: null,
             showcheck: !state.controlDia.showcheck
         })
     }
-    // deleteMore = () => {
-    //     const { state } = this.props;
-    //     if (state.showcheck) {
-    //         return (
-    //             <div>
-    //                 <button onClick={this.deleteMoreIndex}>批量删除</button>
-    //                 <button>取消</button>
-    //             </div>
-    //         )
-    //     }
-    // }
+    deleteMore = () => {
+        const { state } = this.props;
+        if (state.controlDia.showcheck) {
+            return (
+                <div className="moredelete">
+                    <button onClick={this.deleteMoreIndex}>批量删除</button>
+                    <button>取消</button>
+                </div>
+            )
+        }
+    }
 
     renderItem = (index) => {
         const { state, todoActions } = this.props;   
-
         todoActions.callState1({
             dialog: !state.controlDia.isDialog,
             index: index
@@ -71,8 +71,9 @@ export default class Middle extends React.Component {
 
     renderListItem = () => {
         const { state } = this.props;
-        return state.messagesItem.messages.map((item, index) => {
-            return (
+        return (state.messagesItem.messages.map((item, index) => {  
+           // {this.deleteMore()}
+            return (             
                 <li className="chat-list__item" key={index}>
                      {this.checkBox(index)}
                     <img className="chat-list__item__avatar" src={item.icon} alt="" />
@@ -84,18 +85,19 @@ export default class Middle extends React.Component {
                         <div className="chat-list__item__content__recentMsg">{item.descript}</div>
                         <div className="chat-list__item__content__more" onClick={this.renderItem.bind(this, index)}>更多</div>
                     </div>
-                </li>
+                </li> 
             )
-        });
+        }));
         return null;
     }
     render() {
         return (
             <div className='middle_cont'>
+            
                 <ul>
                     {this.renderListItem()}
                 </ul>
-                {/* {this.deleteMore()} */}
+                 {this.deleteMore()}
             </div>
         )
 

@@ -6,14 +6,17 @@ import {
     HANDLE_SHOWDIALOG,
     HANDER_ADD,
     CHECKED,
-    DELETE_MORE_INDEX
+    DELETE_MORE_INDEX,
+    DELETE_MORE,
+    HANDLE_CLOSE
     } from "../const/actionType";
     const init_state = {
           isDialog:false,
           index:null,
           isDialog1:false,
           deleteArr:[],
-          checked:false
+          checked:false,
+          showcheck:false
           //dialog1:false
     }
     
@@ -34,13 +37,17 @@ import {
                 const newState ={...state};
                 newState.showcheck = !action.text.showcheck;
                 newState.index = action.text.index;
+                newState.isDialog = action.text.isDialog;
                 return newState;
             }
             case HANDLE_SHOWDIALOG:{      
-                const newState ={...state};
-               // console.log(newState) 
+                const newState ={...state}; 
                 newState.isDialog1 = !action.text.isDialog1;
-                //newState.index = action.text.index;
+                return newState;
+            }
+            case DELETE_BUTTON:{
+                const newState ={...state};
+                newState.isDialog = action.text.isDialog;
                 return newState;
             }
             case HANDER_ADD:{
@@ -48,17 +55,29 @@ import {
                 newState.isDialog1 = !action.text.isDialog1;
                 //newState.index = action.text.index;
                 return newState;
+            }  
+            case HANDLE_CLOSE:{
+                const newState ={...state};
+                newState.isDialog1 = !action.text.isDialog1;
+                return newState;
             }
             case CHECKED:{
                 const newState ={...state};
                 newState.checked = !action.text.checked;
                 newState.index = action.text.index;
+                newState.deleteArr = action.text.deleteArr;
                 return newState;
             }
             case DELETE_MORE_INDEX:{
                 const newState ={...state};
                 newState.showcheck = !action.text.showcheck;
                 newState.deleteArr = action.text.deleteArr;
+                
+                return newState;
+            }
+            case DELETE_MORE:{
+                const newState ={...state};
+                newState.showcheck = !action.text.showcheck;
                 return newState;
             }
             default:
