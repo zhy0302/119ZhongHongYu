@@ -8,6 +8,7 @@ import Dialog from '../components/newTab/Dialog';
 import DialogText from '../components/newTab/DialogText';
 import {bindActionCreators} from 'redux'
 import * as todoCreatoraction from '../action'
+
 //import '../components/newTab/Tab.css'
 //import { combineReducers } from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
 //import{connect}from'react-redux';
@@ -85,13 +86,3 @@ class Tab extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    const {messagesItem,controlDia} = state;
-    return {messagesItem,controlDia};
-}
-function mapDispatchToProps(dispatch){
-    return{
-        todoActions:bindActionCreators(todoCreatoraction,dispatch)
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Tab)
