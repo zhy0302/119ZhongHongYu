@@ -1,22 +1,33 @@
 import React from 'react';
-import ButtonBox from './product/ButtonBox/ButtonBox';
-import Table from './product/Table/Table';
-import 'antd/dist/antd.css';
-import Header from './product/Header/Header';
-import Tarbar from './product/Tarbar/Tarbar';
-class App extends React.Component {
-
-  constructor() {
-    super();
-    }
-      render() {
-         return (
-          <div className="App">
-          <Header/>
-          <Tarbar/>
-          <ButtonBox/>
-           <Table/> 
-          </div>
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './product/reducer/Reducer';
+import Op from './product/Op';
+import axios from 'axios';
+//const axios = require('axios');
+const store=createStore(rootReducer)
+ class App extends React.Component {
+   componentDidMount(){
+     console.log('start')
+     axios({
+      method: 'post',
+      url: ' http://xly-wkop.xiaoniangao.cn/getLessonInfo',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+      data: {
+       mid:'1'
+      }
+     }).then(res=>{
+       console.log(res)
+     }).catch(err=>{
+       console.log(err);
+     });
+     console.log("end")
+   }
+  render() {
+    return (
+      <Provider store={store}>
+         <Op/> 
+     </Provider>
     )
   }
 }
@@ -28,29 +39,38 @@ export default App;
 
 
 
-// import React from 'react';
-// import Tab from './containers/Tab';
-// import {Provider} from 'react-redux';
-// import { createStore } from 'redux';
-// import rootReducer from './reducer/index';
-// import './components/newTab/Tab.css';
-// import Op from './product/Op';
 
-// // import icon3 from '../icon/smile.png';
-// // import icon1 from '../icon/collect.png';
-// // import icon2 from '../icon/add.png';
-// const store=createStore(rootReducer)
-//  class App extends React.Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//          <Tab/> 
-//      </Provider>
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import ButtonBox from './product/ButtonBox/ButtonBox';
+// import Table from './product/Table/Table';
+// import 'antd/dist/antd.css';
+// import Header from './product/Header/Header';
+// import Tarbar from './product/Tarbar/Tarbar';
+// class App extends React.Component {
+
+//   constructor() {
+//     super();
+//     }
+//       render() {
+//          return (
+//           <div className="App">
+//           <Header/>
+//           <Tarbar/>
+//           <ButtonBox/>
+//            <Table/> 
+//           </div>
 //     )
 //   }
 // }
 // export default App;
-
 
 
 

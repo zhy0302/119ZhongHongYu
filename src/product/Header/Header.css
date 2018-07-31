@@ -4,9 +4,9 @@
     overflow: hidden;
 }
 .right{
-    margin-left: -20px;
+    margin-left: 5%;
     margin-top: 20px;
-    width: 200px;
+    width:15%;
     margin-top: 20px;
     float: right;
 
@@ -18,12 +18,19 @@
     margin-right: 10px;
 }
 .left1{
-    width:30%;
+  width:60%;
   float:left;
-  margin-left: 10px;
+  margin-left: 15px;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  text-align: left;
+  list-style-type: none;  
+}
+.left1 ul li{
+    display:inline;
+    flex-wrap: wrap;
+    margin-left: 200px;
 }
 .left2{
     width:30%;
@@ -34,9 +41,9 @@
     flex-wrap: wrap;
 }
 .item{
-    width:100%;
-   float: left;
-   display: flex;
+    width:50%;
+    float: left;
+    display: flex;
     flex-wrap: wrap;
 }
 .submit{
