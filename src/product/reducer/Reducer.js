@@ -168,6 +168,8 @@ const init_state = {
         satisfyRate:'90.14%'
       }], 
 };
+
+
  export default function reducer(state = init_state, action) {
             switch (action.type) {
                 case ActionType:{
