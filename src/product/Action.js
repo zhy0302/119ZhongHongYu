@@ -7,7 +7,7 @@ export function FETCH_USER(userName, next) {
        console.log('start');
    axios({
      method: 'POST',
-     url:"http://xly-wkop.xiaoniangao.cn/getLessonInfo",      
+     url:"http://xly-wkop.xiaoniangao.cn/getUserInfo",      
      headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
      data:{          
            mid:'1'    
@@ -31,7 +31,7 @@ export function FETCH_USER(userName, next) {
 
  export function FETCH_MSG(userName, next) {
     next({     
-      type: `${ActionType.FETCH_USER}_REQ`
+      type: `${ActionType.FETCH_MSG}_REQ`
     });
         console.log('start');
     axios({
@@ -44,14 +44,14 @@ export function FETCH_USER(userName, next) {
     }).then(res => {
       console.log(res);
       next({
-        type: `${ActionType.FETCH_USER}_SUC`,
+        type: `${ActionType.FETCH_MSG}_SUC`,
         data: res.data
       });
     })
     .catch(err => {
       console.log(err);
       next({
-        type: `${ActionType.FETCH_USER}_FAI`
+        type: `${ActionType.FETCH_MSG}_FAI`
       });
     });
   }
