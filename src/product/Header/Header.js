@@ -35,7 +35,6 @@ export default class ButtonBox extends Component {
          <li className="item">最后登陆时间：{this.state.userdata[0].loadtime}</li>     */}
          </div>
         <div className="right">
-         <div>手机号码：13213145201</div>
          <Input size="small" placeholder="微信号码" />
          <Button className="submit">提交</Button>
          <Input size="small" placeholder="备注" />

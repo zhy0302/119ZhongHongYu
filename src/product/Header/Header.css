@@ -18,7 +18,6 @@
     margin-right: 10px;
 }
 .left1{
-  width:60%;
   float:left;
   margin-left: 15px;
   margin-top: 20px;
@@ -28,6 +27,7 @@
   list-style-type: none;  
 }
 .left1 ul li{
+    width:30%;
     display:inline;
     flex-wrap: wrap;
     margin-left: 200px;
@@ -41,7 +41,7 @@
     flex-wrap: wrap;
 }
 .item{
-    width:50%;
+    width:30%;
     float: left;
     display: flex;
     flex-wrap: wrap;

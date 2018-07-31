@@ -32,94 +32,63 @@ const init_state = {
         totalLearningDays:'累计学习天数',
         lastLoginDate:'最后登录时间',
         enterDate:'入学时间',
-        weiChatCode:'微信号码',
-        remark:'备注',
+        //weiChatCode:'微信号码',
+       //remark:'备注',
     }],
     dataSource : [{
         key: '1',
-        class: '高级班',
+        classInfo: '高级班',
         status: '进行中',
-        time: '2017-04-20',
-        teacher:'小白老师',
-        classper:'3/21',
-        zuoye:'67.98',
-        dianping:'87.98%',
-        daka:'3/21',
-        satify:'90.14%'
-    
+        startTime: '2017-04-20',
+        teacherInfo:'小白老师',
+        enterRate:'3/21',
+        homeworkSubmitRate:'67.98',
+        beCommenttedRate:'87.98%',
+        signRate:'3/21',
+        satisfyRate:'90.14%'
       }, {
         key: '2',
-        class: '进阶班',
+        classInfo: '进阶班',
         status: '进行中',
-        time: '2017-04-21',
-        teacher:'小白老师',
-        classper:'20/21',
-        zuoye:'76.89',
-        dianping:'31.87',
-        daka:'5/21',
-        satify:'90.14%'
-      },{
-      key: '3',
-      class: '提高班',
-      status: '进行中',
-      time: '2017-04-22',
-      teacher:'小白老师',
-      classper:'13/21',
-        zuoye:'13.89',
-        dianping:'21.76',
-        daka:'13/21',
-        satify:'88.01%'
-    },{
-      key: '4',
-      class: '入门班',
-      status: '进行中',
-      time: '2017-04-23',
-      teacher:'小白老师',
-      classper:'20/21',
-        zuoye:'98.45',
-        dianping:'98.76',
-        daka:'20/21',
-        satify:'30.10'
-    },{
-      key: '5',
-      class: '体验班',
-      status: '已结束',
-      time: '2017-04-24',
-      teacher:'小白老师',
-      classper:'21/21',
-        zuoye:'98.45',
-        dianping:'78.76',
-        daka:'21/21',
-        satify:'94.14%'
+        startTime: '2017-04-21',
+        teacherInfo:'小白老师',
+        enterRate:'20/21',
+        homeworkSubmitRate:'76.89',
+        beCommenttedRate:'31.87',
+        signRate:'5/21',
+        satisfyRate:'90.14%'
     }
     ],
       
        columns : [{
         title: '班级',
-        dataIndex: 'class',
-        key: 'class',
+        dataIndex: 'classInfo.name',
+        key: 'classInfo.id',
       }, {
         title: '课程状态',
         dataIndex: 'status',
         key: 'status',
       }, {
         title: '开课时间',
-        dataIndex: 'time',
-        key: 'time',
+        dataIndex: 'startTime',
+        key: 'startTime',
       },{
         title: '老师',
-        dataIndex: 'teacher',
-        key: 'teacher',
+        dataIndex: 'teacherInfo.nick',
+        key: 'teacherInfo.id',
       },{
         title: '上课率',
-        dataIndex: 'classper',
-        key: 'classper',
+        dataIndex: 'enterRate',
+        key: 'enterRate',
         render:(text)=>{
-            const splice=text.split('/');
-            if(splice[0]/splice[1]>0.95){
+            if(!text) return
+            const num1=text.split('/')[0];
+            const num2=text.split('/')[1];
+            const num=(num1/num2).toFixed(3);
+            if(num>0.95){
                 return <span className="orange">{text}</span>
             }
-                else if(splice[0]/splice[1]<0.80){
+                else if(num<0.80){
                     return <span className="red">{text}</span>   
                 }else{
                     return<span>{text}</span>
@@ -127,14 +96,14 @@ const init_state = {
             }
       },{
         title: '作业提交率',
-        dataIndex: 'zuoye',
-        key: 'zuoye',
+        dataIndex: 'homeworkSubmitRate',
+        key: 'homeworkSubmitRate',
         render:(text)=>{
             //console.log(text<0.80)
-            if(text>95){
+            if(text>0.95){
                 return <span className="orange">{text+"%"}</span>
             }
-                else if(text<80){
+                else if(text<0.80){
                     return <span className="red">{text+"%"}</span>   
                 }else{
                     return<span>{text}</span>
@@ -142,13 +111,13 @@ const init_state = {
             }
       },{
         title: '被点评情况',
-        dataIndex: 'dianping',
-        key: 'dianping',
+        dataIndex: 'beCommenttedRate',
+        key: 'beCommenttedRate',
         render:(text)=>{
-            if(text>95){
+            if(text>0.95){
                 return <span className="orange">{text+"%"}</span>
             }
-                else if(text<80){
+                else if(text<0.80){
                     return <span className="red">{text+"%"}</span>   
                 }else{
                     return<span>{text}</span>
@@ -156,14 +125,16 @@ const init_state = {
             }
       },{
         title: '打卡率',
-        dataIndex: 'daka',
-        key: 'daka',
-        render:(text)=>{
-            const splice=text.split('/');
-            if(splice[0]/splice[1]>0.95){
+        dataIndex: 'signRate',
+        key: 'signRate',
+         render:(text)=>{
+            const num1=text.split('/')[0];
+            const num2=text.split('/')[1];
+            const num=(num1/num2).toFixed(3);
+            if(num>0.95){
                 return <span className="orange">{text}</span>
             }
-                else if(splice[0]/splice[1]<0.80){
+                else if(num<0.80){
                     return <span className="red">{text}</span>   
                 }else{
                     return<span>{text}</span>
@@ -171,13 +142,13 @@ const init_state = {
             }
       },{
         title: '满意度',
-        dataIndex: 'satify',
-        key: 'satify',
+        dataIndex: 'satisfyRate',
+        key: 'satisfyRate',
         render:(text)=>{
-            if(text>95){
+            if(text>0.95){
                 return <span className="orange">{text+"%"}</span>
             }
-                else if(text<80){
+                else if(text<0.80){
                     return <span className="red">{text+"%"}</span>   
                 }else{
                     return<span>{text}</span>
@@ -186,14 +157,15 @@ const init_state = {
       }],
       dataSource1 : [{
         key: '1',
-        class: '高级班',
+        classInfo: '高级班',
         status: '已结束',
-        time: '2017-04-20',
-        classper:'3/21',
-        zuoye:'5/21',
-        dianping:'87.98%',
-        daka:'3/21',
-        satify:'90.14%'
+        startTime: '2017-04-20',
+        teacherInfo:'小白老师',
+        enterRate:'3/21',
+        homeworkSubmitRate:'5/21',
+        beCommenttedRate:'87.98%',
+        signRate:'3/21',
+        satisfyRate:'90.14%'
       }], 
 };
  export default function reducer(state = init_state, action) {
@@ -209,10 +181,12 @@ const init_state = {
                     console.log(action.data)
 
                     return userInfo;
-                case ActionType.FETCH_MSG:
+                case ActionType.FETCH_MSG+"_SUC":
                     const msg ={...state};
-                    userInfo.dataSource=[action.data.data];
-                    console.log(action.data.data);
+                     console.log(action.data.data);
+                    console.log(msg.dataSource1)
+                    msg.dataSource=action.data.data.currentLessonsList;
+                    msg.dataSource1=action.data.data.historyLessonsList;
                     return msg;
             default:
             return state;

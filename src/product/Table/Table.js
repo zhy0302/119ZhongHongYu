@@ -7,7 +7,7 @@ export default class Tables extends Component {
 }
     render() {
       const {state}=this.props;
-      console.log(state);  
+     // console.log(state);  
       return ( 
 
         <div className="table">         
