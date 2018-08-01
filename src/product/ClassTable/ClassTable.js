@@ -9,7 +9,7 @@ export default class ClassTable extends Component {
       const {state}=this.props; 
       return ( 
         <div className="Classtable">
-        <Table dataSource={state.dataSource3} columns={state.columns3} />
+        <Table dataSource={state.ClassReducer.dataSource3} columns={state.ClassReducer.columns3}/>
           </div>
       );
     }

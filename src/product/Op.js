@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ButtonBox from './ButtonBox/ButtonBox';
 import Table1 from './Table1/Table1';
 import Table from './Table/Table';
-//import ClassTable from './ClassTable/ClassTable';
+import ClassTable from './ClassTable/ClassTable';
 import 'antd/dist/antd.css';
 import Header from './Header/Header';
 import Tarbar from './Tarbar/Tarbar';
@@ -34,7 +34,7 @@ class Op extends React.Component {
         <ButtonBox state={this.props} todoActions={todoActions} />
         <Table  state={this.props} todoActions={todoActions} />
         <Table1  state={this.props} todoActions={todoActions}/>  
-        {/* <ClassTable state={this.props} todoActions={todoActions}/> */}
+        <ClassTable state={this.props} todoActions={todoActions}/>
       </div>
     )
   }

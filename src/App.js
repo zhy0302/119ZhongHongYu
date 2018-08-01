@@ -4,10 +4,11 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './product/reducer/Reducer';
 import Op from './product/Op';
 import axios from 'axios';
+import {createLogger} from 'redux-logger';
 import serverApi from './product/middleware/serverApi';
 //const axios = require('axios');
 const store = createStore(rootReducer,
-  applyMiddleware(serverApi)
+  applyMiddleware(serverApi,createLogger())
 )
 class App extends React.Component {
 
