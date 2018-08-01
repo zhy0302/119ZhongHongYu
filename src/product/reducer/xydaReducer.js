@@ -19,7 +19,7 @@ const init_state2 = {
     learning_lessons:'76.89',
 },
 {
-  key: '2',
+  key: '3',
   nick: '进阶班',
   mid: '进行中',
   enter_time: '2017-04-21',
@@ -28,7 +28,7 @@ const init_state2 = {
   learning_lessons:'76.89',
 },
 {
-  key: '1',
+  key: '4',
   nick: '进阶班',
   mid: '进行中',
   enter_time: '2017-04-21',
@@ -37,14 +37,15 @@ const init_state2 = {
   learning_lessons:'76.89',
 },
 {
-  key: '2',
+  key: '5',
   nick: '进阶班',
   mid: '进行中',
   enter_time: '2017-04-21',
   teachers:'小白老师',
   start_time:'20/21',
   learning_lessons:'76.89',
-},],
+},
+],
    columns2: [{
     title: '学员名',
     dataIndex: 'nick',
@@ -83,6 +84,19 @@ const init_state2 = {
         StudentData.dataSource2=action.data.data;
         console.log(action.data.data);
         return StudentData;
+
+        case  ActionType.FETCH_CHANCE_STUDENT_LIST:
+        const ChanceState = {...state};
+        const temp = ChanceState.dataSource2.slice();
+        const mid = parseFloat(action.mid);
+        let newArr = []
+        for(let i in temp){
+            if(temp[i].mid === mid){
+                newArr.push(temp[i])
+            }
+        }
+        ChanceState.dataSource2 = newArr;
+        return ChanceState;
 default:
 return state;
 }

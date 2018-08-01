@@ -1,6 +1,13 @@
 import * as ActionType from "../ActionType";
 import React, { Component } from 'react';
+import { Icon} from 'antd'
+import icon1 from '../ClassTable/img/duihao.png';
+import icon2 from '../ClassTable/img/duihao.png';
 const init_state3 = {
+  icon:[{
+     icon1,
+     icon2
+  }],
   dataSource3: [{
     key: '0',
     course_name: '高级班',
@@ -41,35 +48,78 @@ const init_state3 = {
     title: '上课情况',
     dataIndex: 'enter_status',
     key: 'enter_status',
-    // render:(text)=>{
-    //   if(num>0.95){
-    //       return <span className="orange">{text}</span>
-    //   }
-    //       else if(num<0.80){
-    //           return <span className="red">{text}</span>   
-    //       }else{
-    //           return<span>{text}</span>
-    //       }
-    //   }
+    render:(text)=>{
+      if(text==0){
+          return <div><Icon type="close" />
+          </div>
+      }
+          else if(text==1){
+              return <div><Icon type="check"/> </div>
+          }else{
+              return<div><Icon type="minus"/> </div>
+          }
+      }
   },{
     title: '上课提交情况',
     dataIndex: 'homework_status',
     key: 'homework_status',
+    render:(text)=>{
+      if(text==0){
+          return <div><Icon type="close" />
+          </div>
+      }
+          else if(text==1){
+              return <div><Icon type="check"/> </div>
+          }else{
+              return<div><Icon type="minus"/> </div>
+          }
+      }
   },{
     title: '被点评情况',
     dataIndex: 'review_status',
     key: 'review_status',
-  }
-  ,{
+    render:(text)=>{
+      if(text==0){
+          return <div><Icon type="close" />
+          </div>
+      }
+          else if(text==1){
+              return <div><Icon type="check"/> </div>
+          }else{
+              return<div><Icon type="minus"/> </div>
+          }
+      }
+  },{
     title: '打卡情况',
     dataIndex: 'clockin_status',
     key: 'clockin_status',
+    render:(text)=>{
+      if(text==0){
+          return <div><Icon type="close" />
+          </div>
+      }
+          else if(text==1){
+              return <div><Icon type="check"/> </div>
+          }else{
+              return<div><Icon type="minus"/> </div>
+          }
+      }
   },{
     title: '满意度情况',
     dataIndex: 'satisfied_score',
     key: 'satisfied_score',
-  }
-],
+    render:(text)=>{
+      if(text==0){
+          return <div><Icon type="close" />
+          </div>
+      }
+          else if(text==1){
+              return <div><Icon type="check"/> </div>
+          }else{
+              return<div><Icon type="minus"/> </div>
+          }
+      }
+  }],
 
 };
   export default function ClassReducer(state = init_state3, action) {

@@ -51,10 +51,10 @@ const init_state1 = {
         const num2=text.split('/')[1];
         const num=(num1/num2).toFixed(3);
         if(num>0.95){
-            return <span className="orange">{text}</span>
+            return <strong className="orange">{text}</strong>
         }
             else if(num<0.80){
-                return <span className="red">{text}</span>   
+                return <strong className="red">{text}</strong>   
             }else{
                 return<span>{text}</span>
             }
@@ -66,10 +66,10 @@ const init_state1 = {
     render:(text)=>{
         //console.log(text<0.80)
         if(text>0.95){
-            return <span className="orange">{text+"%"}</span>
+            return <strong className="orange">{text}</strong>
         }
             else if(text<0.80){
-                return <span className="red">{text+"%"}</span>   
+                return <strong className="red">{text}</strong>   
             }else{
                 return<span>{text}</span>
             }
@@ -80,10 +80,10 @@ const init_state1 = {
     key: 'beCommenttedRate',
     render:(text)=>{
         if(text>0.95){
-            return <span className="orange">{text+"%"}</span>
+            return <strong className="orange">{text}</strong>
         }
             else if(text<0.80){
-                return <span className="red">{text+"%"}</span>   
+                return <strong className="red">{text}</strong>   
             }else{
                 return<span>{text}</span>
             }
@@ -97,10 +97,10 @@ const init_state1 = {
         const num2=text.split('/')[1];
         const num=(num1/num2).toFixed(3);
         if(num>0.95){
-            return <span className="orange">{text}</span>
+            return <strong className="orange">{text}</strong>
         }
             else if(num<0.80){
-                return <span className="red">{text}</span>   
+                return <strong className="red">{text}</strong>   
             }else{
                 return<span>{text}</span>
             }
@@ -111,10 +111,10 @@ const init_state1 = {
     key: 'satisfyRate',
     render:(text)=>{
         if(text>0.95){
-            return <span className="orange">{text+"%"}</span>
+            return <strong className="orange">{text}</strong>
         }
             else if(text<0.80){
-                return <span className="red">{text+"%"}</span>   
+                return <strong className="red">{text}</strong>   
             }else{
                 return<span>{text}</span>
             }

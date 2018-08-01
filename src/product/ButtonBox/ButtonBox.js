@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../ButtonBox/ButtonBox.css';
-import{Button} from 'antd';
+import{Input, Select, AutoComplete,Button} from 'antd';
+const InputGroup = Input.Group;
+ const Option = Select.Option;
 export default class ButtonBox extends Component {
   render() {
     return (

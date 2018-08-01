@@ -1,6 +1,13 @@
 import axios from 'axios';
 import * as ActionType from './ActionType';
 
+export function fetchChanceStudentList(mid) {
+  return {
+    type: ActionType.FETCH_CHANCE_STUDENT_LIST,
+    mid
+  }
+}
+
 export function init_state1(text) {
   return {
     type: FETCH_MSG + "_SUC",

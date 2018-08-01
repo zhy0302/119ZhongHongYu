@@ -1,20 +1,47 @@
 import React, { Component } from 'react';
-import{Table} from 'antd';
-import { Input } from 'antd';
-import { Tabs, Button } from 'antd';
+import {Table, Input, Select, AutoComplete, Button } from 'antd';
 //import'./Table.css';
+const InputGroup = Input.Group;
+const Option = Select.Option;
 export default class Tables1 extends Component {
   constructor() {
     super();
-}
-    render() {
-      const {state}=this.props; 
-      return ( 
-        <div className="table">
-        <Input size="small" style={{ width: '100px', height: '20px', marginTop: '40px', marginLeft: '500px' }} />
-        <Button className="submit1" style={{ width: '55px', height: '20px', marginTop: '10px', marginLeft: '0px' }}>提交</Button>      
-        <Table dataSource={state.xydaReducer.dataSource2} columns={state.xydaReducer.columns2} />
-          </div>
-      );
+    this.state = {
+      inputVal: '',
     }
   }
+
+  handleChange = (event) => {
+    this.setState({
+      inputVal: event
+    })
+  }
+
+  handleClick = () => {
+    const { todoActions } = this.props;
+   
+    todoActions.fetchChanceStudentList(this.state.inputVal);
+  }
+  render() {
+    const { state } = this.props;
+    return (
+      <div>
+        <div className='right_button'>
+          <InputGroup compact>
+            <Select defaultValue="mid">
+              <Option value="mid">mid</Option>
+            </Select>
+            <AutoComplete
+              style={{ width: 200 }}
+              onChange={this.handleChange.bind(this)}
+              placeholder="MID"/>
+            <Button onClick={this.handleClick}>搜索</Button>
+          </InputGroup>
+        </div>
+        <div className="table">
+          <Table dataSource={state.xydaReducer.dataSource2} columns={state.xydaReducer.columns2} />
+        </div>
+      </div>
+    );
+  }
+}

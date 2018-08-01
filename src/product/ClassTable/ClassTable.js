@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import{Table} from 'antd';
-//import'./Table.css';
+import'./ClassTable.css';
 export default class ClassTable extends Component {
   constructor() {
     super();
