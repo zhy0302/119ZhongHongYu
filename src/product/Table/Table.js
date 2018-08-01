@@ -12,10 +12,10 @@ export default class Tables extends Component {
 
         <div className="table">         
           <div className="first">在学课程
-          <Table dataSource={state.dataSource} columns={state.columns} />
+          <Table dataSource={state.TableReducer.dataSource} columns={state.TableReducer.columns} />
           </div>
           <div className="second">历史数据
-          <Table dataSource={state.dataSource1} columns={state.columns} />
+          <Table dataSource={state.TableReducer.dataSource1} columns={state.TableReducer.columns} />
           </div>
           </div>
       );

@@ -1,28 +1,31 @@
-// import { combineReducers } from 'redux';
-// import  TableReducer from './TableReducer';
-// import  HeaderReducer from './HeaderReducer';
+import { combineReducers } from 'redux';
+import  TableReducer from './TableReducer';
+import  HeaderReducer from './HeaderReducer';
+import  xydaReducer from './xydaReducer';
+import ClassReducer from './ClassReducer';
+export default combineReducers({
+    TableReducer,
+    HeaderReducer,
+    xydaReducer,
+    ClassReducer,
+});
 
-// export default combineReducers({
-//     TableReducer,
-//     HeaderReducer
-// });
 
-
-import React from 'react';
+{/*import React from 'react';
 import * as ActionType from "../ActionType";
 const init_state = {
     user:[{
-        // img:require('../Header/img/a.jpg'),
-        // classNum:'三班人',
-        // peopleNum:'MID33092018115',
-        // historyMoney:'987',
-        // phone:'15230529628',
-        // onTimeClass:'摄影课 绘画课',
-        // didStudy:'876天',
-        // weChatNum:'null',
-        // enterDate:'2018-03-30',
-        // lastLogin:'2018-03-30',
-        // note:'null',
+        img:require('../Header/img/a.jpg'),
+        classNum:'三班人',
+        nick:'MID33092018115',
+        history_pay:'987',
+        tel:'15230529628',
+        learningLesson:'摄影课 绘画课',
+        totalLearningDays:'876天',
+        weiChatCode:'null',
+        enterDate:'2018-03-30',
+        lastLoginDate:'2018-03-30',
+        remark:'null',
     }],
     map:[{
         nick:'学员编号',
@@ -32,8 +35,8 @@ const init_state = {
         totalLearningDays:'累计学习天数',
         lastLoginDate:'最后登录时间',
         enterDate:'入学时间',
-        //weiChatCode:'微信号码',
-       //remark:'备注',
+        weiChatCode:'微信号码',
+       remark:'备注',
     }],
     dataSource : [{
         key: '1',
@@ -99,7 +102,6 @@ const init_state = {
         dataIndex: 'homeworkSubmitRate',
         key: 'homeworkSubmitRate',
         render:(text)=>{
-            //console.log(text<0.80)
             if(text>0.95){
                 return <span className="orange">{text+"%"}</span>
             }
@@ -193,5 +195,5 @@ const init_state = {
             default:
             return state;
             }
-          }
+          }*/}
           

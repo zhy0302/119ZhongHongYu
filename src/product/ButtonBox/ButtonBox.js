@@ -8,7 +8,7 @@ export default class ButtonBox extends Component {
       <div className="left-buttons">
         <button>汇总</button>
         <Button type="primary">摄影课</Button>
-        <button>绘画课</button>
+        <button onClick>绘画课</button>
         </div>
         <div  className="right-buttons">
         <button>返回</button>

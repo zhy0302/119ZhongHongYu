@@ -1,33 +1,38 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './product/reducer/Reducer';
 import Op from './product/Op';
 import axios from 'axios';
+import serverApi from './product/middleware/serverApi';
 //const axios = require('axios');
-const store=createStore(rootReducer)
- class App extends React.Component {
-   componentDidMount(){
-     console.log('start')
-     axios({
-      method: 'post',
-      url: ' http://xly-wkop.xiaoniangao.cn/getLessonInfo',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
-      data: {
-       mid:'1'
-      }
-     }).then(res=>{
-       console.log(res)
-     }).catch(err=>{
-       console.log(err);
-     });
-     console.log("end")
-   }
+const store = createStore(rootReducer,
+  applyMiddleware(serverApi)
+)
+class App extends React.Component {
+
+  componentDidMount() {
+    //  console.log('start')
+    //  axios({
+    //   method: 'post',
+    //   url: ' http://xly-wkop.xiaoniangao.cn/getLessonInfo',
+    //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+    //   data: {
+    //    mid:'1'
+    //   }
+    //  }).then(res=>{
+    //    console.log(res)
+    //  }).catch(err=>{
+    //    console.log(err);
+    //  });
+    //  console.log("end")
+  }
+
   render() {
     return (
       <Provider store={store}>
-         <Op/> 
-     </Provider>
+        <Op />
+      </Provider>
     )
   }
 }

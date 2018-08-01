@@ -4,13 +4,13 @@
     overflow: hidden;
 }
 .right{
-    margin-left: 5%;
+    margin-left: -60%;
     margin-top: 20px;
-    width:15%;
-    margin-top: 20px;
+    width:40%;
+    margin-top: 53px;
     float: right;
-
 }
+
 .Avatar{
     width: 80px;
     height:80px;
@@ -41,18 +41,38 @@
     flex-wrap: wrap;
 }
 .item{
-    width:30%;
+    width:26%;
     float: left;
     display: flex;
     flex-wrap: wrap;
 }
 .submit{
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* .weixin{
     float: left;
     position: relative;
-    margin-left: 200px;
-    margin-top: -25px;
+    margin-left: 20%;
+    margin-top: -5%;
+    list-style-type: none;
 }
+.beizhu{
+    float: left;
+    position: relative;
+    margin-left:20%;
+    margin-top: 10%;
+    list-style-type: none;
+}
+.app-input{
+    width:30%;
+    margin-top: -10%;
+    margin-left: -10px;
+  list-style-type: none;
+} */
 
 

@@ -1,31 +1,23 @@
 
 import * as ActionType from "../ActionType";
 const init_state = {
-    user:[{
-        img:require('../Header/img/a.jpg'),
-        classNum:'三班人',
-        peopleNum:'MID33092018115',
-        historyMoney:'987',
-        phone:'15230529628',
-        onTimeClass:'摄影课 绘画课',
-        didStudy:'876天',
-        weChatNum:'null',
-        entTime:'2018-03-30',
-        lastLogin:'2018-03-30',
-        note:'null',
-    }],
-    map:[{
-        peopleNum:'学员编号',
-        onTimeClass:'在学课程',
-        phone:'手机号码',
-        historyMoney:'历史付费额',
-        didStudy:'累计学习天数',
-        lastLogin:'最后登录时间',
-        entTime:'入学时间',
-        weChatNum:'微信号码',
-        note:'备注',
-    }],
-
+        img:{hurl:""},
+        user:[{
+        }],
+        map:[{
+            nick:'学员编号',
+            learningLesson:'在学课程',
+            tel:'手机号码',
+            enterDate:'入学时间',
+            totalLearningDays:'累计学习天数',
+            weiChatCode:'微信号码',
+            history_pay:'历史付费额',
+            lastLoginDate:'最后登录时间',    
+            tel:'手机号码',
+            weiChatCode:'微信',
+            remark:'备注',
+        }],
+        
 };
  export default function HeaderReducer(state = init_state, action) {
             switch (action.type) {
@@ -33,6 +25,13 @@ const init_state = {
                     const newState ={...state};
                     return newState;
                 }
+                case ActionType.FETCH_USER+"_SUC":
+                const userInfo ={...state};        
+                userInfo.user=[action.data.data];
+                //userInfo.map=[action.data.data];
+                userInfo.img=action.data.data.hurl;
+                console.log(action.data.data.hurl);
+                return userInfo;
             default:
             return state;
             }
