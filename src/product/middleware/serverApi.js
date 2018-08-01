@@ -72,7 +72,7 @@ export default store=>next=>action=>{
        });
 axios({
     method: 'POST',
-    url:"http://xly-wkop.xiaoniangao.cn/getUserInfo",      
+    url,      
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
     data:params
   }).then(res => {
@@ -89,24 +89,24 @@ axios({
     });
   });
 
- axios({
-    method: 'POST',
-    url:"http://xly-wkop.xiaoniangao.cn/getLessonInfo",      
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
-    data:params
-  }).then(res => {
-    console.log(res);
-    next({
-      type: `${type}_SUC`,
-      data: res.data
-    });
-  })
-  .catch(err => {
-    console.log(err);
-    next({
-      type: `${type}_FAI`,
-    });
-  });
+//  axios({
+//     method: 'POST',
+//     url:"http://xly-wkop.xiaoniangao.cn/getLessonInfo",      
+//     headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+//     data:params
+//   }).then(res => {
+//     console.log(res);
+//     next({
+//       type: `${type}_SUC`,
+//       data: res.data
+//     });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     next({
+//       type: `${type}_FAI`,
+//     });
+//   });
 
 
   // axios({

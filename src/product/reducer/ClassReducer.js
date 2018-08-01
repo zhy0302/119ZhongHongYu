@@ -61,11 +61,11 @@ const init_state3 = {
         const newState ={...state};
         return newState;
     }
-        // case ActionType.FETCH_CLASS+"_SUC":
-        // const ClasstData ={...state};        
-        // ClasstData.dataSource3=action.data.data.basic_info;
-        // console.log(action.data.data.basic_info);
-        // return ClasstData;
+        case ActionType.FETCH_CLASS+"_SUC":
+        const ClasstData ={...state};        
+        ClasstData.dataSource3=action.data.data.basic_info;
+        console.log(action.data.data.basic_info);
+        return ClasstData;
 default:
 return state;
 }
