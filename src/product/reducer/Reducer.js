@@ -3,11 +3,13 @@ import  TableReducer from './TableReducer';
 import  HeaderReducer from './HeaderReducer';
 import  xydaReducer from './xydaReducer';
 import ClassReducer from './ClassReducer';
+import SatifyReducer from './SatifyReducer';
 export default combineReducers({
     TableReducer,
     HeaderReducer,
     xydaReducer,
     ClassReducer,
+    SatifyReducer
 });
 
 

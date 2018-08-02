@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import '../ButtonBox/ButtonBox.css';
 import{Input, Select, AutoComplete,Button} from 'antd';
-const InputGroup = Input.Group;
- const Option = Select.Option;
+//import {Link} from 'react-router';
 export default class ButtonBox extends Component {
+  constructor(props){
+  super(props);
+  }
+  // ShowBack(){
+  //   const {router}=this.props;
+  //   router.goBack()
+  // }
   render() {
     return (
       <div className="buttonbox-wrapper">
@@ -13,7 +19,8 @@ export default class ButtonBox extends Component {
         <button onClick>绘画课</button>
         </div>
         <div  className="right-buttons">
-        <button>返回</button>
+        <button >返回</button>
+        {/* <Link className="Op"to="/Test">返回</Link> */}
         </div>
       </div>
     );

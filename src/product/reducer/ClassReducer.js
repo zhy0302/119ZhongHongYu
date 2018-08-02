@@ -4,6 +4,18 @@ import { Icon} from 'antd'
 import icon1 from '../ClassTable/img/duihao.png';
 import icon2 from '../ClassTable/img/duihao.png';
 const init_state3 = {
+    user1:[{
+    }],
+    map1:[{
+        name:'班级',
+        id:'班级ID',
+        name:'老师',
+        mid:'ID',
+        wx_code:'微信',
+        history_pay:'负责员工',
+        lastLoginDate:'ID',    
+        wx_code:'微信',
+    }],
   icon:[{
      icon1,
      icon2
@@ -109,16 +121,12 @@ const init_state3 = {
     dataIndex: 'satisfied_score',
     key: 'satisfied_score',
     render:(text)=>{
-      if(text==0){
-          return <div><Icon type="close" />
-          </div>
-      }
-          else if(text==1){
-              return <div><Icon type="check"/> </div>
-          }else{
-              return<div><Icon type="minus"/> </div>
-          }
-      }
+        if(text<5){
+            return <strong className="red">{text}</strong>
+        }else{
+                return<span>{text}</span>
+            }
+        }
   }],
 
 };
@@ -130,9 +138,10 @@ const init_state3 = {
     }
         case ActionType.FETCH_CLASS+"_SUC":
         const ClasstData ={...state};   
-        console.log(action.data.data.list);      
+        console.log(action.data.data);      
         ClasstData.dataSource3=action.data.data.list;
-       
+        // ClasstData.user1=[action.data.data.basic_info]
+        // ClasstData.map1=[action.data.data.basic_info.real_reacher]
         return ClasstData;
 default:
 return state;

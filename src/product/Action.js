@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as ActionType from './ActionType';
 
-export function fetchChanceStudentList(mid) {
+export function FETCH_SEARCH_LIST(mid) {
   return {
-    type: ActionType.FETCH_CHANCE_STUDENT_LIST,
+    type: ActionType.FETCH_SEARCH_LIST,
     mid
   }
 }
@@ -60,6 +60,18 @@ export function FETCH_CLASS(id) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         id
+      }
+    }
+  }
+}
+export function FETCH_SATIFY(mid) {
+  return {
+    SERVER_API: {
+      type: ActionType.FETCH_SATIFY,
+      url: ` http://xly-wkop.xiaoniangao.cn/getSatisfiledList`,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      params: {
+        mid
       }
     }
   }

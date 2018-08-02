@@ -4,7 +4,8 @@ import'./Table.css';
 export default class Tables extends Component {
   constructor() {
     super();
-}
+    }
+
     render() {
       const {state}=this.props;
      // console.log(state);  

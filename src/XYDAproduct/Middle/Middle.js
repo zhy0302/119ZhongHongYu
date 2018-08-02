@@ -22,10 +22,11 @@ export default class Tables1 extends Component {
    
     todoActions.FETCH_SEARCH_LIST(this.state.inputVal);
   }
-  render() {
-    const { state } = this.props;
-    return (
-      <div>
+    render() {
+        const { state } = this.props;
+        console.log(state);
+        return (
+            <div>
         <div className='right_button'>
           <InputGroup compact>
             <Select defaultValue="mid">
@@ -42,6 +43,6 @@ export default class Tables1 extends Component {
           <Table dataSource={state.xydaReducer.dataSource2} columns={state.xydaReducer.columns2} />
         </div>
       </div>
-    );
-  }
+        )
+    }
 }

@@ -85,9 +85,9 @@ const init_state2 = {
         console.log(action.data.data);
         return StudentData;
 
-        case  ActionType.FETCH_CHANCE_STUDENT_LIST:
-        const ChanceState = {...state};
-        const temp = ChanceState.dataSource2.slice();
+        case  ActionType.FETCH_SEARCH_LIST:
+        const SearchState = {...state};
+        const temp = SearchState.dataSource2.slice();
         const mid = parseFloat(action.mid);
         let newArr = []
         for(let i in temp){
@@ -95,8 +95,8 @@ const init_state2 = {
                 newArr.push(temp[i])
             }
         }
-        ChanceState.dataSource2 = newArr;
-        return ChanceState;
+        SearchState.dataSource2 = newArr;
+        return SearchState;
 default:
 return state;
 }
