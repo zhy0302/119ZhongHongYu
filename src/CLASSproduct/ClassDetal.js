@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ClassTable from '../product/ClassTable/ClassTable';
+import ButtonBox from '../product/ButtonBox/ButtonBox';
 import 'antd/dist/antd.css';
 import Nav from './Nav/Nav';
 import { bindActionCreators } from 'redux';
 import * as todoCreatoraction from '../product/Action';
-class Test extends React.Component {
+class ClassDetal extends React.Component {
   state = {
     inputVal: ''
   };
@@ -26,6 +27,7 @@ class Test extends React.Component {
       <div className="App">
         <Nav state={this.props} todoActions={todoActions} />
         <ClassTable  state={this.props} todoActions={todoActions}/>  
+        <ButtonBox state={this.props} todoActions={todoActions} />
       </div>
     )
   }
@@ -41,4 +43,4 @@ function mapDispatchToProps(dispatch) {
     todoActions: bindActionCreators(todoCreatoraction, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Test)
+export default connect(mapStateToProps, mapDispatchToProps)(ClassDetal)

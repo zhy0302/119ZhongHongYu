@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Table1 from '../product/Table1/Table1';
 import 'antd/dist/antd.css';
 import Nav from './Nav/Nav';
-//import Middle from './Middle/Middle';
+//import Menu from './MENU/Menu';
 import { bindActionCreators } from 'redux';
 import * as todoCreatoraction from '../product/Action';
 class Test extends React.Component {
@@ -27,7 +27,7 @@ class Test extends React.Component {
     return (
       <div className="App">
         <Nav state={this.props} todoActions={todoActions} />
-        {/* <Middle state={this.props} todoActions={todoActions} /> */}
+        {/* <Menu state={this.props} todoActions={todoActions} /> */}
         <Table1  state={this.props} todoActions={todoActions}/>  
       </div>
     )

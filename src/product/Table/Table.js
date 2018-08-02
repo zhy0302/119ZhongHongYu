@@ -10,7 +10,6 @@ export default class Tables extends Component {
       const {state}=this.props;
      // console.log(state);  
       return ( 
-
         <div className="table">         
           <div className="first">在学课程
           <Table dataSource={state.TableReducer.dataSource} columns={state.TableReducer.columns} />

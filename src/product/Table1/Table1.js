@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Table, Input, Select, AutoComplete, Button } from 'antd';
 //import'./Table.css';
+import {Link} from 'react-router';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 export default class Tables1 extends Component {
@@ -37,6 +38,9 @@ export default class Tables1 extends Component {
               placeholder="MID"/>
             <Button onClick={this.handleClick}>搜索</Button>
           </InputGroup>
+          <div className="right-buttons">
+                         <Link className="Test" to="/Op"> <button >返回</button></Link>
+                    </div>
         </div>
         <div className="table">
           <Table dataSource={state.xydaReducer.dataSource2} columns={state.xydaReducer.columns2} />

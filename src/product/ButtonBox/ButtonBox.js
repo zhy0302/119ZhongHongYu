@@ -20,7 +20,6 @@ export default class ButtonBox extends Component {
         </div>
         <div  className="right-buttons">
         <button >返回</button>
-        {/* <Link className="Op"to="/Test">返回</Link> */}
         </div>
       </div>
     );

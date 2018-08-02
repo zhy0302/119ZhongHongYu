@@ -1,53 +1,80 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-//import { Router, Route, IndexRedirect,browserHistory } from 'react-router';
-import rootReducer from './product/reducer/Reducer';
-import Op from './product/Op';
-import Test from './XYDAproduct/Test';
-import axios from 'axios';
-import {createLogger} from 'redux-logger';
-import serverApi from './product/middleware/serverApi';
-import ClassDetal from './CLASSproduct/ClassDetal';
+import { Table } from 'antd';
+import 'antd/dist/antd.css';
 
-const store = createStore(rootReducer,
-  applyMiddleware(serverApi,createLogger())
-)
+
+
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    const { children } = this.props
+    return (
+      <div>
+        {children}
+      </div>
+    );
+  }
+}
+
+
+
+
+
+// import React from 'react';
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import { Router, Route, IndexRedirect,browserHistory } from 'react-router';
+// import rootReducer from './product/reducer/Reducer';
+// import Op from './product/Op';
+// import Test from './XYDAproduct/Test';
+// import axios from 'axios';
+// import {createLogger} from 'redux-logger';
+// import serverApi from './product/middleware/serverApi';
+// import ClassDetal from './CLASSproduct/ClassDetal';
+
+// const store = createStore(rootReducer,
+//   applyMiddleware(serverApi,createLogger())
+// )
 // const routes=<Route path="/" component={App}>
 //   <IndexRedirect to="/Op"/>
 //   <Route path="Op" component={Op} />
 //   <Route path="Test" component={Test}>
 //   </Route>
 // </Route>
-class App extends React.Component {
+// class App extends React.Component {
 
-  componentDidMount() {
-    //  console.log('start')
-    //  axios({
-    //   method: 'post',
-    //   url: ' http://xly-wkop.xiaoniangao.cn/getLessonInfo',
-    //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
-    //   data: {
-    //    mid:'1'
-    //   }
-    //  }).then(res=>{
-    //    console.log(res)
-    //  }).catch(err=>{
-    //    console.log(err);
-    //  });
-    //  console.log("end")
-  }
+//   componentDidMount() {
+//     //  console.log('start')
+//     //  axios({
+//     //   method: 'post',
+//     //   url: ' http://xly-wkop.xiaoniangao.cn/getLessonInfo',
+//     //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+//     //   data: {
+//     //    mid:'1'
+//     //   }
+//     //  }).then(res=>{
+//     //    console.log(res)
+//     //  }).catch(err=>{
+//     //    console.log(err);
+//     //  });
+//     //  console.log("end")
+//   }
 
-  render() {
-    return (
-      <Provider store={store}>
-      {/* <Router routes={routes} history={browserHistory}/> */}
-        <Op />
-      </Provider>
-    )
-  }
-}
-export default App;
+//   render() {
+//     return (
+//       <Provider store={store}>
+//       <Router routes={routes} history={browserHistory}/>
+//         <Op />
+//       </Provider>
+//     )
+//   }
+// }
+// export default App;
 
 
 
