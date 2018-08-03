@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router'
 import {Table, Input, Select, AutoComplete, Button } from 'antd';
 //import'./Table.css';
 import {Link} from 'react-router';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 export default class Tables1 extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       inputVal: '',
     }
@@ -20,8 +21,13 @@ export default class Tables1 extends Component {
 
   handleClick = () => {
     const { todoActions } = this.props;
-   
+   // router.goBack()
+   // console.log(router)
     todoActions.FETCH_SEARCH_LIST(this.state.inputVal);
+  }
+  handleReturn=()=>{
+    browserHistory.goBack()
+    console.log(browserHistory.goBack)
   }
   render() {
     const { state } = this.props;
@@ -39,7 +45,8 @@ export default class Tables1 extends Component {
             <Button onClick={this.handleClick}>搜索</Button>
           </InputGroup>
           <div className="right-buttons">
-                         <Link className="Test" to="/Op"> <button >返回</button></Link>
+          {/* <div onClick={this.handleReturn()>Go back</div> */}
+                        <Button onClick={this.handleReturn} >返回</Button>
                     </div>
         </div>
         <div className="table">

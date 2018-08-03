@@ -85,7 +85,7 @@ axios({
   .catch(err => {
     console.log(err);
     next({
-      type: `${type}_FAI`
+      type: `${type}_FAI`,
     });
   });
 

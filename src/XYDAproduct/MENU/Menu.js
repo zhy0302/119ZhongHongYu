@@ -1,57 +1,70 @@
-import { Menu, Icon,Table } from 'antd';
+import {Layout, Menu, Icon,Table,Breadcrumb } from 'antd';
 import React, { Component } from 'react';
-const SubMenu = Menu.SubMenu;
-// import Table from '../../product/Table1/Table1'
+// const SubMenu = Menu.SubMenu;
+// const { Header, Sider, Content } = Layout;
 
+  const { SubMenu } = Menu;
+  const { Header, Content, Sider } = Layout;
 export default class Menus extends React.Component {
-  rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-  state = {
-    openKeys: ['sub1'],
-  };
-  onOpenChange = (openKeys) => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys });
-    } else {
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
-    }
-  }
-  render() {
-    const { state } = this.props;
-    return (
-      <Menu
-        mode="inline"
-        openKeys={this.state.openKeys}
-        onOpenChange={this.onOpenChange}
-        style={{ width: 256 }}
-      >
-        <SubMenu key="sub1" title={<span><Icon type="mail" /><span>aa</span></span>}>
-        <div className="table">
+render(){
+  const { state } = this.props;
+  return(
+    <Layout>
+      <Header className="header">
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          style={{ lineHeight: '64px' }}
+        >
+          <Menu.Item key="1">nav 1</Menu.Item>
+          <Menu.Item key="2">nav 2</Menu.Item>
+          <Menu.Item key="3">nav 3</Menu.Item>
+        </Menu>
+      </Header>
+      <Layout>
+        <Sider width={200} style={{ background: '#fff' }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+          >
+            <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
+              <Menu.Item key="1">option1</Menu.Item>
+              <Menu.Item key="2">option2</Menu.Item>
+              <Menu.Item key="3">option3</Menu.Item>
+              <Menu.Item key="4">option4</Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
+              <Menu.Item key="5">option5</Menu.Item>
+              <Menu.Item key="6">option6</Menu.Item>
+              <Menu.Item key="7">option7</Menu.Item>
+              <Menu.Item key="8">option8</Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
+              <Menu.Item key="9">option9</Menu.Item>
+              <Menu.Item key="10">option10</Menu.Item>
+              <Menu.Item key="11">option11</Menu.Item>
+              <Menu.Item key="12">option12</Menu.Item>
+            </SubMenu>
+          </Menu>
+        </Sider>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
+          <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+          <div className="table">
           <Table dataSource={state.xydaReducer.dataSource2} columns={state.xydaReducer.columns2} />
-        </div>
-            
-          <Menu.Item key="1">Option 1</Menu.Item>
-          <Menu.Item key="2">Option 2</Menu.Item>
-          <Menu.Item key="3">Option 3</Menu.Item>
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-          <SubMenu key="sub3" title="Submenu">
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-        </SubMenu>
-        <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
-        </SubMenu>
-      </Menu>
+          </div>
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
     );
   }
 }

@@ -20,7 +20,6 @@ export function FETCH_USER(mid) {
     SERVER_API: {
       type: ActionType.FETCH_USER,
       url: "http://xly-wkop.xiaoniangao.cn/getUserInfo",
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         mid
       }
