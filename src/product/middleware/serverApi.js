@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { normalize } from '../../../node_modules/normalizr';
 const API_DOMAIN = 'http://xly-wkop.xiaoniangao.cn';
-const callServerApi = (endpoint, params, normalizeFuc) => {
+const callServerApi = (endpoint, params) => {
   return new Promise((resolve, reject) => {
     axios({
       method: 'POST',
@@ -12,7 +13,7 @@ const callServerApi = (endpoint, params, normalizeFuc) => {
     }).then(res => {
       if (res.data.ret === 1) {
         return resolve(res.data.data);
-        return resolve(normalizeFuc ? normalizeFuc(res.data.data) : res.data.data);
+        // return resolve(normalizeFuc ? normalizeFuc(res.data.data) : res.data.data);
       }
       return reject({ errMsg: res.data.errMsg });
     }).catch(err => {
@@ -29,7 +30,7 @@ export default store => next => action => {
     type,
     endpoint,
     params,
-    normalizeFuc
+    normailzerFun
   } = action.SERVER_API;
 
   if (typeof type !== 'string') {
@@ -41,15 +42,16 @@ export default store => next => action => {
   if (typeof params !== 'object') {
     throw new Error('params shoudle be a object');
   }
-  const { normailzerFuc } = action.SERVER_API;
+  //const { normailzerFuc } = action.SERVER_API;
   next({
     type: `${type}_REQ`
   });
 return callServerApi(endpoint, params)
     .then(response => {
+      const res = typeof (normailzerFun) !== 'undefined' ? normailzerFun(response) :response;
       next({
         type: `${type}_SUC`,
-        response
+        response:res
       });
     }).catch(err => {
       next({

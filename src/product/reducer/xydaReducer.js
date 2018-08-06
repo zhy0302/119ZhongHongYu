@@ -37,8 +37,8 @@ const init_state2 = {
     }
         case ActionType.FETCH_XYDA+"_SUC":
         const StudentData ={...state};        
-        StudentData.dataSource2=action.response;
-        console.log(action.response);
+        // StudentData.dataSource2=action.response;
+        // console.log(action.response);
         return StudentData;
 
         case  ActionType.FETCH_SEARCH_LIST:

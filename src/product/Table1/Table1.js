@@ -56,6 +56,7 @@ export default class Tables1 extends Component {
       key: 'teachers',
     }]
     const { state } = this.props;
+    console.log(this.props)
     return (
       <div>
         <div className='right_button'>

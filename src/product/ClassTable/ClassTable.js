@@ -11,7 +11,7 @@ handleReturn= () => {
     console.log(browserHistory.goBack)
   }
     render() {
-      const columns3 =[
+    const columns3 =[
         {
         title: '课程内容',
         dataIndex: 'course_name',
@@ -93,14 +93,22 @@ handleReturn= () => {
             }
       }
     ]
-        const { state} = this.props;
+    const {state} = this.props;
+    const list = this.props.state.ClassReducer.dataSource3;
+    let newList;
+    console.log(list)
+    if(list.list.result){
+        newList = list.list.result.map(t =>{
+            return list.list.entities.basicInfo[t];
+        })
+    }
       return ( 
         <div>
              <div>
             <button onClick={this.handleReturn} >返回</button>
           </div>
         <div className="Classtable">
-        <Table dataSource={state.ClassReducer.dataSource3} columns={columns3}/>
+        <Table dataSource={newList} columns={columns3}/>
           </div>
           </div>
       );

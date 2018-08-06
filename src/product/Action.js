@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as ActionType from './ActionType';
 import{normalize}from 'normalizr';
-import  Schema from './reducer/Schema';
+import  * as schema from './reducer/Schema';
 export function FETCH_SEARCH_LIST(mid) {
   return {
     type: ActionType.FETCH_SEARCH_LIST,
@@ -28,12 +28,15 @@ export function FETCH_MSG(mid) {
       params: {
         mid
       },
-     normalizeFuc: json => {
-       return {
-         current: normalize(json.currentLessonsList, Schema.lessonListSchema),
-         history: normalize(json.historyLessonsList, Schema.lessonListSchema)
-       };
-     }
+      // normailzerFun:response => {
+      //   console.log(response.currentLessonsList)
+      //   const current = normalize(response.currentLessonsList, schema.CLASSINFO);
+      //   const history = normalize(response.historyLessonsList, schema.CLASSINFO);
+      //   return {
+      //     current,
+      //     history
+      //   }
+      // }
     }
   }
 }
@@ -45,7 +48,12 @@ export function FETCH_XYDA(id) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         id
-      }
+      },
+       normailzerFun:response =>{
+        console.log(response)
+        return  normalize(response, schema.STUDENTLIST)
+       }
+      
     }
   }
 }
@@ -57,7 +65,15 @@ export function FETCH_CLASS(id) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         id
-      }
+      },
+      normailzerFun:response =>{ 
+        console.log(response)
+        const list = normalize(response.list, schema.BASICINFO)
+        return {
+          ...response.basic_info,
+          list
+        }
+      } 
     }
   }
 }
@@ -69,14 +85,17 @@ export function FETCH_SATIFY(mid) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         mid
+      },
+      normailzerFun:response=> {
+        console.log(response)
+        return normalize(response.list, schema.SATISFILEDLIST)
       }
-    },
-    normailzerFuc:response=> normalize(response.data.list, Schema.SATISFILEDLIST)
+    }
   }
 }
 export function change(index){
-return{
-  type:ActionType.CHANGE,
-  index
-}  
+  return{
+    type:ActionType.CHANGE,
+    index
+  }  
 }

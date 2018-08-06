@@ -1,4 +1,5 @@
 import { schema } from 'normalizr';
+
 const classes = new schema.Entity('classes', {}, {
   idAttribute: 'id'
 });
@@ -12,21 +13,23 @@ const satisfiled = new schema.Entity('satisfiled',{
 },{
   idAttribute:'time'
 })
-const lessonSchema = new schema.Entity('lesson', {}, { idAttribute: 'id' });
- const lessonListSchema = new schema.Array(lessonSchema);
 
- export default {
-   lessonListSchema
- };
+
+
+
+const studentList = new schema.Entity('studentList',{},{
+  idAttribute:'mid'
+})
+const basicInfo = new schema.Entity('basicInfo',{},{
+  idAttribute:'time'
+})
+const classInfo = new schema.Entity('classInfo',{
+  classInfo:classes,
+  teacherInfo:teacher
+},{
+  idAttribute:'id'
+})
 export const SATISFILEDLIST = [ satisfiled ];
-
-// import { schema } from 'normalizr';
-// const {normalize,Schema}=require('normalizr');
-//  const lessonSchema = new schema.Entity('lesson', {}, {
-//     idAttribute: 'id' 
-//   });
-//  const lessonListSchema = new schema.Array(lessonSchema);
-
-//  export default {
-//    lessonListSchema
-//  };
+export const STUDENTLIST =[studentList ];
+export const CLASSINFO =[classInfo];
+export const BASICINFO = [ basicInfo ];

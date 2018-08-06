@@ -135,7 +135,6 @@ export default class ButtonBox extends Component {
     dataIndex: 'teacher_info',
     key: 'teacher_info',
     render: (text,record,e) => {
-        console.log(e)
       return  <span>
                 <Popover title={`昵称：${text.nick}  ID：${text.id} 
                 姓名：${text.real_name} mid：${text.mid}
@@ -167,21 +166,20 @@ export default class ButtonBox extends Component {
   }]
         const TabPane = Tabs.TabPane;
         const { state } = this.props;
-//         const {list,entities}=this.props;
-//         console.log(list)      
-//         let newList=list;
-//          if(list){
-//          newList=list.map(t=>{
-//         const satifiled=list.entities.satifiled[t];
-        
-//         return{
-//             ...satifiled,
-//             class_info:list.entities.classes[satifiled.class_info],
-//             teacher_info:list.entities.teacher_info[satifiled.teacher_info]
-//         }
-//     })
-// }
-        console.log(this.props)
+        const list = state.SatifyReducer.dataSource;
+        let newList;
+        if(list.result){
+            newList = list.result.map(t => {
+                const satisfiled1 = list.entities.satisfiled[t]; 
+               // console.log(list)
+                return {
+                    ...satisfiled1,
+                    class_info: list.entities.classes[satisfiled1.class_info],
+                    teacher_info: list.entities.teachers[satisfiled1.teacher_info]
+                  }
+            })
+        }
+
         return (
             <Tabs defaultActiveKey="0">
                 <TabPane tab="课程信息" key="0">
@@ -199,9 +197,8 @@ export default class ButtonBox extends Component {
                 <TabPane tab="满意度反馈" key="1" >
                 <Link  to="/ClassDetal"><ButtonBox_Q/></Link>
                     <div className="satify"> 
-                        <Table  dataSource={state.SatifyReducer.dataSource} columns={columns1} />
-                       
-                        
+                        {/* <Table  dataSource={state.SatifyReducer.dataSource} columns={columns1} /> */}      
+                        <Table  dataSource={newList} columns={columns1} />
                     </div>
                 </TabPane>
             </Tabs>

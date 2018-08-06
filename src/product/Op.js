@@ -21,7 +21,6 @@ class Op extends React.Component {
     todoActions.FETCH_XYDA('1001');
     todoActions.FETCH_CLASS('1001');
     todoActions.FETCH_SATIFY('1001');
-    console.log(todoCreatoraction.FETCH_USER)
     //todoCreatoraction.FETCH_MSG(inputVal,dispatch);
   }
   render() {

@@ -1,7 +1,10 @@
 import * as ActionType from "../ActionType";
 import Entities from "./Entities";
 const init_state3 = {
-  dataSource: []
+  dataSource: {
+    entities:{},
+    result:[]
+  }
 };
   export default function SatifyReducer(state = init_state3, action) {
 
@@ -12,15 +15,12 @@ const init_state3 = {
     }
         case ActionType.FETCH_SATIFY+"_SUC":
         const SatifytData ={...state};   
-        console.log(state);      
-        SatifytData.dataSource=action.response.list;
-        // SatifytData.user1=[action.data.data.basic_info]
-        // SatifytData.map1=[action.data.data.basic_info.real_reacher]
+        SatifytData.dataSource=action.response;
         return SatifytData;
+
         case ActionType.CHANGE:
           const newChange={...state};
-          newChange.dataSource[action.index].reply_status=1;
-          
+          newChange.dataSource[action.index].reply_status=1;        
           return newChange
 default:
 return state;

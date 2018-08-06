@@ -21,6 +21,7 @@ class ClassDetal extends React.Component {
   }
   render() {
     const { todoActions } = this.props;
+    console.log(this.props)
     return (
       <div className="App">
         <Nav state={this.props} todoActions={todoActions} />
