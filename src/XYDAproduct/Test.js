@@ -33,9 +33,7 @@ class Test extends React.Component {
     )
   }
 }
-
 function mapStateToProps(state, ownProps) {
-  //console.log(state)
   const props = state;
   return props;
 }

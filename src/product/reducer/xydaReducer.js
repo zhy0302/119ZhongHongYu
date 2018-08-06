@@ -1,51 +1,7 @@
 import * as ActionType from "../ActionType";
 import React, { Component } from 'react';
 const init_state2 = {
-  dataSource2: [{
-    key: '0',
-    nick: '高级班',
-    mid: '进行中',
-    enter_time: '2017-04-20',
-    teachers:'小白老师',
-    start_time:'3/21',
-    learning_lessons:'67.98'
-  }, {
-    key: '1',
-    nick: '进阶班',
-    mid: '进行中',
-    enter_time: '2017-04-21',
-    teachers:'小白老师',
-    start_time:'20/21',
-    learning_lessons:'76.89',
-},
-{
-  key: '3',
-  nick: '进阶班',
-  mid: '进行中',
-  enter_time: '2017-04-21',
-  teachers:'小白老师',
-  start_time:'20/21',
-  learning_lessons:'76.89',
-},
-{
-  key: '4',
-  nick: '进阶班',
-  mid: '进行中',
-  enter_time: '2017-04-21',
-  teachers:'小白老师',
-  start_time:'20/21',
-  learning_lessons:'76.89',
-},
-{
-  key: '5',
-  nick: '进阶班',
-  mid: '进行中',
-  enter_time: '2017-04-21',
-  teachers:'小白老师',
-  start_time:'20/21',
-  learning_lessons:'76.89',
-},
-],
+  dataSource2: [],
    columns2: [{
     title: '学员名',
     dataIndex: 'nick',
@@ -81,8 +37,8 @@ const init_state2 = {
     }
         case ActionType.FETCH_XYDA+"_SUC":
         const StudentData ={...state};        
-        StudentData.dataSource2=action.data.data;
-        console.log(action.data.data);
+        StudentData.dataSource2=action.response;
+        console.log(action.response);
         return StudentData;
 
         case  ActionType.FETCH_SEARCH_LIST:

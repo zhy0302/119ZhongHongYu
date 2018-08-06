@@ -15,7 +15,8 @@ export default class Tables extends Component {
           <Table dataSource={state.TableReducer.dataSource} columns={state.TableReducer.columns} />
           </div>
           <div className="second">历史数据
-          <Table dataSource={state.TableReducer.dataSource1} columns={state.TableReducer.columns} />
+          <Table  rowKey={record=>record.class_info.id}
+          dataSource={state.TableReducer.dataSource1} columns={columns} />
           </div>
           </div>
       );

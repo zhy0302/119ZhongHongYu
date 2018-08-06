@@ -27,10 +27,10 @@ const init_state = {
                 }
                 case ActionType.FETCH_USER+"_SUC":
                 const userInfo ={...state};        
-                userInfo.user=[action.data.data];
+                userInfo.user=[action.response];
                 //userInfo.map=[action.data.data];
-                userInfo.img=action.data.data.hurl;
-                console.log(action.data.data.hurl);
+                userInfo.img=action.response.hurl;
+                console.log(action.response.hurl);
                 return userInfo;
             default:
             return state;

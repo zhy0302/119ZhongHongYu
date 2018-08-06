@@ -7,31 +7,22 @@ export function FETCH_SEARCH_LIST(mid) {
     mid
   }
 }
-
-export function init_state1(text) {
-  return {
-    type: FETCH_MSG + "_SUC",
-    text
-  }
-}
 export function FETCH_USER(mid) {
-  // console.log("that is ...")
   return {
     SERVER_API: {
       type: ActionType.FETCH_USER,
-      url: "http://xly-wkop.xiaoniangao.cn/getUserInfo",
+       endpoint: '/getUserInfo',
       params: {
         mid
       }
     }
   }
 }
-
 export function FETCH_MSG(mid) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_MSG,
-      url: ` http://xly-wkop.xiaoniangao.cn/getLessonInfo`,
+      endpoint: '/getLessonInfo',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         mid
@@ -43,7 +34,7 @@ export function FETCH_XYDA(id) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_XYDA,
-      url: ` http://xly-wkop.xiaoniangao.cn/getStudentList`,
+      endpoint: `/getStudentList`,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         id
@@ -55,7 +46,7 @@ export function FETCH_CLASS(id) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_CLASS,
-      url: ` http://xly-wkop.xiaoniangao.cn/getClassInfo`,
+      endpoint: `/getClassInfo`,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         id
@@ -67,11 +58,17 @@ export function FETCH_SATIFY(mid) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_SATIFY,
-      url: ` http://xly-wkop.xiaoniangao.cn/getSatisfiledList`,
+      endpoint: `/getSatisfiledList`,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         mid
       }
     }
   }
+}
+export function change(index){
+return{
+  type:ActionType.CHANGE,
+  index
+}  
 }

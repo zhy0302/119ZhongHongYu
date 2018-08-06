@@ -4,3 +4,4 @@
    export const FETCH_CLASS='FETCH_CLASS';
    export const FETCH_SEARCH_LIST='FETCH_SEARCH_LIST';
    export const FETCH_SATIFY='FETCH_SATIFY';
+   export const CHANGE='CHANGE';

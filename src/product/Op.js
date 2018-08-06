@@ -14,10 +14,8 @@ class Op extends React.Component {
   state = {
     inputVal: ''
   };
-  componentWillMount() {
-    const { inputVal } = this.state;
+  componentDidMount() {
     const { todoActions } = this.props
-    const { dispatch } = this.props;
     todoActions.FETCH_USER('1001');
     todoActions.FETCH_MSG('1001');
     todoActions.FETCH_XYDA('1001');
@@ -42,7 +40,6 @@ class Op extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  //console.log(state)
   const props = state;
   return props;
 }

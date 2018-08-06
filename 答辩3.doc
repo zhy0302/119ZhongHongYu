@@ -1,6 +1,6 @@
 1.ant design的引用和使用
    ant design 提供了一套非常完整的组件化设计规范与组件化编码规范，提高了产品设计效率和质量
-
+   Function(text, record, index) {}生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，
 2.axios
    Axios 是一个基于 promise 的 HTTP 库，提供几种请求方法
    当发起一个action时，当检测到action中有promise对象，他会对action中的 type,url，params
@@ -13,10 +13,34 @@
    放在action和reducer之间
    特点：可插拔、可无限延展、前后可依赖
 
-4.route：每个Route就是一个路由规则，path对应路径，component即对应要显示的容器组件，即页面。
+  实现这种链式调用的效果。可以让 middleware 以方法参数的形式接受一个 next() 方法。
+
+
+4.SPA：单页Web应用，就是只有一张Web页面的应用，SPA不做页面刷新，只做局部更新。
+
+5.route：每个Route就是一个路由规则，path对应路径，component即对应要显示的容器组件，即页面。
   route根据Url决定渲染哪个页面，可以用<Link to=">或goBack来进行页面的跳转
+  通过router声明了一份含有path to component的各个映射的路由表。react-router提供Link组件，
+  触发Link后将通过如上定义的路由表进行匹配，拿到对应的component及state进行render渲染。
+  const routes = [{
+         path: '/',
+         component: App,
+         indexRoute: { component: UserInfo },
+         childRoutes: [
+             { path: 'userInfo', component: UserInfo },
+             { path: 'op/:mid', component: Op },
+             { path: 'classInfo/:classId', component: ClassInfo },（加括号就可以不用传参）
+         ]
+     }]
+     ReactDOM.render(
+         <Router routes={routes} history={browserHistory}/>
+         , document.getElementById('root'));
+     registerServiceWorker();
+6.<Redirect from=" " to=" " />可以设置重定向到其他 route 而不改变旧的 URL。
 
-5.SPA：单页Web应用，就是只有一张Web页面的应用，SPA不做页面刷新，只做局部更新。
+7.一个 history 知道如何去监听浏览器地址栏的变化， 并解析这个 URL 转化为 location 对象， 
+然后 router 使用它匹配到路由，最后正确地渲染对应的组件。
 
-6.扁平化：一般用在数据整合上面，当数组里有对象，对象里又嵌套多个时，用扁平化较好，可以在对象里面立即
+
+8.扁平化：一般用在数据整合上面，当数组里有对象，对象里又嵌套多个时，用扁平化较好，可以在对象里面立即
   找到索引，可以降低代码复杂度

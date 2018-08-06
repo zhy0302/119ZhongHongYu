@@ -4,50 +4,7 @@ import { Icon} from 'antd'
 import icon1 from '../ClassTable/img/duihao.png';
 import icon2 from '../ClassTable/img/duihao.png';
 const init_state3 = {
-    user1:[{
-    }],
-    map1:[{
-        name:'班级',
-        id:'班级ID',
-        name:'老师',
-        mid:'ID',
-        wx_code:'微信',
-        history_pay:'负责员工',
-        lastLoginDate:'ID',    
-        wx_code:'微信',
-    }],
-  icon:[{
-     icon1,
-     icon2
-  }],
-  dataSource3: [{
-    key: '0',
-    course_name: '高级班',
-    time: '进行中',
-    enter_status: '2017-04-20',
-    homework_status:'3/21',
-    review_status:'67.98',
-    clockin_status:'3/21',
-    satisfied_score:'67.98'
-  }, {
-    key: '1',
-    course_name: '高级班',
-    time: '进行中',
-    enter_status: '2017-04-20',
-    homework_status:'3/21',
-    review_status:'67.98',
-    clockin_status:'3/21',
-    satisfied_score:'67.98'
-  },
-{ key: '2',
-  course_name: '1',
-  time: '2017-04-21',
-  enter_status:'小白老师',
-  homework_status:'20/21',
-  review_status:'76.89',
-  clockin_status:'3/21',
-    satisfied_score:'67.98'
-}],
+  dataSource3: [],
    columns3: [{
     title: '课程内容',
     dataIndex: 'course_name',
@@ -138,8 +95,8 @@ const init_state3 = {
     }
         case ActionType.FETCH_CLASS+"_SUC":
         const ClasstData ={...state};   
-        console.log(action.data.data);      
-        ClasstData.dataSource3=action.data.data.list;
+        console.log(action.response);      
+        ClasstData.dataSource3=action.response.list;
         // ClasstData.user1=[action.data.data.basic_info]
         // ClasstData.map1=[action.data.data.basic_info.real_reacher]
         return ClasstData;

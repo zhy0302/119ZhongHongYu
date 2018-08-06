@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import '../ButtonBox/ButtonBox.css';
+import {Link} from 'react-router';
 import{Input, Select, AutoComplete,Button} from 'antd';
 //import {Link} from 'react-router';
 export default class ButtonBox extends Component {
   constructor(props){
   super(props);
   }
-  // ShowBack(){
-  //   const {router}=this.props;
-  //   router.goBack()
-  // }
   render() {
     return (
       <div className="buttonbox-wrapper">

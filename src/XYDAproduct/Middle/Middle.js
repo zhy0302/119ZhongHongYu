@@ -3,7 +3,7 @@ import {Table, Input, Select, AutoComplete, Button } from 'antd';
 //import'./Table.css';
 const InputGroup = Input.Group;
 const Option = Select.Option;
-export default class Tables1 extends Component {
+export default class Tables1__ extends Component {
   constructor() {
     super();
     this.state = {
