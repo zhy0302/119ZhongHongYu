@@ -11,9 +11,7 @@ class ClassDetal extends React.Component {
     inputVal: ''
   };
   componentWillMount() {
-    const { inputVal } = this.state;
     const { todoActions } = this.props
-    const { dispatch } = this.props;
     todoActions.FETCH_USER('1001');
     todoActions.FETCH_MSG('1001');
     todoActions.FETCH_XYDA('1001');

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Icon, Tabs, Table, Button ,Popover} from 'antd';
 import {Link} from 'react-router';
+
 import ButtonBox_Q from '../ButtonBox/ButtonBox';
 export default class ButtonBox extends Component {
     callback = (key) => {
@@ -10,22 +11,15 @@ export default class ButtonBox extends Component {
     const { todoActions } = this.props;
     todoActions.change(index)
   }
-  SelectRowClass=(record)=>{
+  SelectRowClass=(record,e)=>{
       return{
         onClick:()=>{
             this.props.state.router.push('/Test')
-            console.log(this.props)
+            
         },
     };
-  }
-  SelectRowSatify=(record)=>{
-    return{
-      onClick:()=>{
-          this.props.state.router.push('/ClassDetal')
-          console.log(this.props)
-      },
-  };
-}
+  }   
+ 
     render() {
         const columns=[
             {
@@ -124,7 +118,6 @@ export default class ButtonBox extends Component {
             }
         }
     ]
-
         const columns1 = [{
     title: '课程',
     dataIndex: 'class_info.name',
@@ -141,7 +134,8 @@ export default class ButtonBox extends Component {
     title: '老师',
     dataIndex: 'teacher_info',
     key: 'teacher_info',
-    render: (text,record) => {
+    render: (text,record,e) => {
+        console.log(e)
       return  <span>
                 <Popover title={`昵称：${text.nick}  ID：${text.id} 
                 姓名：${text.real_name} mid：${text.mid}
@@ -162,7 +156,7 @@ export default class ButtonBox extends Component {
     title: '操作',
     dataIndex: 'reply_status',
     key: 'reply_status',
-    render:(text,record,index)=>{
+    render:(text,record,index,e)=>{
       if(text==0){
           return <div className="aa" onClick={()=>this.click(index)}>待回复<Icon type="mail" /></div>
       }
@@ -173,21 +167,41 @@ export default class ButtonBox extends Component {
   }]
         const TabPane = Tabs.TabPane;
         const { state } = this.props;
+//         const {list,entities}=this.props;
+//         console.log(list)      
+//         let newList=list;
+//          if(list){
+//          newList=list.map(t=>{
+//         const satifiled=list.entities.satifiled[t];
+        
+//         return{
+//             ...satifiled,
+//             class_info:list.entities.classes[satifiled.class_info],
+//             teacher_info:list.entities.teacher_info[satifiled.teacher_info]
+//         }
+//     })
+// }
         console.log(this.props)
         return (
             <Tabs defaultActiveKey="0">
                 <TabPane tab="课程信息" key="0">
                     <ButtonBox_Q/>
-                        <div className="first">在学课程
+                        <div className="first">在学课程 
+                        
                     <Table onRow={(record)=>this.SelectRowClass(record)} dataSource={state.TableReducer.dataSource} columns={columns} />
+                   
                         </div>
                         <div className="second">历史数据
+                        
                     <Table onRow={(record)=>this.SelectRowClass(record)} dataSource={state.TableReducer.dataSource1} columns={columns} />
                     </div>
                 </TabPane>
                 <TabPane tab="满意度反馈" key="1" >
-                    <div className="satify">
-                        <Table onRow={(record)=>this.SelectRowSatify(record)} dataSource={state.SatifyReducer.dataSource} columns={columns1} />
+                <Link  to="/ClassDetal"><ButtonBox_Q/></Link>
+                    <div className="satify"> 
+                        <Table  dataSource={state.SatifyReducer.dataSource} columns={columns1} />
+                       
+                        
                     </div>
                 </TabPane>
             </Tabs>

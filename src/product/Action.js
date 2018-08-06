@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as ActionType from './ActionType';
-
+import{normalize}from 'normalizr';
+import  Schema from './reducer/Schema';
 export function FETCH_SEARCH_LIST(mid) {
   return {
     type: ActionType.FETCH_SEARCH_LIST,
@@ -26,7 +27,13 @@ export function FETCH_MSG(mid) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
         mid
-      }
+      },
+     normalizeFuc: json => {
+       return {
+         current: normalize(json.currentLessonsList, Schema.lessonListSchema),
+         history: normalize(json.historyLessonsList, Schema.lessonListSchema)
+       };
+     }
     }
   }
 }
@@ -63,7 +70,8 @@ export function FETCH_SATIFY(mid) {
       params: {
         mid
       }
-    }
+    },
+    normailzerFuc:response=> normalize(response.data.list, Schema.SATISFILEDLIST)
   }
 }
 export function change(index){

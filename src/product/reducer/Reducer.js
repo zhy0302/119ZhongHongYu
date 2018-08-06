@@ -4,7 +4,11 @@ import  HeaderReducer from './HeaderReducer';
 import  xydaReducer from './xydaReducer';
 import ClassReducer from './ClassReducer';
 import SatifyReducer from './SatifyReducer';
+import Entities from './Entities';
+import Lesson from './Lesson'
 export default combineReducers({
+   // Entities,
+    //Lesson,
     TableReducer,
     HeaderReducer,
     xydaReducer,

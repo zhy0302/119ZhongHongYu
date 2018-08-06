@@ -1,4 +1,5 @@
 import * as ActionType from "../ActionType";
+import Entities from "./Entities";
 const init_state3 = {
   dataSource: []
 };
@@ -11,7 +12,7 @@ const init_state3 = {
     }
         case ActionType.FETCH_SATIFY+"_SUC":
         const SatifytData ={...state};   
-        console.log(action.data);      
+        console.log(state);      
         SatifytData.dataSource=action.response.list;
         // SatifytData.user1=[action.data.data.basic_info]
         // SatifytData.map1=[action.data.data.basic_info.real_reacher]
@@ -19,6 +20,7 @@ const init_state3 = {
         case ActionType.CHANGE:
           const newChange={...state};
           newChange.dataSource[action.index].reply_status=1;
+          
           return newChange
 default:
 return state;
