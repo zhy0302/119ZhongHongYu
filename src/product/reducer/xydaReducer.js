@@ -1,7 +1,10 @@
 import * as ActionType from "../ActionType";
 import React, { Component } from 'react';
 const init_state2 = {
-  dataSource2: [],
+  dataSource2: {
+    entities:{},
+    result:[]
+  },
    columns2: [{
     title: '学员名',
     dataIndex: 'nick',
@@ -36,9 +39,9 @@ const init_state2 = {
         return newState;
     }
         case ActionType.FETCH_XYDA+"_SUC":
-        const StudentData ={...state};        
-        // StudentData.dataSource2=action.response;
-        // console.log(action.response);
+        const StudentData ={...state};  
+         console.log(action);     
+         StudentData.dataSource2=action.response;  
         return StudentData;
 
         case  ActionType.FETCH_SEARCH_LIST:

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { normalize } from '../../../node_modules/normalizr';
 const API_DOMAIN = 'http://xly-wkop.xiaoniangao.cn';
 const callServerApi = (endpoint, params) => {
   return new Promise((resolve, reject) => {
@@ -14,6 +13,7 @@ const callServerApi = (endpoint, params) => {
       if (res.data.ret === 1) {
         return resolve(res.data.data);
         // return resolve(normalizeFuc ? normalizeFuc(res.data.data) : res.data.data);
+
       }
       return reject({ errMsg: res.data.errMsg });
     }).catch(err => {
@@ -48,7 +48,9 @@ export default store => next => action => {
   });
 return callServerApi(endpoint, params)
     .then(response => {
+      console.log(response)
       const res = typeof (normailzerFun) !== 'undefined' ? normailzerFun(response) :response;
+      console.log(res)
       next({
         type: `${type}_SUC`,
         response:res

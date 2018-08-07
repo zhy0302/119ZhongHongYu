@@ -10,6 +10,7 @@ import rootReducer from './product/reducer/Reducer';
 import Op from './product/Op';
 import Test from './XYDAproduct/Test';
 import ClassDetal from './CLASSproduct/ClassDetal';
+import Evaluate from './Evaluate/Evaluate';
 import { createLogger } from 'redux-logger';
 import serverApi from './product/middleware/serverApi';
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -22,6 +23,7 @@ const routes = <Route path="/" component={App}>
     <Route path="Op" component={Op} />
     <Route path="ClassDetal" component={ClassDetal}/>
     <Route path="Test" component={Test}/>
+    <Route path="Evaluate" component={Evaluate}/>
   </Route>
 ReactDOM.render(
     <Provider store={store}>

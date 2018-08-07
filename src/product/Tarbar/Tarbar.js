@@ -171,7 +171,6 @@ export default class ButtonBox extends Component {
         if(list.result){
             newList = list.result.map(t => {
                 const satisfiled1 = list.entities.satisfiled[t]; 
-               // console.log(list)
                 return {
                     ...satisfiled1,
                     class_info: list.entities.classes[satisfiled1.class_info],
@@ -179,25 +178,49 @@ export default class ButtonBox extends Component {
                   }
             })
         }
-
+        
+        // const currentlist = state.TableReducer.dataSource1;
+        // const historylist = state.TableReducer.dataSource2;
+        // let newcurrentList,newHistoryList;
+        // console.log(state.TableReducer.dataSource1)
+        // if(list.result) {
+        //     newcurrentList = currentlist.result.map(t => {
+        //         const currInfo = currentlist.entities.classInfo[t];
+        //         return {
+        //             ...currInfo,
+        //             teacherInfo:currentlist.entities.teachers[currInfo.teacherInfo],
+        //             classInfo: currentlist.entities.classes[currInfo.classInfo],
+        //         }
+        //     })
+        // }
+        // if(historylist.result) {
+        //     newHistoryList = historylist.result.map(t => {
+        //         const listInfo =  historylist.entities.classInfo[t];
+        //         return {
+        //             ...listInfo,
+        //             teacherInfo:historylist.entities.teachers[listInfo.teacherInfo],
+        //             classInfo: historylist.entities.classes[listInfo.classInfo],
+        //         }
+        //     })
+        // }
         return (
             <Tabs defaultActiveKey="0">
                 <TabPane tab="课程信息" key="0">
-                    <ButtonBox_Q/>
+                <Link  to="/Evaluate"><ButtonBox_Q/></Link>
                         <div className="first">在学课程 
-                        
-                    <Table onRow={(record)=>this.SelectRowClass(record)} dataSource={state.TableReducer.dataSource} columns={columns} />
+                        <Table    columns={columns} /> 
+                    {/* <Table onRow={(record)=>this.SelectRowClass(record)}  columns={columns} /> */}
                    
                         </div>
                         <div className="second">历史数据
                         
-                    <Table onRow={(record)=>this.SelectRowClass(record)} dataSource={state.TableReducer.dataSource1} columns={columns} />
+                    <Table    columns={columns} />
                     </div>
                 </TabPane>
                 <TabPane tab="满意度反馈" key="1" >
                 <Link  to="/ClassDetal"><ButtonBox_Q/></Link>
                     <div className="satify"> 
-                        {/* <Table  dataSource={state.SatifyReducer.dataSource} columns={columns1} /> */}      
+       
                         <Table  dataSource={newList} columns={columns1} />
                     </div>
                 </TabPane>

@@ -57,6 +57,15 @@ export default class Tables1 extends Component {
     }]
     const { state } = this.props;
     console.log(this.props)
+    const list2 = this.props.state.xydaReducer.dataSource2;
+    let newList2;
+    console.log(list2)
+    if(list2.result){
+        newList2 = list2.result.map(t =>{
+            return list2.entities.studentList[t];
+        })
+    }
+
     return (
       <div>
         <div className='right_button'>
@@ -75,7 +84,8 @@ export default class Tables1 extends Component {
           </InputGroup> 
         </div>
         <div className="table">
-          <Table dataSource={state.xydaReducer.dataSource2} columns={columns2} />
+          {/* <Table dataSource={state.xydaReducer.dataSource2} columns={columns2} /> */}
+           <Table dataSource={newList2} columns={columns2} />
         </div>
       </div>
     );
