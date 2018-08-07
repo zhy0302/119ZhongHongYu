@@ -94,14 +94,15 @@ export function FETCH_SATIFY(mid) {
   }
 }
 
-export function FETCH_HOMEWORK(mid) {
+export function FETCH_HOMEWORK(token,isReviewed) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_HOMEWORK,
       endpoint: `/getHomeWork`,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {
-        mid
+        token,
+        isReviewed
       },
       normailzerFun: response => {
         console.log(response)

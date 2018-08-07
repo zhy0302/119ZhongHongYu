@@ -18,12 +18,13 @@ const init_state3 = {
     }
         case ActionType.FETCH_CLASS+"_SUC":
         const ClasstData ={...state};   
-        console.log(action)    
-        ClasstData.dataSource3=action.response;
-        // ClasstData.user1=[action.data.data.basic_info]
-        // ClasstData.map1=[action.data.data.basic_info.real_reacher]
-        console.log(ClasstData) 
-        return ClasstData;
+        // console.log(action)    
+        // ClasstData.dataSource3=action.response;
+        // // ClasstData.user1=[action.data.data.basic_info]
+        // // ClasstData.map1=[action.data.data.basic_info.real_reacher]
+        // console.log(ClasstData) 
+        // return ClasstData; 
+        return action.response.result;
 default:
 return state;
 }

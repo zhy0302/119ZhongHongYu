@@ -1,76 +1,65 @@
 import React, { Component } from 'react';
-import { Button, Input, Carousel, Table, List, Avatar } from 'antd';
+import { Button, Input, Carousel, Table, Switch, Avatar } from 'antd';
 import '../evaluatePage/Evapage.css';
-import Item from '../../../node_modules/antd/lib/list/Item';
-import Column from '../../../node_modules/antd/lib/table/Column';
 const icon = require('../../icon/smile.png');
-
-export default class Evapage extends Component {
-    render() {
-        const columns=[{
-            // mid:'',
-            // nick:'',
-            // id: '',
-            // name:'',
-            // photos: '',
-            description: '作业',
-            author: 'mid',
-            classInfo: '',
-            commentator: '点评人',
-            time: '提交时间',
-        }];
-        // const data = [
-        //     'mid:',
-        //     '作业',
-        //     '点评人',
-        //     '提交时间',
-        //   ];
-        const { state } = this.props;  
-        
-         const list = state.HomeworkReducer.dataSource; 
-         console.log(list)      
-         let newList;
-        if(list.result){
-            newList = list.result.map(t => {
-                const homeworkList1 = list.entities.homeworkList[t]; 
-                return  {
-                    ...homeworkList1,
-                }
+//import { Col,Row } from 'antd/lib/grid';
+export default class MyUnfinshed extends Component {
+    showDiv = () =>{
+        const { state } = this.props;
+        const list = state.HomeworkReducer;
+        let newList;
+        if (list) {
+            return newList = list.map(id => {
+                const homeworkList = state.Entities.homeworkList[id];
+                return (
+                    <div >
+                            {
+                                this.imgShow(homeworkList.photos)
+                            }
+                       <div>
+                        <span>No.{homeworkList.id}</span>
+                        <span>作业：{homeworkList.description}</span>
+                         <span>
+                             {state.Entities.classes[homeworkList.classInfo].name} 
+                         </span>
+                         <span>
+                             {state.Entities.teacher[homeworkList.teacherInfo].nick}
+                         </span><br/>
+                        <span>点评人：{homeworkList.commentator}</span>
+                        <span>
+                             提交时间:{homeworkList.time}
+                         </span>
+                         <div className='authorContent'>
+                        佳作:<Switch defaultChecked onChange={this.onChange} />
+                         </div>
+                         </div>
+                         <div classNmae='submit'>
+                               <div className='submitInput'>
+                              <Input placeholder="Basic usage" />
+                              </div>
+                             <Button  className=''>提交</Button>
+                        </div>   
+                    </div>
+                )
             })
         }
-        console.log(newList)
+    }
+
+    imgShow = (item) =>{
+        return item.map(idx =>{
+            return (
+                <img src={idx} />
+            )
+        })
+    }
+
+    render() {     
         return (
-            <div>
-                <div className="left">
-                            <Carousel autoplay >
-                                <div><Avatar shape="square" src={icon} /></div>
-                                <div><Avatar shape="square" src={icon}/></div>
-                                <div><h3>3</h3></div>
-                            </Carousel>
-                </div>
-                 {/* <List
-                //   header={<div>Header</div>}
-                //   footer={<div>Footer</div>}
-                  bordered
-                  dataSource={columns}
-                  renderItem={item => (<List.Item>{item}</List.Item>)}
-                    /> */}
-                <div className="cont" >
-                {/* <Table  dataSource={newList}  columns={columns} />  */}
-                </div>
-                            {/* <Input placeholder="default size" width="50%" />
-                            <Button>Default</Button> */}
-
-                        
-                
-
-                <div className="right"> 
-
+            <div className="content_left">
+                {
+                    this.showDiv()
+                }
             </div>
-            </div>
-
-
-
         )
     }
 }

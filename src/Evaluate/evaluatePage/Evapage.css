@@ -10,9 +10,22 @@
   .ant-carousel .slick-slide h3 {
     color:#fff;
   }
-  .left{
-     width:70%;
-  }
-  .right{
-    width:30%;
- }
+  .content_left{
+    width:70%;
+    
+}
+.content_left img{
+  width: 18%;
+  margin-left: 1%;
+}
+.submit { 
+  border: 1px solid #e0e0e0;
+  height:100px;
+}
+.submitInput{
+  float: left;
+  width: 80%;
+}
+.authorContent{
+  float: right;
+}

@@ -3,7 +3,7 @@ import { schema } from 'normalizr';
 const classes = new schema.Entity('classes', {}, {
   idAttribute: 'id'
 });
-const teacher = new schema.Entity('teachers',{},{
+const teacher = new schema.Entity('teacher',{},{
   idAttribute:'id'
 })
 
@@ -27,7 +27,10 @@ const classInfo = new schema.Entity('classInfo',{
   idAttribute:'id'
 })
 
-const homeworkList = new schema.Entity('homeworkList',{},{
+const homeworkList = new schema.Entity('homeworkList',{
+  classInfo:classes,
+  teacherInfo:teacher 
+},{
   idAttribute:'id'
 })
 export const SATISFILEDLIST = [ satisfiled ];

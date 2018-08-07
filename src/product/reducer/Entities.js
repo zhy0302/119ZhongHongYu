@@ -9,20 +9,33 @@ function classes(state = {}, action) {
                 ...entities.classes
             };
         }
+        case `${ActionType.FETCH_HOMEWORK}_SUC`: {
+            const entities = action.response.entities
+            return {
+                ...state,
+                ...entities.classes,
+            };
+        }
         default:
             return state;
     }
 }
-function teachers(state = {}, action) {
+function teacher(state = {}, action) {
     switch (action.type) {
         case `${ActionType.FETCH_SATIFY}_SUC`: {
             const entities = action.response.entities
             return {
                 ...state,
-                ...entities.teachers
+                ...entities.teacher
             };
         }
-        
+        case `${ActionType.FETCH_HOMEWORK}_SUC`: {
+            const entities = action.response.entities
+            return {
+                ...state,
+                ...entities.teacher,
+            };
+        }
         default:
             return state;
     }
@@ -55,7 +68,6 @@ function classInfo(state = {}, action) {
         default:
             return state;
     }
-    return state;
 }
 
 function studentList(state = {}, action) {
@@ -70,26 +82,28 @@ function studentList(state = {}, action) {
         default:
             return state;
     }
-    return state;
 }
 function homeworkList(state = {}, action) {
     switch (action.type) {
         case `${ActionType.FETCH_HOMEWORK}_SUC`: {
             const entities = action.response.entities
+            const result=action.response.result
             return {
                 ...state,
-                ...entities.homeworkList
+                ...entities.homeworkList,
             };
         }
         default:
             return state;
     }
 }
+
 export default combineReducers({
     classes,
-    teachers,
+    teacher,
     satisfied,
     classInfo,
     studentList,
-    homeworkList
+    homeworkList,
+
 });
