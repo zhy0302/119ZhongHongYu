@@ -11,12 +11,11 @@
     color:#fff;
   }
   .content_left{
-    width:70%;
-    
+    width:60%;  
 }
 .content_left img{
   width: 18%;
-  margin-left: 1%;
+  margin-left: 1%; 
 }
 .submit { 
   border: 1px solid #e0e0e0;
@@ -28,4 +27,27 @@
 }
 .authorContent{
   float: right;
+ 
+}
+.content_right{
+  width:36%;  
+ margin-top: -210%;
+  margin-left: 40%; 
+}
+.content_left1{
+  width:60%;  
+}
+.content_right1{
+  width:30%;  
+ margin-top: -100%;
+  margin-left: 60%; 
+}
+/* .Time{
+  float: right;
+} */
+.commment{
+  border-bottom: 1px solid #e0e0e0;
+}
+.back{
+  color:red;
 }

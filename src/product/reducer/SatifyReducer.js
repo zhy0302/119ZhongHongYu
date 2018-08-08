@@ -14,9 +14,10 @@ const init_state3 = {
         return newState;
     }
         case ActionType.FETCH_SATIFY+"_SUC":
-        const SatifytData ={...state};   
-        SatifytData.dataSource=action.response;
-        return SatifytData;
+        // const SatifytData ={...state};   
+        // SatifytData.dataSource=action.response;
+        // return SatifytData;
+         return action.response.result
 
         case ActionType.CHANGE:
           const newChange={...state};

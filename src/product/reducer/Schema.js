@@ -26,13 +26,20 @@ const classInfo = new schema.Entity('classInfo',{
 },{
   idAttribute:'id'
 })
-
-const homeworkList = new schema.Entity('homeworkList',{
-  classInfo:classes,
-  teacherInfo:teacher 
+const comments1 = new schema.Entity('comments1',{
 },{
   idAttribute:'id'
 })
+const comments=[comments1]
+const homeworkList = new schema.Entity('homeworkList',{
+  classInfo:classes,
+  teacherInfo:teacher,
+  comments:comments
+},{
+  idAttribute:'id'
+})
+
+
 export const SATISFILEDLIST = [ satisfiled ];
 export const STUDENTLIST =[studentList ];
 export const CLASSINFO =[classInfo];

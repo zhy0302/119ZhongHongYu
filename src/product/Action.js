@@ -67,12 +67,13 @@ export function FETCH_CLASS(id) {
         id
       },
       normailzerFun: response => {
-        console.log(response)
-        const list = normalize(response.list, schema.BASICINFO)
-        return {
-          ...response.basic_info,
-          list
-        }
+        console.log(response.list)
+       // const list = normalize(response.list, schema.BASICINFO)
+        // return {
+        //   ...response.basic_info,
+        //   list
+        return normalize(response.list, schema.BASICINFO)
+       // }
       }
     }
   }
@@ -98,6 +99,58 @@ export function FETCH_HOMEWORK(token,isReviewed) {
   return {
     SERVER_API: {
       type: ActionType.FETCH_HOMEWORK,
+      endpoint: `/getHomeWork`,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      params: {
+        token,
+        isReviewed
+      },
+      normailzerFun: response => {
+        console.log(response)
+        return normalize(response, schema.HOMEWORKLIST)
+      }
+    }
+  }
+}
+
+export function FETCH_HOMEWORK_MYFINISHED(token,isReviewed) {
+  return {
+    SERVER_API: {
+      type: ActionType.FETCH_HOMEWORK_MYFINISHED,
+      endpoint: `/getHomeWork`,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      params: {
+        token,
+        isReviewed
+      },
+      normailzerFun: response => {
+        console.log(response)
+        return normalize(response, schema.HOMEWORKLIST)
+      }
+    }
+  }
+}
+export function FETCH_HOMEWORK_ALLFINISHED(token,isReviewed) {
+  return {
+    SERVER_API: {
+      type: ActionType.FETCH_HOMEWORK_ALLFINISHED,
+      endpoint: `/getHomeWork`,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      params: {
+        token,
+        isReviewed
+      },
+      normailzerFun: response => {
+        console.log(response)
+        return normalize(response, schema.HOMEWORKLIST)
+      }
+    }
+  }
+}
+export function FETCH_HOMEWORK_ALLUNFINISHED(token,isReviewed) {
+  return {
+    SERVER_API: {
+      type: ActionType.FETCH_HOMEWORK_ALLUNFINISHED,
       endpoint: `/getHomeWork`,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       params: {

@@ -13,14 +13,14 @@ class Evaluate extends React.Component {
   };
   componentWillMount() {
     const { todoActions } = this.props
-    todoActions.FETCH_USER('1001');
-    todoActions.FETCH_MSG('1001');
-    todoActions.FETCH_XYDA('1001');
-    todoActions.FETCH_CLASS('1001');
+    // todoActions.FETCH_USER('1001');
+    // todoActions.FETCH_MSG('1001');
+    // todoActions.FETCH_XYDA('1001');
+    // todoActions.FETCH_CLASS('1001');
     todoActions.FETCH_HOMEWORK(0,0);
-
-    // console.log(todoCreatoraction.FETCH_USER)
-    //todoCreatoraction.FETCH_MSG(inputVal,dispatch);
+    todoActions.FETCH_HOMEWORK_MYFINISHED(1,0);
+    todoActions.FETCH_HOMEWORK_ALLFINISHED(0,1);
+    todoActions.FETCH_HOMEWORK_ALLUNFINISHED(1,1);
   }
   render() {
     const { todoActions } = this.props;

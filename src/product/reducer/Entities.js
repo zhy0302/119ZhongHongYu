@@ -44,6 +44,7 @@ function satisfied(state = {}, action) {
     switch (action.type) {
         case `${ActionType.FETCH_SATIFY}_SUC`: {
             const entities = action.response.entities
+            const result=action.response.result
             return {
                 ...state,
                 ...entities.satisfiled
@@ -85,12 +86,46 @@ function studentList(state = {}, action) {
 }
 function homeworkList(state = {}, action) {
     switch (action.type) {
+        case `${ActionType.FETCH_HOMEWORK_ALLUNFINISHED}_SUC`:
+        case `${ActionType.FETCH_HOMEWORK_ALLFINISHED}_SUC`:
+        case `${ActionType.FETCH_HOMEWORK_MYFINISHED}_SUC`:
         case `${ActionType.FETCH_HOMEWORK}_SUC`: {
             const entities = action.response.entities
             const result=action.response.result
             return {
                 ...state,
                 ...entities.homeworkList,
+            };
+        }
+        default:
+            return state;
+    }
+}
+function basicInfo(state = {}, action) {
+    switch (action.type) {
+        case `${ActionType.FETCH_CLASS}_SUC`: {
+            const entities = action.response.entities
+            const result=action.response.result
+            return {
+                ...state,
+                ...entities.basicInfo,
+            };
+        }
+        default:
+            return state;
+    }
+}
+function comments(state = {}, action) {
+    switch (action.type) {
+        case `${ActionType.FETCH_HOMEWORK_ALLUNFINISHED}_SUC`:
+        case `${ActionType.FETCH_HOMEWORK_ALLFINISHED}_SUC`:
+        case `${ActionType.FETCH_HOMEWORK_MYFINISHED}_SUC`:
+        case `${ActionType.FETCH_HOMEWORK}_SUC`: {
+            const entities = action.response.entities
+            const result=action.response.result
+            return {
+                ...state,
+                ...entities.comments1,
             };
         }
         default:
@@ -105,5 +140,6 @@ export default combineReducers({
     classInfo,
     studentList,
     homeworkList,
-
+    basicInfo,
+    comments
 });

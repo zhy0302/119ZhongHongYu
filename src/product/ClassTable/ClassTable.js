@@ -94,7 +94,7 @@ handleReturn= () => {
       }
     ]
     const {state} = this.props;
-    const list = this.props.state.ClassReducer.dataSource3;
+    const list = state.ClassReducer.dataSource3;
     let newList;
     console.log(list)
     if(list.list.result){

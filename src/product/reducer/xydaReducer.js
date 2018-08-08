@@ -39,6 +39,9 @@ const init_state2 = {
         return newState;
     }
         case ActionType.FETCH_XYDA+"_SUC":
+        // const Data ={...state};   
+        // Data.dataSource=action.response;
+        // return Data;
         return action.response.result;
 
         case  ActionType.FETCH_SEARCH_LIST:
