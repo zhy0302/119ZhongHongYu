@@ -12,7 +12,7 @@ export default class AllFinished extends Component {
                 //console.log(homeworkList.comments)
                 return (
                     <div >
-                        <div className="content_left">
+                        <div className="content_left_carousel">
                         <Carousel autoplay>
                             {
                                 this.imgShow(homeworkList.photos)
@@ -51,7 +51,6 @@ export default class AllFinished extends Component {
         const { state } = this.props;
         const list1 = state.AllFinishedReducer;
         let newList;
-        console.log(state.AllFinishedReducer)
         return newList = list1.map(idx => {
             //const comments =state.Entities.comments[state.Entities.homeworkList[idx]];
             const newComments = state.Entities.homeworkList[idx].comments.map(item => {
@@ -59,10 +58,7 @@ export default class AllFinished extends Component {
                     state.Entities.comments[item]
                 )
             })
-            
-            console.log(newComments)
           return  newComments.map(item =>{
-                console.log(item.nick)
                 if (item.from=='author') {
                     return (
                         <div >
@@ -78,6 +74,7 @@ export default class AllFinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
+                            <Button>退回</Button>
                             <p className='back'>(消息被退回,退回原因:{item.reason})</p>
                         </div>
                     )

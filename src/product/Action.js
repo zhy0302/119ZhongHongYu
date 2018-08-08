@@ -8,6 +8,7 @@ export function FETCH_SEARCH_LIST(mid) {
     mid
   }
 }
+//用户信息--HeaderReducer--Header.js
 export function FETCH_USER(mid) {
   return {
     SERVER_API: {
@@ -19,6 +20,7 @@ export function FETCH_USER(mid) {
     }
   }
 }
+//课程信息--TableReducer--Table.js
 export function FETCH_MSG(mid) {
   return {
     SERVER_API: {
@@ -40,6 +42,7 @@ export function FETCH_MSG(mid) {
     }
   }
 }
+//学员档案--xydaReducer--Table1.js
 export function FETCH_XYDA(id) {
   return {
     SERVER_API: {
@@ -57,6 +60,7 @@ export function FETCH_XYDA(id) {
     }
   }
 }
+//上课详情--ClassReducer--ClassTable.js
 export function FETCH_CLASS(id) {
   return {
     SERVER_API: {
@@ -78,6 +82,7 @@ export function FETCH_CLASS(id) {
     }
   }
 }
+//满意度--SatifyReducer--Tarbar.js满意度反馈表
 export function FETCH_SATIFY(mid) {
   return {
     SERVER_API: {
@@ -88,13 +93,12 @@ export function FETCH_SATIFY(mid) {
         mid
       },
       normailzerFun: response => {
-        console.log(response)
         return normalize(response.list, schema.SATISFILEDLIST)
       }
     }
   }
 }
-
+//我的未点评
 export function FETCH_HOMEWORK(token,isReviewed) {
   return {
     SERVER_API: {
@@ -106,13 +110,12 @@ export function FETCH_HOMEWORK(token,isReviewed) {
         isReviewed
       },
       normailzerFun: response => {
-        console.log(response)
         return normalize(response, schema.HOMEWORKLIST)
       }
     }
   }
 }
-
+//我的点评历史
 export function FETCH_HOMEWORK_MYFINISHED(token,isReviewed) {
   return {
     SERVER_API: {
@@ -124,12 +127,12 @@ export function FETCH_HOMEWORK_MYFINISHED(token,isReviewed) {
         isReviewed
       },
       normailzerFun: response => {
-        console.log(response)
         return normalize(response, schema.HOMEWORKLIST)
       }
     }
   }
 }
+//全部点评
 export function FETCH_HOMEWORK_ALLFINISHED(token,isReviewed) {
   return {
     SERVER_API: {
@@ -141,12 +144,12 @@ export function FETCH_HOMEWORK_ALLFINISHED(token,isReviewed) {
         isReviewed
       },
       normailzerFun: response => {
-        console.log(response)
         return normalize(response, schema.HOMEWORKLIST)
       }
     }
   }
 }
+//全部未点评
 export function FETCH_HOMEWORK_ALLUNFINISHED(token,isReviewed) {
   return {
     SERVER_API: {
@@ -158,7 +161,6 @@ export function FETCH_HOMEWORK_ALLUNFINISHED(token,isReviewed) {
         isReviewed
       },
       normailzerFun: response => {
-        console.log(response)
         return normalize(response, schema.HOMEWORKLIST)
       }
     }

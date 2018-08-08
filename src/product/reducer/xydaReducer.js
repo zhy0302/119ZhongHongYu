@@ -1,35 +1,35 @@
 import * as ActionType from "../ActionType";
 import React, { Component } from 'react';
 const init_state2 = {
-  dataSource2: {
-    entities:{},
-    result:[]
-  },
-   columns2: [{
-    title: '学员名',
-    dataIndex: 'nick',
-    key: 'nick',
-  }, {
-    title: '学员编号',
-    dataIndex: 'mid',
-    key: 'mid',
-  }, {
-    title: '入学时间',
-    dataIndex: 'enter_time',
-    key: 'enter_time',
-  },{
-    title: '开课时间',
-    dataIndex: 'start_time',
-    key: 'start_time',
-  },{
-    title: '在学课程',
-    dataIndex: 'learning_lessons',
-    key: 'learning_lessons',
-  },{
-    title: '负责老师',
-    dataIndex: 'teachers',
-    key: 'teachers',
-  }],
+  // dataSource2: {
+  //   entities:{},
+  //   result:[]
+  // },
+  //  columns2: [{
+  //   title: '学员名',
+  //   dataIndex: 'nick',
+  //   key: 'nick',
+  // }, {
+  //   title: '学员编号',
+  //   dataIndex: 'mid',
+  //   key: 'mid',
+  // }, {
+  //   title: '入学时间',
+  //   dataIndex: 'enter_time',
+  //   key: 'enter_time',
+  // },{
+  //   title: '开课时间',
+  //   dataIndex: 'start_time',
+  //   key: 'start_time',
+  // },{
+  //   title: '在学课程',
+  //   dataIndex: 'learning_lessons',
+  //   key: 'learning_lessons',
+  // },{
+  //   title: '负责老师',
+  //   dataIndex: 'teachers',
+  //   key: 'teachers',
+  // }],
 
 };
   export default function xydaReducer(state = init_state2, action) {
@@ -42,7 +42,8 @@ const init_state2 = {
         // const Data ={...state};   
         // Data.dataSource=action.response;
         // return Data;
-        return action.response.result;
+        console.log(action.response)
+        return action.response;
 
         case  ActionType.FETCH_SEARCH_LIST:
         const SearchState = {...state};

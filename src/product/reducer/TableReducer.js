@@ -28,7 +28,7 @@ export default function TableReducer(state = init_state1, action) {
         case`${ ActionType.FETCH_MSG }_SUC`:
             const msg = { ...state };
              console.log(action.response.current);
-            // console.log(msg.dataSource1)
+             console.log(msg.dataSource1)
             msg.dataSource1 = action.response.current;
             msg.dataSource2 = action.response.history;
             return msg;

@@ -10,9 +10,9 @@
   .ant-carousel .slick-slide h3 {
     color:#fff;
   }
-  .content_left{
-    width:60%;  
-}
+  .content_left_carousel{
+    width:85%;
+  }
 .content_left img{
   width: 18%;
   margin-left: 1%; 
@@ -23,31 +23,37 @@
 }
 .submitInput{
   float: left;
-  width: 80%;
+  width: 50%;
 }
 .authorContent{
   float: right;
  
 }
-.content_right{
-  width:36%;  
- margin-top: -210%;
-  margin-left: 40%; 
-}
-.content_left1{
-  width:60%;  
-}
-.content_right1{
-  width:30%;  
- margin-top: -100%;
-  margin-left: 60%; 
-}
-/* .Time{
-  float: right;
-} */
 .commment{
   border-bottom: 1px solid #e0e0e0;
 }
 .back{
   color:red;
 }
+.cotent{
+  width:1000px;
+  overflow: hidden;
+  padding:10px;
+  border: 1px solid #364d79;
+}
+.content_right{
+    width:35%;  
+float:right;
+}
+.content_left{
+  width:65%;  
+float:left;
+margin-bottom: 30px;
+}
+.content_left ul li{
+  border: 1px solid #364d79;
+}
+
+
+
+

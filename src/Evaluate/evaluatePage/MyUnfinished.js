@@ -14,11 +14,9 @@ export default class MyUnfinished extends Component {
                 //console.log(homeworkList.comments)
                 return (
                     <div >
-                        <div className="content_left">
+                        <div className="content_left_carousel">
                         <Carousel autoplay>
-                            {
-                                this.imgShow(homeworkList.photos)
-                            }
+                            {this.imgShow(homeworkList.photos)}
                           </Carousel>  
                         <div>
                         <span>No.{homeworkList.id}</span>
@@ -34,7 +32,7 @@ export default class MyUnfinished extends Component {
                              提交时间:{homeworkList.time}
                          </span>
                          <div className='authorContent'>
-                        佳作:<Switch defaultChecked onChange={this.onChange} />
+                         佳作:<Switch defaultChecked onChange={this.onChange} />
                          </div>
                          </div>
                          <div classNmae='submit'>
@@ -61,10 +59,7 @@ export default class MyUnfinished extends Component {
                     state.Entities.comments[item]
                 )
             })
-            
-            console.log(newComments)
           return  newComments.map(item =>{
-                console.log(item.nick)
                 if (item.from=='author') {
                     return (
                         <div >
@@ -80,7 +75,9 @@ export default class MyUnfinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
+                            <Button>退回</Button>
                             <p className='back'>(消息被退回,退回原因:{item.reason})</p>
+                            
                         </div>
                     )
                 } else if (item.status == 'unrevised') {
@@ -89,6 +86,7 @@ export default class MyUnfinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
+                            <Button>退回</Button>
                         </div>
                     )
                 }

@@ -18,11 +18,8 @@ export default class Tables1 extends Component {
       inputVal: event
     })
   }
-
   handleClick = () => {
     const { todoActions } = this.props;
-    // router.goBack()
-    // console.log(router)
     todoActions.FETCH_SEARCH_LIST(this.state.inputVal);
   }
   handleReturn = () => {
@@ -55,9 +52,9 @@ export default class Tables1 extends Component {
       dataIndex: 'teachers',
       key: 'teachers',
     }]
-    const { state } = this.props;
+    const { state ,entities} = this.props;
     console.log(this.props)
-    const list2 = this.props.state.xydaReducer.dataSource2;
+    const list2 = state.xydaReducer;
     let newList2;
     console.log(list2)
     if(list2.result){

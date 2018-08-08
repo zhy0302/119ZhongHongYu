@@ -9,6 +9,13 @@ function classes(state = {}, action) {
                 ...entities.classes
             };
         }
+        case `${ActionType.FETCH_MSG}_SUC`: {
+            const entities = action.response.entities;
+            return {
+                ...state,
+                ...entities.classes
+            };
+        }
         case `${ActionType.FETCH_HOMEWORK}_SUC`: {
             const entities = action.response.entities
             return {
@@ -29,6 +36,13 @@ function teacher(state = {}, action) {
                 ...entities.teacher
             };
         }
+        case `${ActionType.FETCH_MSG}_SUC`: {
+            const entities = action.response.entities;
+            return {
+                ...state,
+                ...entities.teacher
+            };
+        }
         case `${ActionType.FETCH_HOMEWORK}_SUC`: {
             const entities = action.response.entities
             return {
@@ -40,11 +54,12 @@ function teacher(state = {}, action) {
             return state;
     }
 }
+//满意度
 function satisfied(state = {}, action) {
     switch (action.type) {
         case `${ActionType.FETCH_SATIFY}_SUC`: {
             const entities = action.response.entities
-            const result=action.response.result
+            //const result=action.response.result
             return {
                 ...state,
                 ...entities.satisfiled

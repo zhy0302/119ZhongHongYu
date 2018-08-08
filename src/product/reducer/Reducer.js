@@ -5,14 +5,12 @@ import  xydaReducer from './xydaReducer';
 import ClassReducer from './ClassReducer';
 import SatifyReducer from './SatifyReducer';
 import Entities from './Entities';
-import Lesson from './Lesson';
 import HomeworkReducer from './HomeworkReducer';
 import MyFinishedReducer from './MyFinishedReducer';
 import AllFinishedReducer from './AllFinishedReducer';
 import AllUnfinishedReducer from './AllUnfinishedReducer'
 export default combineReducers({
     Entities,
-    //Lesson,
     TableReducer,
     HeaderReducer,
     xydaReducer,

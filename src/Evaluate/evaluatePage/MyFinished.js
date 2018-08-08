@@ -46,7 +46,7 @@ export default class MyFinished extends Component {
                 //console.log(homeworkList.comments)
                 return (
                     <div >
-                        <div className="content_left">
+                        <div className="content_left_carousel">
                             <Carousel autoplay>
                                 {
                                     this.imgShow(homeworkList.photos)
@@ -76,9 +76,6 @@ export default class MyFinished extends Component {
                                 <Button className=''>提交</Button>
                             </div>
                         </div>
-                        {/* <div className="content_right">
-                            {this.ShowComment()}
-                        </div> */}
                     </div>
                 )
             })
@@ -96,11 +93,8 @@ export default class MyFinished extends Component {
                     state.Entities.comments[item]
                 )
             })
-            
-            console.log(newComments)
           return  newComments.map(item =>{
-                console.log(item.nick)
-                if (item.from=='author') {
+                if (item.from=='author'){
                     return (
                         <div >
                             <span>{item.nick}mid:{item.mid}</span>
@@ -115,8 +109,9 @@ export default class MyFinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
-                            <p className='back'>(消息被退回,退回原因:{item.reason})</p>
-                        </div>
+                            <Button>退回</Button>
+                            <p className='back'>(消息被退回,退回原因:{item.reason})</p> 
+                        </div>               
                     )
                 } else if (item.status == 'unrevised') {
                     return (
@@ -127,7 +122,9 @@ export default class MyFinished extends Component {
                         </div>
                     )
                 }
+               
             })
+            
         })
     }
     imgShow = (item) => {
@@ -140,11 +137,11 @@ export default class MyFinished extends Component {
 
     render() {
         return (
-            <div>
-            <div className="content_left1">
+            <div className="content">
+            <div className="content_left">
                 {this.showDiv() }
             </div>
-             <div className="content_right1">
+             <div className="content_right">
             {this.ShowComment()}
             </div>
         </div>

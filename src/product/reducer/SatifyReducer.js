@@ -1,10 +1,7 @@
 import * as ActionType from "../ActionType";
 import Entities from "./Entities";
 const init_state3 = {
-  dataSource: {
-    entities:{},
-    result:[]
-  }
+
 };
   export default function SatifyReducer(state = init_state3, action) {
 
@@ -17,7 +14,7 @@ const init_state3 = {
         // const SatifytData ={...state};   
         // SatifytData.dataSource=action.response;
         // return SatifytData;
-         return action.response.result
+         return action.response;
 
         case ActionType.CHANGE:
           const newChange={...state};

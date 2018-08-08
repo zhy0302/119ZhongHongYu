@@ -94,12 +94,12 @@ handleReturn= () => {
       }
     ]
     const {state} = this.props;
-    const list = state.ClassReducer.dataSource3;
+    const list = state.ClassReducer;
     let newList;
     console.log(list)
-    if(list.list.result){
-        newList = list.list.result.map(t =>{
-            return list.list.entities.basicInfo[t];
+    if(list.result){
+        newList = list.result.map(t =>{
+            return list.entities.basicInfo[t];
         })
     }
       return ( 

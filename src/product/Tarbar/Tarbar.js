@@ -166,18 +166,19 @@ export default class ButtonBox extends Component {
   }]
         const TabPane = Tabs.TabPane;
         const { state } = this.props;
-        // const list = state.SatifyReducer.dataSource;
-        // let newList;
-        // if(list.result){
-        //     newList = list.result.map(t => {
-        //         const satisfiled1 = list.entities.satisfiled[t]; 
-        //         return {
-        //             ...satisfiled1,
-        //             class_info: list.entities.classes[satisfiled1.class_info],
-        //             teacher_info: list.entities.teachers[satisfiled1.teacher_info]
-        //           }
-        //     })
-        // }
+        const list = state.SatifyReducer;
+        let newList;
+        console.log( list.entities)
+        if(list.result){
+            newList = list.result.map(t => {
+                const satisfiled1 = list.entities.satisfiled[t]; 
+                return {
+                    ...satisfiled1,
+                    class_info: list.entities.classes[satisfiled1.class_info],
+                    teacher_info: list.entities.teacher[satisfiled1.teacher_info]
+                  }
+            })
+        }
         
         // const currentlist = state.TableReducer.dataSource1;
         // const historylist = state.TableReducer.dataSource2;
@@ -219,9 +220,8 @@ export default class ButtonBox extends Component {
                 </TabPane>
                 <TabPane tab="满意度反馈" key="1" >
                 <Link  to="/ClassDetal"><ButtonBox_Q/></Link>
-                    <div className="satify"> 
-       
-                        {/* <Table  dataSource={newList} columns={columns1} /> */}
+                    <div className="satify">    
+                        <Table  dataSource={newList} columns={columns1} />
                     </div>
                 </TabPane>
             </Tabs>
