@@ -1,4 +1,15 @@
 .slider{
+    display: flex;
+}
+.input{
+    width:80%;
+    margin-left: 20px; 
+}
+
+
+
+
+/* .slider{
     -webkit-box-align: center;
     align-items: center;
 }
@@ -22,11 +33,11 @@
     margin-left: -14px;
     margin-top: -14px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #97a1f5;
     box-shadow: 0 0 4px rgba(0,0,0,0.2)
 }
 .slider_value{
     margin-left: 20px;
     text-align: center;
     font-size: 14px;
-}
+} */

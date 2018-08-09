@@ -57,12 +57,13 @@
     transform: scaleY(0.5)
   }
   .btn1 {
-    padding:10px 10px;
+    padding:30px 30px;
+    width:100%;
     background-color: #fff;
     position: flex;
-    flex-direction:row;
   }
-  /* .main {
+  .main {
+  /* padding:20px 15px; */
   float:left;
   text-align: center;
   }
@@ -70,4 +71,4 @@
     float:right;
     color: chartreuse;
     text-align: center;
-  } */
+  }

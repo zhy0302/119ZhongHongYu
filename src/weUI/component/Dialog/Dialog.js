@@ -5,8 +5,10 @@ export default class ActionSheet extends React.Component {
         isActive: false,
         title: '',
         content: '',
+        okText: '确定',
+        cancleText: '取消',
         onCancel: () => { },
-        onOK:()=>{},
+        onOK: () => { },
     };
     getMaskDialogName = () => {
         if (!this.props.isActive) {
@@ -21,28 +23,29 @@ export default class ActionSheet extends React.Component {
         return 'menu1 showMenu';
     }
     render() {
-        const { title, content } = this.props;
+        const { title, content, okText, cancleText, isActive } = this.props;
+        if (!isActive) { return null }
         return (
-                <div className="dialogCtn">
-                    <div className={this.getMaskDialogName()} onClick={this.props.onCancel} />
-                    <div className={this.getMenuDialogName()}>
-                        {
-                            !title.length
-                                ? null
-                                : <div className="title_dialog divider">{title}</div>
-                        }
-                        {
-                            !content.length
-                                ? null
-                                : <div className="content_dialog divider">{content}</div>
-                        }
-                        <div className="btn1">
-                            <div className="btn1 main" onClick={this.props.onOK}>主操作</div>
-                            <div className="btn1 help" onClick={this.props.onCancel}>辅操作</div>
-                        </div>
+            <div className="dialogCtn">
+                <div className={this.getMaskDialogName()} onClick={this.props.onCancel} />
+                <div className={this.getMenuDialogName()}>
+                    {
+                        !title.length
+                            ? null
+                            : <div className="title_dialog divider">{title}</div>
+                    }
+                    {
+                        !content.length
+                            ? null
+                            : <div className="content_dialog divider">{content}</div>
+                    }
+                    <div className="btn1">
+                        <div className="main" onClick={this.props.onOK}>{okText}</div>
+                        <div className=" help" onClick={this.props.onCancel}>{cancleText}</div>
                     </div>
-
                 </div>
+
+            </div>
         )
     }
 }

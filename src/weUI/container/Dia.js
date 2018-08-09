@@ -28,6 +28,7 @@ export default class Act extends React.Component {
     }
     handleOKDialog=()=>{
         this.setState({
+            isDialogActive: true,
         })
     }
 render(){
