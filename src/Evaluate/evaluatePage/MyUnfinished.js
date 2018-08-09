@@ -4,7 +4,7 @@ import './Evapage.css';
 const icon = require('../../icon/smile.png');
 //import { Col,Row } from 'antd/lib/grid';
 export default class MyUnfinished extends Component {
-    showDiv = () =>{
+    showDiv = () => {
         const { state } = this.props;
         const list = state.HomeworkReducer;
         let newList;
@@ -15,33 +15,33 @@ export default class MyUnfinished extends Component {
                 return (
                     <div >
                         <div className="content_left_carousel">
-                        <Carousel autoplay>
-                            {this.imgShow(homeworkList.photos)}
-                          </Carousel>  
-                        <div>
-                        <span>No.{homeworkList.id}</span>
-                        <span>作业：{homeworkList.description}</span>
-                         <span>
-                             {state.Entities.classes[homeworkList.classInfo].name} 
-                         </span>
-                         <span>
-                             {state.Entities.teacher[homeworkList.teacherInfo].nick}
-                         </span><br/>
-                        <span>点评人：{homeworkList.commentator}</span>
-                        <span>
-                             提交时间:{homeworkList.time}
-                         </span>
-                         <div className='authorContent'>
-                         佳作:<Switch defaultChecked onChange={this.onChange} />
-                         </div>
-                         </div>
-                         <div classNmae='submit'>
-                               <div className='submitInput'>
-                              <Input placeholder="Basic usage" />
-                              </div>
-                             <Button  className=''>提交</Button>
-                        </div> 
-                         </div>
+                            <Carousel autoplay>
+                                {this.imgShow(homeworkList.photos)}
+                            </Carousel>
+                            <div>
+                                <span>No.{homeworkList.id}</span>
+                                <span>作业：{homeworkList.description}</span>
+                                <span>
+                                    {state.Entities.classes[homeworkList.classInfo].name}
+                                </span>
+                                <span>
+                                    {state.Entities.teacher[homeworkList.teacherInfo].nick}
+                                </span><br />
+                                <span>点评人：{homeworkList.commentator}</span>
+                                <span>
+                                    提交时间:{homeworkList.time}
+                                </span>
+                                <div className='authorContent'>
+                                    佳作:<Switch defaultChecked onChange={this.onChange} />
+                                </div>
+                            </div>
+                            <div classNmae='submit'>
+                                <div className='submitInput'>
+                                    <Input placeholder="Basic usage" />
+                                </div>
+                                <Button className=''>提交</Button>
+                            </div>
+                        </div>
                     </div>
                 )
             })
@@ -59,8 +59,8 @@ export default class MyUnfinished extends Component {
                     state.Entities.comments[item]
                 )
             })
-          return  newComments.map(item =>{
-                if (item.from=='author') {
+            return newComments.map(item => {
+                if (item.from == 'author') {
                     return (
                         <div >
                             <span>{item.nick}mid:{item.mid}</span>
@@ -77,7 +77,6 @@ export default class MyUnfinished extends Component {
                             <p>{item.content}</p>
                             <Button>退回</Button>
                             <p className='back'>(消息被退回,退回原因:{item.reason})</p>
-                            
                         </div>
                     )
                 } else if (item.status == 'unrevised') {
@@ -86,32 +85,35 @@ export default class MyUnfinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
-                            <Button>退回</Button>
+                            <Button className='button_back' onClick={this.commentBack.bind(this, idx)}>退回</Button>
                         </div>
                     )
                 }
             })
         })
     }
-
-    imgShow = (item) =>{
-        return item.map(idx =>{
+    commentBack = (idx) => {
+        const { item, todoActions } = this.props;
+        todoActions.returnComment(idx.id, item.id);
+    }
+    imgShow = (item) => {
+        return item.map(idx => {
             return (
                 <img src={idx} />
             )
         })
     }
 
-    render() {     
+    render() {
         return (
             <div>
-            <div className="content_left">
-                {this.showDiv() }
+                <div className="content_left">
+                    {this.showDiv()}
+                </div>
+                <div className="content_right">
+                    {this.ShowComment()}
+                </div>
             </div>
-             <div className="content_right">
-            {this.ShowComment()}
-            </div>
-        </div>
         )
     }
 }
