@@ -4,6 +4,7 @@ export default class Sli extends React.Component {
     state = {
         isActive : true,
         Number : 7,
+        value:30,
         onChange : () =>{
             console.log("slider change")
         }
@@ -16,6 +17,7 @@ export default class Sli extends React.Component {
                 isActive = {this.state.isActive}
                 Number = {this.state.Number}
                 onChange = {this.state.onChange}
+                value = {this.state.value}
                 />
             </div>
         )

@@ -1,5 +1,5 @@
 import React from 'react';
-import Switch from '../component/Switch/Switch';
+import Switchs from '../component/Switchs/Switchs';
 export default class Swi extends React.Component {
     state = {
 
@@ -8,7 +8,7 @@ export default class Swi extends React.Component {
         return(
             <div>
                  <div >开关</div>
-                <Switch
+                <Switchs
                 />
            </div>
         )

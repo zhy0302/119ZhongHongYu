@@ -5,7 +5,7 @@ export default class Slider extends React.Component {
         defaultValue : 0, 
         Number, 
         isActive: false,
-      };
+        };
       handleChange = () =>{
         const { onChange } = this.props;
         onChange();

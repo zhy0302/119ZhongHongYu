@@ -134,7 +134,6 @@ export default class MyFinished extends Component {
             )
         })
     }
-
     render() {
         return (
             <div className="content">
