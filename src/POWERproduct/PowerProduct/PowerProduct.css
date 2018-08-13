@@ -1,0 +1,121 @@
+.all{
+    background-color: rgb(247, 241, 241);
+    float:right;
+    width:100%;
+}
+.content_top{
+    width:100%;
+    margin: 5px;
+}
+.project{
+    width:100%;
+    height:25px;
+    background-color: rgb(254, 254, 255);
+    border: 1px solid #364d79;
+}
+.teacher{
+    width:100%;
+    height:25px;
+    margin-top: 5px;
+    background-color: rgb(254, 254, 255);
+    border: 1px solid #364d79;
+}
+.nav{
+    border: 1px solid #364d79;
+}
+.content{
+    width:100%;
+    height:400px;
+    background-color:  rgb(254, 254, 255);
+    margin: 5px;
+}
+.content_left{
+    width:67%;
+    background-color:  rgb(254, 254, 255);
+    float:left;
+}
+.search{
+    width:80%;
+    float:left;
+}
+.content_right{
+    width:45%;
+    float:right;
+    margin-left: 10%;
+    padding-left: 20px;
+}
+.content_list{
+    background-color: rgb(254, 254, 255);
+      width: 30%;
+      height:50%;
+      float:right; 
+      margin-right:23%; 
+      margin-top:-18%;
+  }
+  .list{
+    width:15%;
+    margin-right: -280px;
+    margin-top: -130px;
+    background-color: rgb(254, 254, 255);   
+    float:right;
+ 
+  }
+  .btn1{
+      width:140px;
+      height:25px;
+  }
+  .btn1{
+    width:140px;
+    height:25px;
+}
+.content_left_list{
+    width:15%;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgb(254, 254, 255);   
+    float:left;
+  
+}
+  .ok{
+      float: right;
+
+  }
+/* .content_left{
+    background-color: rgb(254, 254, 255);
+    width: 35%;
+    float:left;  
+    margin-left: 15px; 
+    border: 1px solid #364d79;
+}
+.list{
+    background-color: rgb(254, 254, 255);
+    width: 47%; 
+}
+.search_list{
+    float: right;
+   
+  }
+
+  .content_right{
+    background-color: rgb(254, 254, 255);
+      width: 30%;
+      height:50%;
+      float:left;  
+  }
+  .content_list{
+    background-color: rgb(254, 254, 255);
+    width: 32%;
+    float: right;
+    margin-top: 0%;
+  }
+  .select{
+    background-color: rgb(254, 254, 255);
+    margin-left: 15px; 
+    border: 1px solid #364d79;
+  }
+  .btn{
+      display: flex;
+    width:8%;
+    margin-left: 8px; 
+    float: left;
+  } */

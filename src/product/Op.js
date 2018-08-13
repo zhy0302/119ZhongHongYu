@@ -5,10 +5,11 @@ import ButtonBox from './ButtonBox/ButtonBox';
 // import Table1 from './Table1/Table1';
 // import Table from './Table/Table';
 // import ClassTable from './ClassTable/ClassTable';
+//import PowerProduct from '../POWERproduct/PowerProduct'
 import 'antd/dist/antd.css';
-//import Header from './Header/Header';
-//import Tarbar from './Tarbar/Tarbar';
-import UI from '../weUI/UI'
+import Header from './Header/Header';
+import Tarbar from './Tarbar/Tarbar';
+//import UI from '../weUI/UI'
 import { bindActionCreators } from 'redux';
 import * as todoCreatoraction from './Action';
 class Op extends React.Component {
@@ -29,9 +30,10 @@ class Op extends React.Component {
     const { todoActions } = this.props;
     return (
       <div className="App">
-        {/* <Header state={this.props} todoActions={todoActions} />
-        <Tarbar state={this.props} todoActions={todoActions} /> */}
-        <UI state={this.props} todoActions={todoActions} />
+        <Header state={this.props} todoActions={todoActions} />
+        <Tarbar state={this.props} todoActions={todoActions} />
+        {/* <PowerProduct state={this.props} todoActions={todoActions} /> */}
+        {/* <UI state={this.props} todoActions={todoActions} /> */}
         {/* <ButtonBox state={this.props} todoActions={todoActions} /> */}
         {/* <Table  state={this.props} todoActions={todoActions} />
         <Table1  state={this.props} todoActions={todoActions}/>   */}

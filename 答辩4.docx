@@ -9,6 +9,10 @@
 中处理，最后通过对主键result进行map遍历渲染页面。
 
 
+去Action中normalizer函数判断API接口是否有该函数，返回response
+normailzerFun: response => {
+        return normalize(response, schema.HOMEWORKLIST)
+      }
 
 3.组件的自治和复用，可以重复使用和多个地方用，不用考虑组件的样式和如何渲染，只需传入显示所需要的数据
 和必要的处理函数
@@ -17,3 +21,17 @@
 
 5.transform
 transform属性应用2D或3D转换，允许旋转，缩放，移动和倾斜
+
+[
+    {
+        id:'',
+        teacherInfo:{
+            id: ''
+        },
+        classes:[{
+            id: ''
+        }, {
+            id:''
+        }]
+    }
+]

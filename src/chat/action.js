@@ -9,7 +9,7 @@ import {
     DELETE_MORE_INDEX,
     HANDLE_CLOSE,
     DELETE_MORE
-    } from "../const/actionType";
+    } from "./actionType";
     
     function callState1(text) {
         return {

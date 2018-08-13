@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as ActionType from "../ActionType";
+import * as ActionType from "../../product/ActionType";
 import { Icon, Popconfirm, message, Button, Popover } from 'antd';
 
 //我的未点评

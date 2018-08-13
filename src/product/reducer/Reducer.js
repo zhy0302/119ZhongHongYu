@@ -5,10 +5,11 @@ import  xydaReducer from './xydaReducer';
 import ClassReducer from './ClassReducer';
 import SatifyReducer from './SatifyReducer';
 import Entities from './Entities';
-import HomeworkReducer from './HomeworkReducer';
-import MyFinishedReducer from './MyFinishedReducer';
-import AllFinishedReducer from './AllFinishedReducer';
-import AllUnfinishedReducer from './AllUnfinishedReducer'
+import HomeworkReducer from '../../Evaluate/reducer/HomeworkReducer';
+import MyFinishedReducer from '../../Evaluate/reducer/MyFinishedReducer';
+import AllFinishedReducer from '../../Evaluate/reducer/AllFinishedReducer';
+import AllUnfinishedReducer from '../../Evaluate/reducer/AllUnfinishedReducer'
+//import PowerReducer from '../../POWERproduct/PowerReducer'
 export default combineReducers({
     Entities,
     TableReducer,
@@ -20,6 +21,7 @@ export default combineReducers({
     MyFinishedReducer,
     AllFinishedReducer,
     AllUnfinishedReducer,
+   // PowerReducer
 
 });
 

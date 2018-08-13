@@ -109,7 +109,7 @@ export default class MyFinished extends Component {
                             <span>(点评老师:{item.nick})</span>
                             <span className='Time'>{item.time}</span>
                             <p>{item.content}</p>
-                            <Button>退回</Button>
+                            <Button className='button_back' onClick={this.commentBack.bind(this,idx)}>退回</Button>
                             <p className='back'>(消息被退回,退回原因:{item.reason})</p> 
                         </div>               
                     )
@@ -127,6 +127,11 @@ export default class MyFinished extends Component {
             
         })
     }
+    commentBack = (idx) =>{
+        const { item,todoActions } = this.props;
+        todoActions.returnComment(idx.id,item.id);
+    }
+
     imgShow = (item) => {
         return item.map(idx => {
             return (

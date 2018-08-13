@@ -207,7 +207,15 @@ export default class ButtonBox extends Component {
         return (
             <Tabs defaultActiveKey="0">
                 <TabPane tab="课程信息" key="0">
-                <Link  to="/Evaluate"><ButtonBox_Q/></Link>
+                {/* <Link  to="/Evaluate"><ButtonBox_Q/></Link> */}
+             <div className="left-buttons">
+             <Link  to="/Power"><button>汇总</button></Link>
+                   <Button type="primary">摄影课</Button>
+                    <button onClick>绘画课</button>
+             </div>
+              <div  className="right-buttons">
+                    <Link  to="/Evaluate"><button >返回</button></Link>
+              </div>
                         <div className="first">在学课程 
                         <Table    columns={columns} /> 
                     {/* <Table onRow={(record)=>this.SelectRowClass(record)}  columns={columns} /> */}

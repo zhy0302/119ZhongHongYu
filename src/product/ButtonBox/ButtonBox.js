@@ -16,7 +16,7 @@ export default class ButtonBox extends Component {
         <button onClick>绘画课</button>
         </div>
         <div  className="right-buttons">
-        <button >返回</button>
+        <Link  to="/ClassDetal"><button >返回</button></Link>
         </div>
       </div>
     );

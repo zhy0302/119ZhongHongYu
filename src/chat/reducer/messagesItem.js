@@ -5,10 +5,10 @@ import {
     HANDER_ADD,
     DELETE_MORE_INDEX,
     MORE_DELETE
-    } from "../const/actionType";
-    import icon3 from '../icon/smile.png';
-    import icon1 from '../icon/photo.png';
-    import icon2 from '../icon/collect.png';
+    } from "../../components/actionType";
+    import icon3 from '../../icon/smile.png';
+    import icon1 from '../../icon/photo.png';
+    import icon2 from '../../icon/collect.png';
 
     const init_state = {
         messages: [

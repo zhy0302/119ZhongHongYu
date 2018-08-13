@@ -1,20 +1,32 @@
 // import Tab from './containers/Tab';
 import React from 'react';
 import { connect } from 'react-redux';
-import Middle from '../components/newTab/Middle';
-import Top from '../components/newTab/Top';
-import Footer from '../components/newTab/Footer';
-import Dialog from '../components/newTab/Dialog';
-import DialogText from '../components/newTab/DialogText';
+import Middle from './newTab/Middle';
+import Top from './newTab/Top';
+import Footer from './newTab/Footer';
+import Dialog from './newTab/Dialog';
+import DialogText from './newTab/DialogText';
 import {bindActionCreators} from 'redux'
-import * as todoCreatoraction from '../action'
+import * as todoCreatoraction from './action'
+class Tab extends React.Component {
+ render() {
+        const {todoActions} = this.props;
+        return (
+            <div>
+                <Top state={this.props} todoActions={todoActions}/>
+                <Middle state={this.props}  todoActions={todoActions}/>
+                <Footer />
+                <Dialog state={this.props}  todoActions={todoActions}/>
+                <DialogText state={this.props} todoActions={todoActions}/>
+            </div>
+        )
+    }
+}
+
 
 //import '../components/newTab/Tab.css'
 //import { combineReducers } from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
-//import{connect}from'react-redux';
-
-class Tab extends React.Component {
-       
+//import{connect}from'react-redux';     
     // callState = (item) =>{
     //     this.setState({
     //         isDialog:item.dialog,
@@ -72,17 +84,4 @@ class Tab extends React.Component {
                 })
             }
     }*/
-    render() {
-        const {todoActions} = this.props;
-        return (
-            <div>
-                <Top state={this.props} todoActions={todoActions}/>
-                <Middle state={this.props}  todoActions={todoActions}/>
-                <Footer />
-                <Dialog state={this.props}  todoActions={todoActions}/>
-                <DialogText state={this.props} todoActions={todoActions}/>
-            </div>
-        )
-    }
-}
-
+   

@@ -9,7 +9,7 @@ import {
     DELETE_MORE_INDEX,
     DELETE_MORE,
     HANDLE_CLOSE
-    } from "../const/actionType";
+    } from "../../components/actionType";
     const init_state = {
           isDialog:false,
           index:null,
