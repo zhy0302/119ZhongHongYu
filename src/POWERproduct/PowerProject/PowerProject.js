@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Button,Tree,Input   } from 'antd'
 import './PowerProject.css'
-
-
 export default class PowerProject extends Component {
 
     constructor(){

@@ -9,7 +9,7 @@ import HomeworkReducer from '../../Evaluate/reducer/HomeworkReducer';
 import MyFinishedReducer from '../../Evaluate/reducer/MyFinishedReducer';
 import AllFinishedReducer from '../../Evaluate/reducer/AllFinishedReducer';
 import AllUnfinishedReducer from '../../Evaluate/reducer/AllUnfinishedReducer'
-//import PowerReducer from '../../POWERproduct/PowerReducer'
+import PowerReducer from '../../POWERproduct/PowerReducer'
 export default combineReducers({
     Entities,
     TableReducer,
@@ -21,7 +21,7 @@ export default combineReducers({
     MyFinishedReducer,
     AllFinishedReducer,
     AllUnfinishedReducer,
-   // PowerReducer
+    PowerReducer
 
 });
 

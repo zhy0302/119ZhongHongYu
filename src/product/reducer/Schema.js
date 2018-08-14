@@ -39,23 +39,6 @@ const homeworkList = new schema.Entity('homeworkList',{
   idAttribute:'id'
 })
 
-// const teacher = schema.Entity("tehcher", {}, {
-
-// })
-
-// const classInfo = schema.Entity("classInfo", {}, {
-
-// })
-
-// const id=new schema.Entity('data',{
-//   teacherInfo:teacher,
-//   classes:[classInfo],
-// },{
-//   idAttribute:'id'
-// })
-
-// export const TEACHERINFO=[teacherInfo]
-
 export const SATISFILEDLIST = [ satisfiled ];
 export const STUDENTLIST =[studentList ];
 export const CLASSINFO =[classInfo];

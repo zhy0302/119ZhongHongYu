@@ -172,5 +172,23 @@ export function change(index) {
     index
   }
 }
+export function fetchonSelect(item){
+  return{
+    type:ActionType.FETCH_ONSELECT,
+    item
+  }
+}
+export function fetchArray(array){
+  return{
+    type:ActionType.FETCH_ARRAY,
+    array
+  }
+}
+export function fetchDelete(deleteArr){
+  return{
+    type:ActionType.FETCH_DELETE,
+    deleteArr
+  }
+}
 
 
