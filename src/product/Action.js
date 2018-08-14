@@ -190,5 +190,10 @@ export function fetchDelete(deleteArr){
     deleteArr
   }
 }
-
+export function fetchsearch(deleteArr){
+  return{
+    type:ActionType.FETCH_SEARCH,
+    deleteArr
+  }
+}
 

@@ -13,7 +13,7 @@ export default class PowerProduct extends Component {
   }
   onSelect = (selectedKeys, info) => {
     const { state, todoActions } = this.props;
-    const temp = state.Entities.aa[selectedKeys].user;
+    const temp = state.Entities.department[selectedKeys].user;
     console.log(temp)//[100101]
     todoActions.fetchonSelect(temp);
   }
@@ -23,27 +23,27 @@ export default class PowerProduct extends Component {
     let deleteArr = this.state.deleteArr;
     todoActions.fetchDelete(this.state.deleteArr);
     this.setState({
-        deleteArr:deleteArr.splice(),
+        deleteArr:[],
     })
 }
-
   showLeft = () => {
     const { state } = this.props;
     return (
       <div className="content_left">
         <div className="search">
           <Button className="btn">添加</Button>
-          <Button onClick={this.deleteArr}>删除</Button>
-          <Search
+          <Button onClick={this.delete}>删除</Button>
+          <Search 
             placeholder="input search text"
-            onSearch={value => console.log(value)}
+            onSearch={value => {console.log(value)}}
             style={{ width: 200 }}
+            onClick={this.handleClick}
           />
           <div>
             {
               state.PowerReducer.array.map(idx => {
                 return (
-                  <Button >
+                  <Button onClick={this.selected1.bind(this, idx)}>
                     {state.Entities.user[idx].name}
                     mid:{state.Entities.user[idx].mid}
                   </Button>
@@ -54,6 +54,17 @@ export default class PowerProduct extends Component {
         </div>
       </div>
     );
+  }
+  handleClick = () => {
+    const { todoActions } = this.props;
+    todoActions.fetchsearch(this.state.inputVal);
+  }
+  selected1=(idx) => {
+    let arr = this.state.deleteArr.slice();
+    arr.push(idx);
+    this.setState({
+      deleteArr: arr,
+    })
   }
   selected = (idx) => {
     let arr = this.state.array.slice();
@@ -80,7 +91,6 @@ export default class PowerProduct extends Component {
                   mid:{state.Entities.user[idx].mid}
                 </Button>
               )
-
             })
           }
         </div>
@@ -90,7 +100,7 @@ export default class PowerProduct extends Component {
   showList = () => {
     const { state } = this.props;
     const powerId = state.PowerReducer.result;
-    const aa = state.Entities.aa;
+    const department = state.Entities.department;
     return (
       <div className="content_list">
         <Tree
@@ -98,19 +108,19 @@ export default class PowerProduct extends Component {
           defaultExpandedKeys={['0-0-0']}
           onSelect={this.onSelect}>
           {
-            this.showListTree(aa, powerId)
+            this.showListTree(department, powerId)
           }
         </Tree>
       </div>
     )
   }
-  showListTree = (aa, id) => {
-    const title = aa[id];
+  showListTree = (department, id) => {
+    const title = department[id];
     return (
       <TreeNode title={title.name} key={title.id}>
         {
           title.child ? title.child.map(idx => {
-            return this.showListTree(aa, idx)
+            return this.showListTree(department, idx)
           })
             : null
         }
@@ -120,6 +130,9 @@ export default class PowerProduct extends Component {
   submitUserName = () => {
     const { todoActions } = this.props;
     todoActions.fetchArray(this.state.array)
+    this.setState({
+      array:[],
+  })
   }
   render() {
     return (

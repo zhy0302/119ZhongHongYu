@@ -11,4 +11,5 @@
    export const CHANGE='CHANGE';
    export const FETCH_ONSELECT='FETCH_ONSELECT';
    export const FETCH_ARRAY='FETCH_ARRAY';
-   export const FETCH_DELETE='FETCH_DELETE'
+   export const FETCH_DELETE='FETCH_DELETE';
+   export const FETCH_SEARCH='FETCH_SEARCH';

@@ -147,7 +147,7 @@ function comments(state = {}, action) {
             return state;
     }
 }
-function aa(state = {
+function department(state = {
     101:{
         id:101,
         name:'所有部门',
@@ -268,7 +268,7 @@ export default combineReducers({
     homeworkList,
     basicInfo,
     comments,
-    aa,
+    department,
     user
     
 });
