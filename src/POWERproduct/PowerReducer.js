@@ -1,5 +1,9 @@
 import React from 'react';
 import PowerProduct from './PowerProduct/PowerProduct';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as ActionType from '../product/ActionType/'
+import '../../components/comments/comments.css'
 export default class PowerReducer extends React.Component {
     state = {
         name:'',
@@ -21,8 +25,6 @@ export default class PowerReducer extends React.Component {
                         isActive={this.state.isActive} 
                         name={this.state.name}
                         mid={this.state.mid}
-                        
-
                     />
                 </div> 
         )

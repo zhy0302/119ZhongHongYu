@@ -11,8 +11,7 @@ export default class PowerProduct extends Component {
 }
     onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
-  }
-  
+  }  
   showContent=()=>{
     return(
        <div >
@@ -31,7 +30,6 @@ export default class PowerProduct extends Component {
         </div>    
         <div className="content_left_list">
         {this.show()}
-       
           </div>
         </div>
         <div className="content_right"></div>
@@ -44,9 +42,8 @@ export default class PowerProduct extends Component {
     );
   }
   show=()=>{
-    
     if (!this.state.isActive) {
-      console.log(!this.state.isActive)
+    console.log(!this.state.isActive)
     return(
       <div>
        <Button className="btn2" >白帆 mid：123456</Button>
@@ -61,21 +58,21 @@ export default class PowerProduct extends Component {
   showButton=()=>{
     const { state,name } = this.props;
     if (!this.state.isActive) {
-    return(
-      <div className="list">
-         <Button className="btn1" onClick={this.show}>白帆 mid：123456</Button>
-          <Button className="btn1">王鹏 mid：654321</Button>
-          <Button className="btn1">白云 mid：888888</Button>
-          <Button className="btn1">白帆 mid：123456</Button>
-          <Button className="btn1">王鹏 mid：654321</Button>
-          <Button className="btn1">白云 mid：888888</Button>
-          <Button className="btn1">白帆 mid：123456</Button>
-          <Button className="btn1">王鹏 mid：654321</Button> 
-          </div>
-    )
-  }else{
-    return null;
-  }
+      return(
+        <div className="list">
+          <Button className="btn1" onClick={this.show}>白帆 mid：123456</Button>
+            <Button className="btn1">王鹏 mid：654321</Button>
+            <Button className="btn1">白云 mid：888888</Button>
+            <Button className="btn1">白帆 mid：123456</Button>
+            <Button className="btn1">王鹏 mid：654321</Button>
+            <Button className="btn1">白云 mid：888888</Button>
+            <Button className="btn1">白帆 mid：123456</Button>
+            <Button className="btn1">王鹏 mid：654321</Button> 
+            </div>
+      )
+    }else{
+      return null;
+    }
   }  
   showList=()=>{
     if (!this.state.isActive) {
@@ -84,7 +81,6 @@ export default class PowerProduct extends Component {
       <Tree
         showLine
         defaultExpandedKeys={['0-0-0']}
-        
         onSelect={this.onSelect}>
         <TreeNode title="所有部门" key="0-0">
           <TreeNode title="爱奇迪集团" key="0-0-0">

@@ -147,7 +147,6 @@ function comments(state = {}, action) {
             return state;
     }
 }
-
 export default combineReducers({
     classes,
     teacher,
@@ -156,5 +155,5 @@ export default combineReducers({
     studentList,
     homeworkList,
     basicInfo,
-    comments
+    comments,
 });
