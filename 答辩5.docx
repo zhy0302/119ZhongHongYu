@@ -1,0 +1,29 @@
+1.redux工作流程：
+   provider接收store作为props，通过connect连接传送，然后各组件就可以通过connect获取到store，即在任
+   何组件里利用dispatch（action）触发reducer，再通过switch判断对应函数的type和text，然后进行处理，改变
+   state。对页面进行渲染。为了组件化，可以将reducer通过combinReducer方法进行拆分。  
+
+2.middleware：
+   中间件一般放在action和reducer之间，负责筛选action。只要有一个API接口，就可以认为其网络请求，网络接
+   收到请求后，成功的话给出成功后数据，失败的话就给出失败后数据。
+   特点：可插拔、可无限延展、前后可依赖
+
+3..route：每个Route就是一个路由规则，通过router声明了一份含有path to component的各个映射的路由表。
+   path对应路径，component即对应要显示的容器组件，即页面。route根据Url决定渲染哪个页面，可以用<Link to=">
+   或goBack来进行页面的跳转
+   
+4.数据扁平化
+  针对redux单一数据源，将数据统一规划，采用normalizr ，引入schema。通过schemas是对实体进行定义规则，action
+  根据传过来的参数，进行网络请求，请求成功的数据用normalize方法进行转换。转换后的数据都放在entities中进行集中
+  处理，并且主键result以数组形式存储在reducer中，最后通过对主键result进行map遍历渲染页面。
+ 
+
+5.命名规范和代码规范
+  一般像响应处理事件类可以用handle...或on...开头的名字
+  拉取数据可以用fetch...
+  获取数据可以用get...
+  组件命名一般可以字面翻译（建议英文，不用拼音）
+  变量命名，如布尔型的一般可以用is+形容词，数组一般以s结尾。
+  用eslint检查代码规范，刚开始挺崩溃的，一片红让人瘆得慌，但找到原因改完后代码的确规范了很多。统一的代码风格
+  有利于团队来发
+

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Tree, Button } from 'antd';
+import { Input, Tree, Button, AutoComplete } from 'antd';
 import './PowerProduct.css'
 const Search = Input.Search;
 const TreeNode = Tree.TreeNode;
@@ -8,8 +8,9 @@ export default class PowerProduct extends Component {
     name: '',
     mid: '',
     array: [],
-    deleteArr:[],
-    isActive: false,
+    deleteArr: [],
+    inputVal: '',
+
   }
   onSelect = (selectedKeys, info) => {
     const { state, todoActions } = this.props;
@@ -23,9 +24,9 @@ export default class PowerProduct extends Component {
     let deleteArr = this.state.deleteArr;
     todoActions.fetchDelete(this.state.deleteArr);
     this.setState({
-        deleteArr:[],
+      deleteArr: [],
     })
-}
+  }
   showLeft = () => {
     const { state } = this.props;
     return (
@@ -33,11 +34,10 @@ export default class PowerProduct extends Component {
         <div className="search">
           <Button className="btn">添加</Button>
           <Button onClick={this.delete}>删除</Button>
-          <Search 
+          <Search
             placeholder="input search text"
-            onSearch={value => {console.log(value)}}
+            onSearch={value => { console.log(value) }}
             style={{ width: 200 }}
-            onClick={this.handleClick}
           />
           <div>
             {
@@ -55,11 +55,8 @@ export default class PowerProduct extends Component {
       </div>
     );
   }
-  handleClick = () => {
-    const { todoActions } = this.props;
-    todoActions.fetchsearch(this.state.inputVal);
-  }
-  selected1=(idx) => {
+
+  selected1 = (idx) => {
     let arr = this.state.deleteArr.slice();
     arr.push(idx);
     this.setState({
@@ -73,15 +70,35 @@ export default class PowerProduct extends Component {
       array: arr,
     })
   }
+  // handleClick = () => {
+  //   const { todoActions } = this.props;
+  //   todoActions.fetchSearch(this.state.inputVal);
+  // }
+  // handleChange = (e) => {
+  //   console.log(e)
+  //   this.setState({
+  //     inputVal: e
+  //   })
+  // }
   showRight = () => {
     const { state } = this.props;
     return (
       <div className="content_right">
-         <Search
-      placeholder="input search text"
-      onSearch={value => console.log(value)}
-      style={{ width: 200 }}
-    />
+        <Search
+          placeholder="input search text"
+          onSearch={value => {
+            const { state } = this.props;
+            const temp = state.PowerReducer.user;
+            let arry = [];
+            temp.map(idx => {
+              console.log(state.Entities.user[idx].name)
+               ((state.Entities.user[idx].name === value)
+                ? arry.push(idx) : null
+              )
+            })
+          }}
+          style={{ width: 200 }}
+        />
         <div>
           {
             state.PowerReducer.user.map(idx => {
@@ -131,8 +148,8 @@ export default class PowerProduct extends Component {
     const { todoActions } = this.props;
     todoActions.fetchArray(this.state.array)
     this.setState({
-      array:[],
-  })
+      array: [],
+    })
   }
   render() {
     return (

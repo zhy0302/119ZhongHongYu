@@ -32,11 +32,24 @@ export default function PowerReducer(state = init_state3, action) {
         }
     }
     case ActionType.FETCH_SEARCH:{
+        const temp = state.array.slice();
+        const mid = parseFloat(action.mid);   
+           console.log(action.mid)
+        let newArr = []
+        for(let i in temp){
+            if(temp[i].mid === mid){
+                newArr.push(temp[i])
+            }
+        }
+  
         return {
             ...state,
- 
-
+            array:newArr
         }
+        // return {
+        //     ...state,
+        //     array:action.array
+        //}
     }
 
         default:
